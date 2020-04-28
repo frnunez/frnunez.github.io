@@ -18,6 +18,7 @@ The NYC Department of Consumer Affairs serves many roles. One of their chief rol
 <p align="justify">
 The purpose of this project was to explore a large data set and make some predictions as to how many total inspections we should see at the end of the year.
 </p>
+<br>
 <u>Business Questions</u>
 <p align="justify">
 My first initial business questions consisted of descriptive questions that would easily be answered through exploring the data. Among these questions were, what Borough gets inspected the most? Is there a day of the week where inspections occur at a larger volume? Are some months busier than others? I also wanted to explore patterns with regards to the day and time of inspections to see if there was any relation with the inspections and violations. Although the entry system logs the hours of the inspections (I know because it is a required field), it some how did not make its way into the dataset and I was unfortunately unable to explore time of day. I alter discovered what looked like a significant decrease in the number of inspections occurring. I wanted to see if DCA was on track to conduct the same number of inspections as they have done in the previous year.
@@ -253,8 +254,9 @@ inspections_df.head(5)
 
 
 ## Data Preparation
+<p align="justify">
 There was some heavy amount of preparation that needed to be performed before I could perform any analysis. In addition to the volume of records (196,342 rows by 18 columns with 3,534,156 data points), there were numerous steps needed to ensure that the data was workable. With this dataset, the fact that I was familiar with the business aided in the preparation.
-
+</p>
 <u>Elimination of Unneeded Columns</u>
 *	Round one of dropped columns consisted of columns with mostly null values. The dropped columns included street2, description, unit type and unit.
 *	Round two consisted of data that was unused for this project. They were dropped to decrease the amount of data being processed. These were mostly address specifics that were unneeded for this analysis. This included certificate number, building number, street, city, state, zip. These were unneeded because we have latitude and longitude points for exact address location and the borough field which we would use for analysis.
@@ -510,8 +512,9 @@ inspections_df.head(5)
 ## Lists for Reporting
 
 ### Inspections Summaries
+<p align="justify">
 Next I created a function to convert the data into category summarizations. This takes the data from the dataframe and converts it into list. For each column of the dataframe, a category is created. For each of these categories the data was grouped and list of unique entries with a count an percentage was printed out in descending order. 
-
+</p>
 
 ```python
 # Inspections DF
