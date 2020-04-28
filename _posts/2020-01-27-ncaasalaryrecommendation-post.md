@@ -1122,15 +1122,17 @@ Pac-12 Conference, and Southeastern Conference (SEC).
 The term "Power Five" is not defined by the National Collegiate Athletic Association (NCAA),
 and the origin of the term is unknown. It has been used in its current meaning since at least 2006.
 </p>
+
 [Power Five Conferences](https://en.wikipedia.org/wiki/Power_Five_conferences)
 
 
 ## Descriptive Visualizations
+<p align="justify">
 First I decided to create a boxplot of total pay by conference as I suspected there were some major differences. In addition, I added "Power5" as a hue to see if there was a differene between the conferences belonging to the Power5 and the remaining conferences.
 <br>
 <br>
 Our first observation is that the median total pay for the Power5 are higher than the remaining conferences. We see that their median amount is higher than the maximum for all other conferences.
-
+</p>
 
 ```python
 # Create Boxplots By Conference
@@ -1151,12 +1153,12 @@ plt.show()
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_34_0.png)
 
-
+<p align="justify">
 When arranged by median TotalPay, we see the top 5 schools are all members of the Power5, in ascending order Pac-12, ACC, Big12, SEC, Big10. I was expecting the SEC to have higher numbers than all the other conferences based on the strength of this conference. It had the highest maximum, minimum and upper quartile of all the conferences. It's lower quartile was lower than the Big 12's and Big Ten. It's medium is lower than the Big Ten's.
 <br>
 <br>
 One thing to note is that the 6th school on the list (be median) is the AAC (The American), which was known as the Big East prior to the 2010-2014 NCAA Conference Realignment. The Big East was the part of the original sex college power confereces of the Bowl Championshop Series (BCS).
-
+</p>
 
 ```python
 #https://stackoverflow.com/questions/21912634/how-can-i-sort-a-boxplot-in-pandas-by-the-median-values
@@ -1175,9 +1177,9 @@ plt.ylabel('Total Pay (Thousands)')
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_36_1.png)
 
 
-
+<p align="justify">
 When comparing Power5 vs Non-Power5, we see that there is a significant higher TotalPay for the Power5 conferences. The minimum TotalPay is lower than the maximum, however we see that all other measures of statistical distribution for the Power 5 schools are higher than the maximum Total Pay of the non-Power5 schools.
-
+</p>
 
 ```python
 # Create Boxplots By Conference
@@ -1198,9 +1200,9 @@ plt.show()
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_38_0.png)
 
-
+<p align="justify">
 I also created a correlation matrix to see what relationships we could find between the variables. I settled on the variables Capacity, GSR, WinPercentage2019(WinPer2019), and all the Conference variables. We see that Capacity has the highest correlation and has the biggest effect on Total Pay (positive). We also see that GSR, WinPer2019, as well as the 5 elite schools have a positive effect on Pay, with the SEC conference having the biggest effect. Notice that the non-Power5 all have a negative effect on pay.
-
+</p>
 
 ```python
 # Check Correlation Matrix
@@ -1222,9 +1224,9 @@ sns.heatmap(coachescorr.corr(), mask=mask,annot = True, vmin=-1, vmax=1, center=
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_40_1.png)
 
-
+<p align="justify">
 I wanted to ignore the conferences for a second and look at just Capacity, GSR and Win Percentage to see what relationship existed between them and TotalPay. We see that there is definitely a positive relationship between TotalPay and Capacity but it is harder to tell with GSR and Win Percentage.
-
+</p>
 
 ```python
 # Plot Total Pay vs Capacity, GSR, Win Percentage(2019)
@@ -1240,12 +1242,12 @@ g.fig.suptitle('Total Pay vs. Capacity, GSR, 2019 Win Percentage',fontsize = 18)
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_42_1.png)
 
-
+<p align="justify">
 Although I was not looking at specific conferences, I still wanted to see if being a member of the Power5 played a role and plotted the points again with distinction between the two. When we use that distinction to color the points on the graph we see some patterns that weren’t as apparent in the previous plot.
 <br>
 <br>
 In the Capacity graph, I notice that although there is an overall increase, the rate at which they occur is not the same across schools as evident by the slopes of the two lines. We see a similar scenario play out when it comes to WinPercentage. What this tells me, is that win percentage as well as stadium capacity have a larger effect on the Power5 football conference school’s total pay, when compared to the non-Power5 conference schools. For GSR, we see that the slopes are similar. We see that yes, there is an increase in TotalPay, albeit minor. In laymen’s terms what we are seeing is this, Winning percentage and Stadium size play a larger role in a Coach's pay than graduation rates do.
-
+</p>
 
 ```python
 # Plot Total Pay vs Capacity, GSR, Win Percentage(2019)
@@ -1260,12 +1262,12 @@ g.fig.suptitle('Total Pay vs. Capacity, GSR, 2019 Win Percentage',fontsize = 18)
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_44_1.png)
 
-
+<p align="justify">
 I also replicated this graph using facet grids by conference. For the most part the faceted grids behaved similarly to the grouped versions above.
 <br>
 <br>
 For Total Pay vs Capacity, most conferences had a positive relationship between the two, but we see steeper slopes for the Power5 schools. It was difficult to see the relatinship for Mt West, MAC and Pac-12
-
+</p>
 
 ```python
 #print("Total Pay vs. Capacity by Conference")
@@ -1277,12 +1279,12 @@ g.fig.suptitle('Total Pay vs. Capacity (by Conference)',fontsize = 18)
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_46_1.png)
 
-
+<p align="justify">
 For Total Pay vs GSR, we also see positive relationships for most of the schools with there being a significant slope difference in the Power5. It was difficult to see a pattern for the Big Ten.
 <br>
 <br>
 There was one particular pattern here that I thought was interesting. It seems that for the ACC and Big 12, as graduation rates increased the TotalPay actually went down which didnt match my inital expectations. I wondered if the reason for this had to do with the relationship between graduation rates and wins, which was slightly positive in the correlation matrix (0.18)? Maybe there were some schools that lost some of their good players due to academics and it impacted their winning percentage? Potentially, a losing record could lead to a coach replacement and maybe offering a higher salary to recruit a better coach? 
-
+</p>
 
 ```python
 #print("Total Pay vs. GSR by Conference")
@@ -1294,9 +1296,9 @@ g.fig.suptitle('Total Pay vs. GSR (by Conference)',fontsize = 18)
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/salary/IST_718_Lab_1_Final_MD_version_48_1.png)
 
-
+<p align="justify">
 For Total Pay vs WinPercentage, most conferences had a positive relationship between the two, but we see steeper slopes for the Power5 schools. It was difficult to see the relatinship for Pac-12
-
+</p>
 
 ```python
 #print("Total Pay vs. Win Percentage by Conference")
@@ -1310,9 +1312,9 @@ g.fig.suptitle('Total Pay vs. 2019 Win Percentage (by Conference)',fontsize = 18
 
 
 ## Model Creation
-
+<p align="justify">
 I will create a model using the ordinarly least sums (OLS) method for simple lenear regression. First, let me create my test and training sets, 2/3 for training and 1/3 for testing.
-
+</p>
 ```python
 # employ training-and-test regimen for model validation
 np.random.seed(1234)
@@ -1348,8 +1350,9 @@ finalcoaches_test = finalcoaches[finalcoaches['runiform'] < 0.33]
     
 
 ### Model 1: With Conference + Capacity + WinPer2019 + GSR
+<p align="justify">
 The first model I created would test the effect Conference, Stadium Capacity, 2019 WIn Percentage and Graduation Rate (GSR) had on the total pay.
-
+</p>
 ```python
 # specify a simple model with Team Conference
 conference_model = str('TotalPay ~ SEC + CUSA + SunBelt + Pac12 + Ind + ACC + AAC + Big10 + Big12 + MtWest + MAC + Capacity + WinPer2019 + GSR')
@@ -1398,8 +1401,9 @@ conference_model = str('TotalPay ~ SEC + CUSA + SunBelt + Pac12 + Ind + ACC + AA
     
 
 ### Model 2: Model 1 w/ no Conference
+<p align="justify">
 Model 2 would remove the conferences as variables to see if removing this variable had any significant difference.
-
+</p>
 ```python
 # specify a simple model with Team Conference
 elite_model = str('TotalPay ~ Capacity + WinPer2019 + GSR')
@@ -1623,8 +1627,9 @@ statenoconf_model = str('TotalPay ~ Capacity + WinPer2019 + GSR + State')
     strong multicollinearity problems or that the design matrix is singular.
 
 ## Analysis of Models
+<p align="justify">
 After running all 4 models I compared them in order to choose the model that had the best results. Model 3 had the highest r-squared values however it looks like the majority of the variables had high p-values and there was some correlation between the states and the conferences. I decided to go with Model 1 which has a lower r-square and more significant variables. With an R-squared value of .810, the model I selected should be 81% accurate. 
-
+</p>
 ```python
 # specify a simple model with Team Conference
 conference_model = str('TotalPay ~ SEC + CUSA + SunBelt + Pac12 + Ind + ACC + AAC + Big10 + Big12 + MtWest + MAC + Capacity + WinPer2019 + GSR')
@@ -1633,9 +1638,10 @@ conference_model = str('TotalPay ~ SEC + CUSA + SunBelt + Pac12 + Ind + ACC + AA
 train_confmodel_fit = smf.ols(conference_model, data = finalcoaches_train).fit()
 
 ```
+<p align="justify">
 Using the SKlearn library, I trained and tested by data. Once our model was created we made predictins based on this model. 
+</p>
 ```python
-
 #linearRegression from SKlearn
 lin_reg = LinearRegression()
 
@@ -1749,8 +1755,9 @@ finalcoaches[finalcoaches['School'].str.match('Syracuse')]
   </tbody>
 </table>
 </div>
-
+<p align="justify">
 Our first prediction was to look at what the predicted value should be for Syracuse University's football coach.
+</p>
 ```python
 # predict syracuse salary
 syr = finalcoaches[finalcoaches['School'] == 'Syracuse']
@@ -1764,8 +1771,9 @@ syrpred = lin_reg.predict(syr[['Capacity', 'GSR', 'WinPer2019', 'SEC', 'CUSA', '
 # print amount
 print("Syracuse Coach Pay should be ",(locale.currency( syrpred, grouping = True )))
 ```
-
+<p align="justify">
 Using the coefficients of the model, I came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,921.754.10 compared to the actual current pay of $2,401,206. 
+</p>
 
     Syracuse Coach Pay should be  $2,921,754.10
     
