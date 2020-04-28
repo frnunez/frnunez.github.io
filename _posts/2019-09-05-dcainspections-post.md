@@ -14,17 +14,16 @@ mathjax: "true"
 The NYC Department of Consumer Affairs serves many roles. One of their chief roles is that of licensing over 81,000 businesses in about 55 different industries. In addition to licensing the businesses, the DCWP also inspects these businesses to ensure that they are in compliant with the existing NYC laws that govern the industries they license. The DCWP makes their inspection data available to the public via NYC Open Data portlet and can be accessed by clicking the link below:
 </p>
 <br>
-<br>
-
 [Department of Consumer Affairs (DCA) Inspections](https://data.cityofnewyork.us/Business/Inspections/jzhd-m6uv)
 <br>
 <br>
 <p align="justify">
 The purpose of this project was to explore a large data set and make some predictions as to how many total inspections we should see at the end of the year.
+</p>
 <br>
 <br>
 <u>Business Questions</u>
-
+<p align="justify">
 My first initial business questions consisted of descriptive questions that would easily be answered through exploring the data. Among these questions were, what Borough gets inspected the most? Is there a day of the week where inspections occur at a larger volume? Are some months busier than others? I also wanted to explore patterns with regards to the day and time of inspections to see if there was any relation with the inspections and violations. Although the entry system logs the hours of the inspections (I know because it is a required field), it some how did not make its way into the dataset and I was unfortunately unable to explore time of day. I alter discovered what looked like a significant decrease in the number of inspections occurring. I wanted to see if DCA was on track to conduct the same number of inspections as they have done in the previous year.
 </p>
 ## Import Libraries & Data
@@ -51,10 +50,11 @@ import warnings
 warnings.simplefilter('ignore')
 
 ```
-
+<p align="justify">
 Next I imported the data using the Socrata API. This code was supplied by Socrata. I set the limit to 1 million entires as I wanted a large amount of data. At the time of running this code, the dataset consisted of 196,342 rows and 18 columns. The data set is rountinely updated so this will vary depending on when you run the code.
 
 I also took a look at the head end of the dataframe
+</p>
 
 
 ```python
@@ -258,12 +258,14 @@ inspections_df.head(5)
 
 
 ## Data Preparation
+<p align="justify">
 There was some heavy amount of preparation that needed to be performed before I could perform any analysis. In addition to the volume of records (196,342 rows by 18 columns with 3,534,156 data points), there were numerous steps needed to ensure that the data was workable. With this dataset, the fact that I was familiar with the business aided in the preparation.
-
+</p>
 <u>Elimination of Unneeded Columns</u>
+<p align="justify">
 *	Round one of dropped columns consisted of columns with mostly null values. The dropped columns included street2, description, unit type and unit.
 *	Round two consisted of data that was unused for this project. They were dropped to decrease the amount of data being processed. These were mostly address specifics that were unneeded for this analysis. This included certificate number, building number, street, city, state, zip. These were unneeded because we have latitude and longitude points for exact address location and the borough field which we would use for analysis.
-
+</p>
 <u>Dealing with NAs</u>
 *	All rows with NA values were removed from the data set. 2869 rows were dropped which accounted for 1.46% of the entire original dataset
 
