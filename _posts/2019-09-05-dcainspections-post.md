@@ -762,8 +762,9 @@ for fieldname in fieldnames:
     
 
 ### Violations Summaries
+<p align="justify">
 I also created a seperate "violations" dataframe which contained all inspections with a violation entry of "Violation Issued". The same function used for the inspections summaries was applied to the violations set.
-
+</p>
 
 
 ```python
@@ -946,8 +947,9 @@ for fieldname in fieldnames:
     
 
 ### Top 10 Industries and Inspection Results
+<p align="justify">
 Because there was such a large number of industries as well as inspection results, I created a top 10 list of both for the inspections as well as violations sets.
-
+</p>
 
 ```python
 print("*"*80)
@@ -1622,6 +1624,7 @@ map.save(output_file)
 webbrowser.open(output_file, new=2)
 ```
 
+## Code
 You can check out the code used using the following methods:
 
 
