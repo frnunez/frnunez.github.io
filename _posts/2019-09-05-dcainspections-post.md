@@ -25,7 +25,7 @@ The purpose of this project was to explore a large data set and make some predic
 My first initial business questions consisted of descriptive questions that would easily be answered through exploring the data. Among these questions were, what Borough gets inspected the most? Is there a day of the week where inspections occur at a larger volume? Are some months busier than others? I also wanted to explore patterns with regards to the day and time of inspections to see if there was any relation with the inspections and violations. Although the entry system logs the hours of the inspections (I know because it is a required field), it some how did not make its way into the dataset and I was unfortunately unable to explore time of day. I alter discovered what looked like a significant decrease in the number of inspections occurring. I wanted to see if DCA was on track to conduct the same number of inspections as they have done in the previous year.
 </p>
 ## Import Libraries & Data
-Lets import the packages we will be using
+Lets import the packages we will be using:
 
 
 ```python
@@ -48,11 +48,11 @@ import warnings
 warnings.simplefilter('ignore')
 
 ```
-
+<p align="justify">
 Next I imported the data using the Socrata API. This code was supplied by Socrata. I set the limit to 1 million entires as I wanted a large amount of data. At the time of running this code, the dataset consisted of 196,342 rows and 18 columns. The data set is rountinely updated so this will vary depending on when you run the code.
 
 I also took a look at the head end of the dataframe
-
+</p>
 
 ```python
 import warnings
