@@ -1777,8 +1777,9 @@ Using the coefficients of the model, I came up with the new recommended TotalPay
 
     Syracuse Coach Pay should be  $2,921,754.10
     
-
+<p align="justify">
 Next we predicted the coach's pay would if Syracuse was still part of the Big East (using AAC coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,055,444.71 compared to the current $2,401,206. 
+</p>
 ```python
 # Predict Big East (Using AAC) Pay
 print(train_confmodel_fit.params)
@@ -1810,8 +1811,9 @@ print("Syracuse Coach Big East Pay should be ",(locale.currency( ((syrpred-accco
     Syracuse Coach Big East Pay should be  $2,055,444.71
     
 
-
+<p align="justify">
 Lastly, we predicted what the coach's pay would be if Syracuse joined the Big Ten. In order to get this value, the big10 coefficient was added. The predicted total pay under this new Conference is $3,139,188.77
+</p>
 ```python
 # Predict Big10 Pay
 print(train_confmodel_fit.params)
@@ -1842,9 +1844,11 @@ print("Syracuse Coach Big Ten Pay should be ",(locale.currency( ((syrpred -accco
     Syracuse Coach Big Ten Pay should be  $3,139,188.77
     
 ## Results and Conclusions
+<p align="justify">
 The model produced in this experiment was supposed to have a high level of accuracy since it accounts for 83.3% of the variability. We were able to make a recommendation of a Total Pay of $2,921,754.10 for Syracuse University’s football coach based on the model created, which is significantly higher than his current Total Pay. I personally found it interesting to see that the recommended Big East Pay ($2,055,444.71) is also lower than his current Total pay ($2,401,206). This is as expected based on the data on pay however my personal bias expected it to be lower since this isn’t a member of the Power 5 schools and is lacking the stadium capacity of the other schools especially given the fact that stadium capacity has the largest effect on Total Pay (add $41.60 per seat). The recommended Big 10 Total Pay is $3,139,188.77 which is higher than the ACC pay as expected. 
+<br>
 Due to the fact that there were significant differences in some of the conferences, I wonder if there should be a different model for each conference? Given that the conferences are small, there may not be enough data to support these models however we can see by the initial boxplot that there were definitely some differences.
-
+</p>
 
 ## Code
 You can check out the code used using the following methods:
