@@ -10,20 +10,23 @@ mathjax: "true"
 
 # EXPLORING THE NYC DEPARTMENT OF CONSUMER AFFAIRS INSPECTIONS DATA SET
 <br>
+<p align="justify">
 The NYC Department of Consumer Affairs serves many roles. One of their chief roles is that of licensing over 81,000 businesses in about 55 different industries. In addition to licensing the businesses, the DCWP also inspects these businesses to ensure that they are in compliant with the existing NYC laws that govern the industries they license. The DCWP makes their inspection data available to the public via NYC Open Data portlet and can be accessed by clicking the link below:
+</p>
 <br>
 <br>
 
 [Department of Consumer Affairs (DCA) Inspections](https://data.cityofnewyork.us/Business/Inspections/jzhd-m6uv)
 <br>
 <br>
+<p align="justify">
 The purpose of this project was to explore a large data set and make some predictions as to how many total inspections we should see at the end of the year.
 <br>
 <br>
 <u>Business Questions</u>
 
 My first initial business questions consisted of descriptive questions that would easily be answered through exploring the data. Among these questions were, what Borough gets inspected the most? Is there a day of the week where inspections occur at a larger volume? Are some months busier than others? I also wanted to explore patterns with regards to the day and time of inspections to see if there was any relation with the inspections and violations. Although the entry system logs the hours of the inspections (I know because it is a required field), it some how did not make its way into the dataset and I was unfortunately unable to explore time of day. I alter discovered what looked like a significant decrease in the number of inspections occurring. I wanted to see if DCA was on track to conduct the same number of inspections as they have done in the previous year.
-
+</p>
 ## Import Libraries & Data
 Lets import the packages we will be using
 
