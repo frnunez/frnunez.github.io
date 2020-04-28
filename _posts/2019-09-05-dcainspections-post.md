@@ -10,18 +10,14 @@ mathjax: "true"
 
 # EXPLORING THE NYC DEPARTMENT OF CONSUMER AFFAIRS INSPECTIONS DATA SET
 <br>
-<p align="justify">
 The NYC Department of Consumer Affairs serves many roles. One of their chief roles is that of licensing over 81,000 businesses in about 55 different industries. In addition to licensing the businesses, the DCWP also inspects these businesses to ensure that they are in compliant with the existing NYC laws that govern the industries they license. The DCWP makes their inspection data available to the public via NYC Open Data portlet and can be accessed by clicking the link below:
-</p>
 <br>
 <br>
 
 [Department of Consumer Affairs (DCA) Inspections](https://data.cityofnewyork.us/Business/Inspections/jzhd-m6uv)
 <br>
 <br>
-<p align="justify">
 The purpose of this project was to explore a large data set and make some predictions as to how many total inspections we should see at the end of the year.
-</p>
 <br>
 <br>
 <u>Business Questions</u>
