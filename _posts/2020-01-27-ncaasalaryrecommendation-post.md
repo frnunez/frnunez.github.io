@@ -9,11 +9,11 @@ mathjax: "true"
 ---
 
 # NCAA FOOTBALL SALARY RECOMMENDATIONS
-
+<p align="justify">
 The purpose of this case study is to take real world data and provide insight, understanding and wisdom to a decision maker. In this case specifically we are dealing with the salaries of NCAA Division I Football Coaches. We are exploring how we can recommend the best salary for Syracuse University's head football coach?
 
-First, lets Import the packages we will be using
-
+First, lets Import the packages we will be using:
+</p>
 
 ```python
 # import packages for analysis and modeling
@@ -30,8 +30,9 @@ from sklearn.metrics import r2_score
 ```    
 
 ## Data Preparation
+<p align="justify">
 While we were supplied a coaches dataset to work with initially, this did not provide all the data needed to provide a thorough analysis. The following for data sets were combined to give us the information needed:
-
+</p>
 * Coaches data – 2014 coaches data set provided containing school, conference, coach and various types of pay (school pay, total pay, bonus, bonus paid, assistant pay, buyout)
 * Stadium capacity data – data scraped from www.collegegridirons.com containing stadium name, school, conference, capacity, and year opened
 * Graduation rates – 2012-2013 school year graduation reates obrainted from the NCAA containing borth GSR and FGR. 2006 cohort graduation rates were used. Contains Year, School. Conference, Sport, State, GSR, FGR  
@@ -39,9 +40,9 @@ While we were supplied a coaches dataset to work with initially, this did not pr
 
 
 ### Coaches Data
-
+<p align="justify">
 The initial dataset was supplied to us and is stored in my git repository which was inported into a dataframe. A quick computation of some of the descriptive statistics show that there were 129 total entries (all unique) for school names beloning to 11 unique conferences. In addition we see the count and unique entries for all the columns in the dataset. I also checked for null values and found nine in the dataframe
-
+</p>
 
             School Conference              Coach  ... BonusPaid AssistantPay Buyout
     count      129        129                129  ...       129          129    129
@@ -67,9 +68,9 @@ The initial dataset was supplied to us and is stored in my git repository which 
     Number of observations:
      129
     
-
+<p align="justify">
 A quick look at the head of the dataframe shows us the first 5 rows. We see School, Conference, Coach, SchoolPay, TotalPay, Bonus, BonusPaid, AssistantPay and Buyout. The fist thing we notice is that the dollar amounts are objects which will need to be covereted into mueric format.
-
+</p>
 
 ```python
 coaches.head()
@@ -173,9 +174,9 @@ coaches.head()
 </div>
 
 
-
+<p align="justify">
 Our dollar amounts are actually stored as astrings so I ran a function to convert them to numeric values and reinspected.
-
+</p>
 
 ```python
 # Clean up: convert dollar amounts from object to numeric
@@ -282,13 +283,13 @@ coaches.head()
 
 
 ### Webscraping Stadium Capacity Data
-<br>
+<p align="justify">
 Syed Nazrul has a great Webscraping tutorial he created on you tube using pokemon data which you can see visit below
-
+</p>
 [PokeScrape 1: Scraping an online PokeDex (Pokemon data) with Python](https://www.youtube.com/watch?list=PLuVTNX0oceI87L2sPUTODZmwn-ORos-9Z&v=egYVP-TeSg)
-<br>
+<p align="justify">
 I went to the College Gridirons Website and scrapped data on college football stadiums by capacity. This data included the Stadium Name, The College, Conference, Capacity and the year it opened. Once scrapped, the data required extensive cleaned up and once completed it was stored in a new dataframe.
-
+</p>
 
 ```python
 # create Stadiums df
@@ -377,9 +378,9 @@ https://bleacherreport.com/articles/1731218-college-football-schools-with-the-be
 * FGR - Federal Graduation Rate - This method keeps track of first-time freshmen who are full-time students. It follows those students over the course of a six-year period to see if they graduate at the same institution at which they began their secondary education. This method does not account for students who transfer.
 
 * GSR - Graduation Success Rate - Uses the same type of data as the FGR, but the GSR data also takes into account students who transfer into a school and graduate from that same school. It also doesn't count against a school's rate when a student-athlete in good standing transfers out of that institution to attend another.
-
+<p align="justify">
 The 2013 Graduation Rate data was obtained using the 2006 cohort graduation rates for both GSR and FGR. There was some clean up required to ensure that the school names matched the entries in the original coaches dataset. For example, US Naval Academy was listed as Navy in the coaches set.
-
+</p>
 
 ```python
 # import graduation rate data
@@ -476,8 +477,9 @@ gradrates.head()
 
 
 ### Win Loss Record
+<p align="justify">
 2019 Win-Loss Record was scrapped from the website www.teamrankings.com and a new dataframe was created. This data also required extensive cleanup to ensure the school names match and was then stored in its own dataframe.
-
+</p>
 
 ```python
 #Scrape 2019 Win-Loss Records
@@ -566,9 +568,9 @@ WinLoss.head()
 </div>
 
 
-
+<p align="justify">
 All the data has now been obtained and was merged into one dataframe which I named "finalcoaches" consisting of the coaches, gradrates, stadium capacity and win-loss record sets. The sets were merged on School Name.
-
+</p>
 
 ```python
 # Merge all dfs to create finalcoaches
@@ -614,9 +616,9 @@ print(finalcoaches.head())
     
     [5 rows x 18 columns]
     
-
+<p align="justify">
 Upon review, it is observed that there are some null values from the stadium capacity and win record data. We will now take a look at these rows for further investigation.
-
+</p>
 
 ```python
 #check for null values in the dataframe
@@ -653,9 +655,9 @@ print("Number of observations: ",len(finalcoaches))
     dtype: int64
     Number of observations:  129
     
-
+<p align="justify">
 There were 8 total schools missing FGR, 4 of which were also missing their GSR. Since we have more data for GSR we will use that information rather than the FGR. In addition, I believe this is the rate we should use as this is the method the NCAA is currently using to evaluate graduation rates. The schools missing the GSR values would be dropped from the set.
-
+</p>
 
 ```python
 # Schools missing FGR (Federal Graduation Rate) and GSR (Graduate Success Rate)
@@ -877,9 +879,9 @@ finalcoaches[finalcoaches['FGR'].isna()]
 </div>
 
 
-
+<p align="justify">
 Since total pay was converted into numerical values, I looked for all schools where the total pay was listed as "0". The 4 schools with no listed total pay would be dropped from the set.
-
+</p>
 
 ```python
 # Schools missing TotalPay
@@ -1017,9 +1019,9 @@ finalcoaches.loc[finalcoaches['TotalPay'] == 0]
 </div>
 
 
-
+<p align="justify">
 Lastly I looked at schools where the stadium capacity was not listed. Only one school was missing the capacity value, which was dropped from the dataset.
-
+</p>
 
 ```python
 # Schools missing Stadium Capacity
@@ -1108,6 +1110,7 @@ finalcoaches = finalcoaches.dropna(axis=0, subset=['Capacity'])
 ```
 
 ## Power 5 Conferences
+<p align="justify">
 I also decided to add a column to our final dataframe indicating whether or not the school was a member of the "Power5" conferences. I suspected that these conferences had a significantly higher pay than the other conferences as they would want to recruit the top football coaches for their schools.
 <br>
 <br>
@@ -1118,7 +1121,8 @@ the Atlantic Coast Conference (ACC), Big Ten Conference, Big 12 Conference,
 Pac-12 Conference, and Southeastern Conference (SEC).
 The term "Power Five" is not defined by the National Collegiate Athletic Association (NCAA),
 and the origin of the term is unknown. It has been used in its current meaning since at least 2006.
-https://en.wikipedia.org/wiki/Power_Five_conferences
+</p>
+[Power Five Conferences](https://en.wikipedia.org/wiki/Power_Five_conferences)
 
 
 ## Descriptive Visualizations
@@ -1834,11 +1838,8 @@ The model produced in this experiment was supposed to have a high level of accur
 Due to the fact that there were significant differences in some of the conferences, I wonder if there should be a different model for each conference? Given that the conferences are small, there may not be enough data to support these models however we can see by the initial boxplot that there were definitely some differences.
 
 
-
-
-
+## Code
 You can check out the code used using the following methods:
-
 
 1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-IST-718/blob/master/Lab%201/IST%20718%20-%20Lab%201%20-%20Final.ipynb)
 2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-IST-718/blob/master/Lab%201/IST%20718%20-%20Lab%201%20-%20Final.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
