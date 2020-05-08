@@ -486,11 +486,6 @@ summary(females$age)
                 #scale_color_brewer(palette="Blues") +
                 ggtitle("Distribution of Registered Users By Age")
 ```
-
-    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    
-    Warning message:
-    “Removed 755770 rows containing non-finite values (stat_bin).”
     
 
 
@@ -507,11 +502,6 @@ When comparing the age distribution foor both genders, we see that the graphs we
                 facet_wrap(~gender) +
                 ggtitle("Distribution of Registered Users By Age")
 ```
-
-    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    
-    Warning message:
-    “Removed 755770 rows containing non-finite values (stat_bin).”
     
 
 
