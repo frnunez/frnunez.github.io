@@ -80,7 +80,7 @@ The hubway trip history data includes:
   * casual = single trip or day pass user
   * member = annual or monthly membership (unlimited use)
 * Birth Year
-* Gender (self reported by members, not required for casual)
+* Gender (optional for members, not required for casual)
 <br>
 <br>
 
@@ -104,16 +104,6 @@ The hubway trip history data includes:
       str(hubway_trips)
       dim(hubway_trips)
 ```
-
-
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'hubway_stations.csv'</li><li>'hubway_trips.csv'</li><li>'README.txt'</li></ol>
-
-
 
 
 <table>
@@ -155,7 +145,7 @@ The hubway trip history data includes:
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1579025</li><li>13</li></ol>
+
 
 
 
