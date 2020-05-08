@@ -415,11 +415,11 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 
 ```R
-              # Calculate Mean of Age
-              gendermean <- tripsregistered %>%
-                group_by(gender) %>%
-                summarise(mean=mean(age, na.rm=TRUE))
-              gendermean
+# Calculate Mean of Age
+  gendermean <- tripsregistered %>%
+    group_by(gender) %>%
+    summarise(mean=mean(age, na.rm=TRUE))
+  gendermean
 ```
 
 
