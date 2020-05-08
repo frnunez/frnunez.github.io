@@ -624,18 +624,19 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 ```R
 #Plot
-	trips$hour_of_day <- hour(trips$start_date)
-	ggplot(data = trips, aes(x = hour_of_day)) + 
-	  geom_histogram(fill = '#0090DA', colour = '#0D1D32', binwidth = 1)+
-	  ggtitle("Trips by Time of day")+
-	  ylab("Number of Trips") +
-	  xlab("Hour of Day")
+trips$hour_of_day <- hour(trips$start_date)
+ggplot(data = trips, aes(x = hour_of_day)) + 
+  geom_histogram(fill = '#0090DA', colour = '#0D1D32', binwidth = 1)+
+  ggtitle("Trips by Time of day")+
+  ylab("Number of Trips") +
+  xlab("Hour of Day")
 ```
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_51_0.png)
 
 
+### Top Stations
 
 ```R
 #--- Popular Destinations ---#           
@@ -698,81 +699,6 @@ poptrips %>%
 	  ugenpopstart <- poptrips %>%
 		filter(strt_statn %in% topstations)
 ```
-
-
-<table>
-<caption>A tibble: 142 × 2</caption>
-<thead>
-	<tr><th scope=col>strt_statn</th><th scope=col>Count</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>22 </td><td>56442</td></tr>
-	<tr><td>36 </td><td>42568</td></tr>
-	<tr><td>53 </td><td>35438</td></tr>
-	<tr><td>67 </td><td>33685</td></tr>
-	<tr><td>16 </td><td>32859</td></tr>
-	<tr><td>42 </td><td>32795</td></tr>
-	<tr><td>33 </td><td>31077</td></tr>
-	<tr><td>58 </td><td>28285</td></tr>
-	<tr><td>52 </td><td>26978</td></tr>
-	<tr><td>47 </td><td>26818</td></tr>
-	<tr><td>43 </td><td>26052</td></tr>
-	<tr><td>40 </td><td>26020</td></tr>
-	<tr><td>21 </td><td>25550</td></tr>
-	<tr><td>54 </td><td>24549</td></tr>
-	<tr><td>20 </td><td>24473</td></tr>
-	<tr><td>74 </td><td>24055</td></tr>
-	<tr><td>46 </td><td>23662</td></tr>
-	<tr><td>6  </td><td>23322</td></tr>
-	<tr><td>48 </td><td>22982</td></tr>
-	<tr><td>113</td><td>22630</td></tr>
-	<tr><td>55 </td><td>22553</td></tr>
-	<tr><td>39 </td><td>22082</td></tr>
-	<tr><td>38 </td><td>21216</td></tr>
-	<tr><td>50 </td><td>21076</td></tr>
-	<tr><td>75 </td><td>20853</td></tr>
-	<tr><td>32 </td><td>20431</td></tr>
-	<tr><td>45 </td><td>20100</td></tr>
-	<tr><td>25 </td><td>19433</td></tr>
-	<tr><td>80 </td><td>19182</td></tr>
-	<tr><td>68 </td><td>19137</td></tr>
-	<tr><td>⋮</td><td>⋮</td></tr>
-	<tr><td>116</td><td>1571</td></tr>
-	<tr><td>140</td><td>1539</td></tr>
-	<tr><td>104</td><td>1497</td></tr>
-	<tr><td>83 </td><td>1491</td></tr>
-	<tr><td>110</td><td>1355</td></tr>
-	<tr><td>93 </td><td>1250</td></tr>
-	<tr><td>37 </td><td>1145</td></tr>
-	<tr><td>142</td><td>1144</td></tr>
-	<tr><td>100</td><td>1106</td></tr>
-	<tr><td>143</td><td>1088</td></tr>
-	<tr><td>92 </td><td> 964</td></tr>
-	<tr><td>117</td><td> 818</td></tr>
-	<tr><td>106</td><td> 773</td></tr>
-	<tr><td>105</td><td> 643</td></tr>
-	<tr><td>122</td><td> 488</td></tr>
-	<tr><td>107</td><td> 475</td></tr>
-	<tr><td>101</td><td> 454</td></tr>
-	<tr><td>119</td><td> 416</td></tr>
-	<tr><td>82 </td><td> 380</td></tr>
-	<tr><td>85 </td><td> 345</td></tr>
-	<tr><td>121</td><td> 326</td></tr>
-	<tr><td>124</td><td> 310</td></tr>
-	<tr><td>120</td><td> 306</td></tr>
-	<tr><td>97 </td><td> 268</td></tr>
-	<tr><td>118</td><td> 234</td></tr>
-	<tr><td>145</td><td> 221</td></tr>
-	<tr><td>125</td><td> 202</td></tr>
-	<tr><td>123</td><td> 161</td></tr>
-	<tr><td>108</td><td>  92</td></tr>
-	<tr><td>109</td><td>  49</td></tr>
-</tbody>
-</table>
-
-
-
 
 <table>
 <caption>A tibble: 3 × 3</caption>
