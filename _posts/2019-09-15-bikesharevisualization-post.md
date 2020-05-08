@@ -454,11 +454,6 @@ Of those that did report their age, the mean age was 42.7 while the median age w
                 geom_histogram(color="#0b2f4c", fill="#0090DA") +
                 ggtitle("Distribution of Registered Users By Age")
 ```
-
-    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    
-    Warning message:
-    “Removed 755770 rows containing non-finite values (stat_bin).”
     
 
 
