@@ -278,6 +278,7 @@ Both MBTA & Blue Bikes Station locations were consolidated into one interactive 
 
 
 ## Data Exploration
+### Registered Users vs Casual Users
 Our first exploration was to look at the registered users vs casual riders (non-registered). We see that 70% of the total riders were registerd users.
 
 
