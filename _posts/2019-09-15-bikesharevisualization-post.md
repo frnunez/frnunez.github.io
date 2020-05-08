@@ -273,12 +273,7 @@ An interactive map of Boston's MBTA Subway Stations was created using
           mbta_subway
 ```
 
-    Warning message in `[.data.frame`(station_locs, !is.na(as.numeric(station_locs$id)), :
-    “NAs introduced by coercion”
-    
 
-
-<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -299,8 +294,6 @@ An interactive map of Boston's MBTA Subway Stations was created using
 </html>
 
 
-
-![MBTA SUbway Stations](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/mbtastationsmap.jpeg)
 
 ### BLUE Bikes Station Location Map
 A similar map was created using the hubway stations data
