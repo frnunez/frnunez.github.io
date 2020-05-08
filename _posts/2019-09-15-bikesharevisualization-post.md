@@ -701,21 +701,6 @@ poptrips %>%
 		filter(strt_statn %in% topstations)
 ```
 
-<table>
-<caption>A tibble: 3 × 3</caption>
-<thead>
-	<tr><th scope=col>gender</th><th scope=col>n</th><th scope=col>precent</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>Male      </td><td>834688</td><td>52.86272</td></tr>
-	<tr><td>Unreported</td><td>472592</td><td>29.93034</td></tr>
-	<tr><td>Female    </td><td>271693</td><td>17.20694</td></tr>
-</tbody>
-</table>
-
-
-
 
 ```R
  # ALL Data
