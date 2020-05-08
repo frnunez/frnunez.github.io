@@ -85,20 +85,20 @@ The hubway trip history data includes:
 
 ```R
 #-----     Importing Datasets            -----#
-      # Set url link for the location of the dataset
-      HubwayURL <- "http://files.hubwaydatachallenge.org/hubway_2011_07_through_2013_11.zip"
-      
-      # Download the .zip file and unzip contents
-      download.file(HubwayURL, dest = "hubway.zip", mode = "wb") 
-      unzip("hubway.zip", exdir = "hubway")
-      
-      # Assess the files contained in the .zip file and then import each dataset
-      list.files("hubway")
-      hubway_stations <- read.csv(unz("hubway.zip", "hubway_stations.csv"))
-      hubway_trips <- read.csv(unz("hubway.zip", "hubway_trips.csv"))
-      
-      #Basic Descriptive Info
-      str(hubway_trips)
+# Set url link for the location of the dataset
+HubwayURL <- "http://files.hubwaydatachallenge.org/hubway_2011_07_through_2013_11.zip"
+
+# Download the .zip file and unzip contents
+download.file(HubwayURL, dest = "hubway.zip", mode = "wb") 
+unzip("hubway.zip", exdir = "hubway")
+
+# Assess the files contained in the .zip file and then import each dataset
+list.files("hubway")
+hubway_stations <- read.csv(unz("hubway.zip", "hubway_stations.csv"))
+hubway_trips <- read.csv(unz("hubway.zip", "hubway_trips.csv"))
+
+#Basic Descriptive Info
+str(hubway_trips)
 ```
 
 
@@ -215,31 +215,31 @@ Both MBTA & Blue Bikes Station locations were consolidated into one interactive 
 
 ```R
 #####-----     Trips Data     -----#####
- #--- Main Trips Data ---##
-    # Total Trips set
-        trips <- hubway_trips
-    
-        # Clean Up
-              trips$gender <- as.character(trips$gender)
-              trips$gender[trips$gender==""] <- "Unreported"
-              trips$gender <- as.factor(trips$gender)
-              trips$zip_code <- as.character(trips$zip_code)
-              trips$zip_code[trips$zip_code==""] <- "Unreported"
-              trips$zip_code <- as.factor(trips$zip_code)
-              
-        # Create Age Column (Approximate)
-              trips <- trips %>%
-                mutate(age = 2019-birth_date)
-        
-        # Basic Stats
-              summary(trips) 
-              
-    # Create Casual ONLY Set
-          tripscasual <- filter(trips, subsc_type=="Casual")
-          tripscasual <- tripscasual[,c(1,2,4:9)] #Removed Unreported Columns (Zip, DOB, Gender)
-            
-    # Create Regsitered ONLY Set
-          tripsregistered <- filter(trips, subsc_type=="Registered")
+#--- Main Trips Data ---##
+# Total Trips set
+  trips <- hubway_trips
+
+# Clean Up
+  trips$gender <- as.character(trips$gender)
+  trips$gender[trips$gender==""] <- "Unreported"
+  trips$gender <- as.factor(trips$gender)
+  trips$zip_code <- as.character(trips$zip_code)
+  trips$zip_code[trips$zip_code==""] <- "Unreported"
+  trips$zip_code <- as.factor(trips$zip_code)
+	  
+# Create Age Column (Approximate)
+  trips <- trips %>%
+	mutate(age = 2019-birth_date)
+
+# Basic Stats
+  summary(trips) 
+		  
+# Create Casual ONLY Set
+  tripscasual <- filter(trips, subsc_type=="Casual")
+  tripscasual <- tripscasual[,c(1,2,4:9)] #Removed Unreported Columns (Zip, DOB, Gender)
+		
+# Create Regsitered ONLY Set
+  tripsregistered <- filter(trips, subsc_type=="Registered")
 ```
 
 
@@ -285,16 +285,16 @@ Our first exploration was to look at the registered users vs casual riders (non-
 ```R
  #--- Basic User/Rider Demographics ---#
     # Casual vs Registered
-         ridership <- trips %>%
-           group_by(subsc_type) %>%
-           summarise(counts = n())
-         ridership
-         
-         #Bar Chart
-         ggplot(ridership, aes(x=subsc_type, y=counts, fill=subsc_type)) +
-           geom_bar(stat = "identity", color="#0b2f4c", fill = "#0090DA") +
-           geom_text(aes(label = counts), vjust = -0.3) +
-           ggtitle("Registered vs Casual Riders") + xlab("Riders") + ylab("Counts")
+	 ridership <- trips %>%
+	   group_by(subsc_type) %>%
+	   summarise(counts = n())
+	 ridership
+	 
+	 #Bar Chart
+	 ggplot(ridership, aes(x=subsc_type, y=counts, fill=subsc_type)) +
+	   geom_bar(stat = "identity", color="#0b2f4c", fill = "#0090DA") +
+	   geom_text(aes(label = counts), vjust = -0.3) +
+	   ggtitle("Registered vs Casual Riders") + xlab("Riders") + ylab("Counts")
 ```
 
 
@@ -314,14 +314,14 @@ Our first exploration was to look at the registered users vs casual riders (non-
 
 
 ```R
-         # Pie Chart version
-         regtable <- table(trips$subsc_type)
-         regtable <- sort(regtable)
-         pct <- round(regtable/sum(regtable)*100)
-         lbls <- paste(names(regtable), "\n", pct, sep="")
-         lbls <- paste(lbls,"%",sep="") # ad % to labels 
-         pie(regtable, labels = lbls, col=brewer.pal(2, "Blues"),
-             main="Pie Chart of Registered vs Casual Riders")  
+ # Pie Chart version
+ regtable <- table(trips$subsc_type)
+ regtable <- sort(regtable)
+ pct <- round(regtable/sum(regtable)*100)
+ lbls <- paste(names(regtable), "\n", pct, sep="")
+ lbls <- paste(lbls,"%",sep="") # ad % to labels 
+ pie(regtable, labels = lbls, col=brewer.pal(2, "Blues"),
+	 main="Pie Chart of Registered vs Casual Riders")  
 ```
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_22_1.png)
@@ -331,16 +331,16 @@ Next we explored the distribution of usage by reported gender. When we looked at
 
 
 ```R
-    # Rides By Gender
-        # All Records
-              gentrips <- trips %>%
-                group_by(gender) %>%
-                summarise(counts = n())
-              
-              ggplot(gentrips, aes(x = gender, y = counts, fill=gender)) +
-                geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
-                geom_text(aes(label = counts), vjust = -0.3) +
-                ylim(0,850000)+ ggtitle("Distribution of Usage By Gender (All Records)")
+# Rides By Gender
+# All Records
+  gentrips <- trips %>%
+	group_by(gender) %>%
+	summarise(counts = n())
+  
+  ggplot(gentrips, aes(x = gender, y = counts, fill=gender)) +
+	geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
+	geom_text(aes(label = counts), vjust = -0.3) +
+	ylim(0,850000)+ ggtitle("Distribution of Usage By Gender (All Records)")
 ```
 
 
@@ -349,14 +349,14 @@ Next we explored the distribution of usage by reported gender. When we looked at
 
 
 ```R
-              # Pie Chart version
-              gendertable <- table(trips$gender)
-              gendertable <- sort(gendertable)
-              pct <- round(gendertable/sum(gendertable)*100)
-              lbls <- paste(names(gendertable), "\n", pct, sep="")
-              lbls <- paste(lbls,"%",sep="") # ad % to labels 
-              pie(gendertable, labels = lbls, col=brewer.pal(3, "Blues"),
-                  main="Pie Chart \nDistribution of Usage By Gender (All Records)")
+  # Pie Chart version
+  gendertable <- table(trips$gender)
+  gendertable <- sort(gendertable)
+  pct <- round(gendertable/sum(gendertable)*100)
+  lbls <- paste(names(gendertable), "\n", pct, sep="")
+  lbls <- paste(lbls,"%",sep="") # ad % to labels 
+  pie(gendertable, labels = lbls, col=brewer.pal(3, "Blues"),
+	  main="Pie Chart \nDistribution of Usage By Gender (All Records)")
 ```
 
 
@@ -367,15 +367,15 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 
 
 ```R
-        # Registered Users ONLY
-              genreg <- tripsregistered %>%
-                group_by(gender) %>%
-                summarise(counts = n())
-              
-              ggplot(genreg, aes(x = gender, y = counts, fill=gender)) +
-                geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
-                geom_text(aes(label = counts), vjust = -0.3) +
-                ylim(0,850000)+ ggtitle("Distribution of Registered Riders By Gender")
+# Registered Users ONLY
+  genreg <- tripsregistered %>%
+	group_by(gender) %>%
+	summarise(counts = n())
+  
+  ggplot(genreg, aes(x = gender, y = counts, fill=gender)) +
+	geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
+	geom_text(aes(label = counts), vjust = -0.3) +
+	ylim(0,850000)+ ggtitle("Distribution of Registered Riders By Gender")
 ```
 
 
@@ -384,14 +384,14 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 
 
 ```R
-              # Pie Chart version
-              genregtable <- table(tripsregistered$gender)
-              genregtable <- sort(genregtable)
-              pct <- round(genregtable/sum(genregtable)*100)
-              lbls <- paste(names(genregtable), "\n", pct, sep="")
-              lbls <- paste(lbls,"%",sep="") # ad % to labels 
-              pie(genregtable, labels = lbls, col=brewer.pal(3, "Blues"),
-                  main="Pie Chart \nDistribution of Registered Riders By Gender")
+  # Pie Chart version
+  genregtable <- table(tripsregistered$gender)
+  genregtable <- sort(genregtable)
+  pct <- round(genregtable/sum(genregtable)*100)
+  lbls <- paste(names(genregtable), "\n", pct, sep="")
+  lbls <- paste(lbls,"%",sep="") # ad % to labels 
+  pie(genregtable, labels = lbls, col=brewer.pal(3, "Blues"),
+	  main="Pie Chart \nDistribution of Registered Riders By Gender")
 ```
 
 
