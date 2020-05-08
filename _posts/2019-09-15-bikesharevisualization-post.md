@@ -188,27 +188,6 @@ A similar map was created using the hubway stations data
 Both MBTA & Blue Bikes Station locations were consolidated into one interactive map for comparison. The first thing we noticed is that the northwestern quadrant of the map has very few MBTA Stations. This is clearly an underserved area and we expected to see some high usage of Blue Bikes in this area. The addition of the bike stations added an additional mode of transportation to the downtown Boston area.
 
 
-```R
-   #--- Combine Both Maps into one ---#
-          #https://rstudio.github.io/leaflet/markers.html
-          
-          bostonstations <- rbind(stations,station_locs)
-          
-          #Plot map
-          #colors
-          pal <- colorFactor(c("#0090DA", "#0b2f4c"), domain = c("BLUEbikes", "MBTA-Subway"))
-          
-          #plot map
-          boston_map <- leaflet(bostonstations) %>%
-            addTiles() %>%  
-            setView(-71.057083, 42.361145, zoom = 12) %>%
-            addCircles(~longitude, ~latitude, weight = 3, radius=~ifelse(type == "type", 120, 120), 
-                       color=~pal(type), stroke = TRUE, fillOpacity = 0.8) %>% 
-            addLegend("bottomleft", pal=pal, values=~type, title="MBTA Subway & Bluebike Stations")
-          boston_map
-```
-
-
 <html>
 	<head>
 		<meta charset="utf-8">
