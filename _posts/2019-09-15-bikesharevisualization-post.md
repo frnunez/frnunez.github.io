@@ -100,26 +100,9 @@ The hubway trip history data includes:
       hubway_trips <- read.csv(unz("hubway.zip", "hubway_trips.csv"))
       
       #Basic Descriptive Info
-      hubway_trips[1:5, 1:10]
       str(hubway_trips)
-      dim(hubway_trips)
 ```
 
-
-<table>
-<caption>A data.frame: 5 × 10</caption>
-<thead>
-	<tr><th scope=col>seq_id</th><th scope=col>hubway_id</th><th scope=col>status</th><th scope=col>duration</th><th scope=col>start_date</th><th scope=col>strt_statn</th><th scope=col>end_date</th><th scope=col>end_statn</th><th scope=col>bike_nr</th><th scope=col>subsc_type</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>1</th><td>1</td><td> 8</td><td>Closed</td><td>  9</td><td>7/28/2011 10:12:00</td><td>23</td><td>7/28/2011 10:12:00</td><td>23</td><td>B00468</td><td>Registered</td></tr>
-	<tr><th scope=row>2</th><td>2</td><td> 9</td><td>Closed</td><td>220</td><td>7/28/2011 10:21:00</td><td>23</td><td>7/28/2011 10:25:00</td><td>23</td><td>B00554</td><td>Registered</td></tr>
-	<tr><th scope=row>3</th><td>3</td><td>10</td><td>Closed</td><td> 56</td><td>7/28/2011 10:33:00</td><td>23</td><td>7/28/2011 10:34:00</td><td>23</td><td>B00456</td><td>Registered</td></tr>
-	<tr><th scope=row>4</th><td>4</td><td>11</td><td>Closed</td><td> 64</td><td>7/28/2011 10:35:00</td><td>23</td><td>7/28/2011 10:36:00</td><td>23</td><td>B00554</td><td>Registered</td></tr>
-	<tr><th scope=row>5</th><td>5</td><td>12</td><td>Closed</td><td> 12</td><td>7/28/2011 10:37:00</td><td>23</td><td>7/28/2011 10:37:00</td><td>23</td><td>B00554</td><td>Registered</td></tr>
-</tbody>
-</table>
 
 
 
