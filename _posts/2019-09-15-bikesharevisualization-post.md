@@ -495,11 +495,11 @@ When comparing the age distribution foor both genders, we see that the graphs we
 
 
 ```R
-              ggplot(tripsregistered, aes(x=age, color=gender))+ 
-                geom_histogram(fill="#006AC6", alpha=0.5, position="identity") + 
-                scale_color_manual(values=c("#0D1D32", "#0D1D32")) +
-                facet_wrap(~gender) +
-                ggtitle("Distribution of Registered Users By Age")
+  ggplot(tripsregistered, aes(x=age, color=gender))+ 
+	geom_histogram(fill="#006AC6", alpha=0.5, position="identity") + 
+	scale_color_manual(values=c("#0D1D32", "#0D1D32")) +
+	facet_wrap(~gender) +
+	ggtitle("Distribution of Registered Users By Age")
 ```
     
 
@@ -514,11 +514,11 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 
 
 ```R
- #--- Trips Duration (Duration measured in seconds)---#
-      # Creating Set and Clean Up
-          tripsdur <- trips  %>%
-            select(duration, subsc_type, birth_date, gender,age)
-          summary(trips$duration)
+#--- Trips Duration (Duration measured in seconds)---#
+  # Creating Set and Clean Up
+	  tripsdur <- trips  %>%
+		select(duration, subsc_type, birth_date, gender,age)
+	  summary(trips$duration)
 ```
 
 
@@ -528,10 +528,10 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 
 
 ```R
-        # Clean Up of Outliers
-          tripsdur <- tripsdur[tripsdur$duration > 60,] # Remove all trips less than 60 seconds.seconds in length (potentially false starts or users trying to re-dock a bike to ensure it was secure)
-          tripsdur <- tripsdur[tripsdur$duration < 86400,] # Remove all trips greater than 86,400 seconds (24 hours)
-          summary(tripsdur$duration)
+# Clean Up of Outliers
+  tripsdur <- tripsdur[tripsdur$duration > 60,] # Remove all trips less than 60 seconds.seconds in length (potentially false starts or users trying to re-dock a bike to ensure it was secure)
+  tripsdur <- tripsdur[tripsdur$duration < 86400,] # Remove all trips greater than 86,400 seconds (24 hours)
+  summary(tripsdur$duration)
 ```
 
 
@@ -541,10 +541,10 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 
 
 ```R
-        # Convert Duration from Seconds to Minutes
-          tripsdur <- tripsdur %>%
-            mutate(duration=(duration/60))
-          summary(tripsdur$duration)
+# Convert Duration from Seconds to Minutes
+  tripsdur <- tripsdur %>%
+	mutate(duration=(duration/60))
+  summary(tripsdur$duration)
 ```
 
 
@@ -554,11 +554,11 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 
 
 ```R
-   ## - Age vs Duration - ## 
-      # Plot of Relationship between duration and age
-        plot(trips$duration, trips$age,xlim= c(1, 10000), 
-             col = "#f17c67",pch=10, cex=.1 , xlab="Trip Time in Seconds",ylab="User Age in Years", 
-             main="Relationship between Trip Duration \nand User Age") 
+## - Age vs Duration - ## 
+  # Plot of Relationship between duration and age
+	plot(trips$duration, trips$age,xlim= c(1, 10000), 
+		 col = "#f17c67",pch=10, cex=.1 , xlab="Trip Time in Seconds",ylab="User Age in Years", 
+		 main="Relationship between Trip Duration \nand User Age") 
 ```
 
 
@@ -567,10 +567,10 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 
 
 ```R
-      # Relationship between Age and Duration (Same as above, different view, removed outliers)
-        ggplot(tripsdur, aes(age, (duration))) + 
-          geom_point() + xlab("Age") + ylab("Duration in Minutes") +
-          ylim(0,75)
+# Relationship between Age and Duration (Same as above, different view, removed outliers)
+ggplot(tripsdur, aes(age, (duration))) + 
+  geom_point() + xlab("Age") + ylab("Duration in Minutes") +
+  ylim(0,75)
 ```
 
     Warning message:
@@ -585,12 +585,12 @@ We looked for a relationship between the age and duration of trips. There wasnt 
 
 
 ```R
-      # Boxplot Age vs duration. Have to convert age to factor
-        ggplot(tripsdur, aes(x=factor(age), y=(duration))) + 
-          geom_boxplot(outlier.shape=NA, fill="#0090DA", color="#0D1D32") + #remove outliers
-          ggtitle("Age vs Duration") +
-          theme(axis.text.x = element_text(angle = 90)) + xlab("Age") + ylab("Duration in Minutes") +
-          ylim(0,75) 
+# Boxplot Age vs duration. Have to convert age to factor
+ggplot(tripsdur, aes(x=factor(age), y=(duration))) + 
+  geom_boxplot(outlier.shape=NA, fill="#0090DA", color="#0D1D32") + #remove outliers
+  ggtitle("Age vs Duration") +
+  theme(axis.text.x = element_text(angle = 90)) + xlab("Age") + ylab("Duration in Minutes") +
+  ylim(0,75) 
 ```
 
     Warning message:
@@ -603,11 +603,11 @@ We looked for a relationship between the age and duration of trips. There wasnt 
 
 
 ```R
-   ## - Duration By Gender - ##      
-        # Bloxplot trip duration by user gender
-          boxplot(trips$duration~trips$gender, axisnames = FALSE, ylim=c(100,5000), varwidth = TRUE, outline = TRUE,xlab="User Gender",
-                  ylab="Trip Duration In Seconds",col=c("pink","paleturquoise1","palegreen"),main="Box Plot for Trip Duration \nby User Gender")
-          abline(h=mean(trips$duration), lty=2,col="red")
+## - Duration By Gender - ##      
+	# Bloxplot trip duration by user gender
+	  boxplot(trips$duration~trips$gender, axisnames = FALSE, ylim=c(100,5000), varwidth = TRUE, outline = TRUE,xlab="User Gender",
+			  ylab="Trip Duration In Seconds",col=c("pink","paleturquoise1","palegreen"),main="Box Plot for Trip Duration \nby User Gender")
+	  abline(h=mean(trips$duration), lty=2,col="red")
 ```
 
 
@@ -616,15 +616,12 @@ We looked for a relationship between the age and duration of trips. There wasnt 
 
 
 ```R
-        # Boxplot Duration by Gender (Versin 2)
-        ggplot(tripsdur, aes(x=gender, y=duration)) + 
-          geom_boxplot() + 
-          ylim(0,75)+ ggtitle("Age vs Duration (Minutes)") + ylab("Duration in Minutes") +
-          geom_hline(yintercept=(mean(tripsdur$duration)), linetype="dashed",color = "red", size=2)
+# Boxplot Duration by Gender (Versin 2)
+ggplot(tripsdur, aes(x=gender, y=duration)) + 
+  geom_boxplot() + 
+  ylim(0,75)+ ggtitle("Age vs Duration (Minutes)") + ylab("Duration in Minutes") +
+  geom_hline(yintercept=(mean(tripsdur$duration)), linetype="dashed",color = "red", size=2)
 ```
-
-    Warning message:
-    “Removed 33744 rows containing non-finite values (stat_boxplot).”
     
 
 
@@ -658,13 +655,13 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-    #Plot
-        trips$hour_of_day <- hour(trips$start_date)
-        ggplot(data = trips, aes(x = hour_of_day)) + 
-          geom_histogram(fill = '#0090DA', colour = '#0D1D32', binwidth = 1)+
-          ggtitle("Trips by Time of day")+
-          ylab("Number of Trips") +
-          xlab("Hour of Day")
+#Plot
+	trips$hour_of_day <- hour(trips$start_date)
+	ggplot(data = trips, aes(x = hour_of_day)) + 
+	  geom_histogram(fill = '#0090DA', colour = '#0D1D32', binwidth = 1)+
+	  ggtitle("Trips by Time of day")+
+	  ylab("Number of Trips") +
+	  xlab("Hour of Day")
 ```
 
 
@@ -673,19 +670,19 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
- #--- Popular Destinations ---#           
-    # Popular Trips Set
-      poptrips <- trips %>%
-        select(start_date, strt_statn, end_date, end_statn, subsc_type, gender, age)
-      poptrips$strt_statn <- as.factor(poptrips$strt_statn)
-      poptrips$end_statn <- as.factor(poptrips$end_statn)
-      poptrips <- poptrips[!is.na(poptrips$strt_statn), ] # remove NA start stations
-      poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
-      
-    # Descriptive Data  
-      length(unique(poptrips$strt_statn)) #142 Unique Stations
-      length(unique(poptrips$end_statn)) #142 Unique Stations
-      summary(poptrips) #top 5 start and end listed in summary by number
+#--- Popular Destinations ---#           
+# Popular Trips Set
+  poptrips <- trips %>%
+	select(start_date, strt_statn, end_date, end_statn, subsc_type, gender, age)
+  poptrips$strt_statn <- as.factor(poptrips$strt_statn)
+  poptrips$end_statn <- as.factor(poptrips$end_statn)
+  poptrips <- poptrips[!is.na(poptrips$strt_statn), ] # remove NA start stations
+  poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
+  
+# Descriptive Data  
+  length(unique(poptrips$strt_statn)) #142 Unique Stations
+  length(unique(poptrips$end_statn)) #142 Unique Stations
+  summary(poptrips) #top 5 start and end listed in summary by number
 ```
 
 
@@ -717,27 +714,27 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-    #--- Starting Stations ---#  
-        ### By Gender ###
-            
-        # ALL DATA
-                # Top Starting Locations
-                poptrips %>%
-                  group_by(strt_statn) %>%
-                  summarize(Count=n()) %>%
-                  arrange(desc(Count))
-            
-                # Percentage of Gender Reported
-                poptrips %>%
-                  group_by(gender) %>%
-                  summarise (n = n()) %>%
-                  mutate(precent = (n / sum(n))*100) %>%
-                  arrange(desc(precent))
-                
-                # Top 10 Start by Gender (All Data)
-                      topstations <- c("22","36","53","67","16","42","33","58","52","47")
-                      ugenpopstart <- poptrips %>%
-                        filter(strt_statn %in% topstations)
+#--- Starting Stations ---#  
+	### By Gender ###
+		
+	# ALL DATA
+			# Top Starting Locations
+			poptrips %>%
+			  group_by(strt_statn) %>%
+			  summarize(Count=n()) %>%
+			  arrange(desc(Count))
+		
+			# Percentage of Gender Reported
+			poptrips %>%
+			  group_by(gender) %>%
+			  summarise (n = n()) %>%
+			  mutate(precent = (n / sum(n))*100) %>%
+			  arrange(desc(precent))
+			
+			# Top 10 Start by Gender (All Data)
+				  topstations <- c("22","36","53","67","16","42","33","58","52","47")
+				  ugenpopstart <- poptrips %>%
+					filter(strt_statn %in% topstations)
 ```
 
 
@@ -832,15 +829,15 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-                     # ALL Data
-                      reorder_size <- function(x) {
-                        factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-                      }
-                      ggplot(ugenpopstart, aes(x = reorder_size(strt_statn))) +
-                        geom_bar(aes(fill=gender), color="white") +
-                        xlab("Starting Stations") +
-                        theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-                        ggtitle("Top 10 Starting Stations (All Data)")
+ # ALL Data
+  reorder_size <- function(x) {
+	factor(x, levels = names(sort(table(x), decreasing = TRUE)))
+  }
+  ggplot(ugenpopstart, aes(x = reorder_size(strt_statn))) +
+	geom_bar(aes(fill=gender), color="white") +
+	xlab("Starting Stations") +
+	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+	ggtitle("Top 10 Starting Stations (All Data)")
 ```
 
 
@@ -849,29 +846,29 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-       # Excluding Unreported Gender
-                # Top Starting Locations
-                poptrips %>%
-                  filter(gender!="Unreported") %>%
-                  group_by(strt_statn) %>%
-                  summarize(Count=n()) %>%
-                  arrange(desc(Count))
-                
-                # Top 10 Start by Gender
-                newtopstations <- c("22","16","36","67","53","33","43","48","40","39")
-                genpopstart <- poptrips %>%
-                  filter(gender!="Unreported") %>%
-                  filter(strt_statn %in% newtopstations)
-                
-                # top 10 Plots
-                reorder_size <- function(x) {
-                  factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-                }
-                ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
-                  geom_bar(aes(fill=gender)) +
-                  xlab("Starting Stations") +
-                  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-                  ggtitle("Top 10 Starting Stations")
+# Excluding Unreported Gender
+# Top Starting Locations
+poptrips %>%
+  filter(gender!="Unreported") %>%
+  group_by(strt_statn) %>%
+  summarize(Count=n()) %>%
+  arrange(desc(Count))
+
+# Top 10 Start by Gender
+newtopstations <- c("22","16","36","67","53","33","43","48","40","39")
+genpopstart <- poptrips %>%
+  filter(gender!="Unreported") %>%
+  filter(strt_statn %in% newtopstations)
+
+# top 10 Plots
+reorder_size <- function(x) {
+  factor(x, levels = names(sort(table(x), decreasing = TRUE)))
+}
+ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
+  geom_bar(aes(fill=gender)) +
+  xlab("Starting Stations") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle("Top 10 Starting Stations")
 ```
 
 
@@ -954,38 +951,38 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-    #--- Ending Stations ---#  
-        ### By Gender ###
-        
-        # ALL DATA
-                  # Top Ending Locations
-                  poptrips %>%
-                    group_by(end_statn) %>%
-                    summarize(Count=n()) %>%
-                    arrange(desc(Count))
-                  
-                  # Percentage of Gender Reported
-                  poptrips %>%
-                    group_by(gender) %>%
-                    summarise (n = n()) %>%
-                    mutate(precent = (n / sum(n))*100) %>%
-                    arrange(desc(precent))
-                  
-                  # Top 10 End by Gender (All Data)
-                  topstations <- c("22","36","42","67","53","33","16","43","52","74")
-                  ugenpopend <- poptrips %>%
-                    filter(end_statn %in% topstations)
-                  
-                  
-                  # ALL Data
-                  reorder_size <- function(x) {
-                    factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-                  }
-                  ggplot(ugenpopend, aes(x = reorder_size(end_statn))) +
-                    geom_bar(aes(fill=gender), color="white") +
-                    xlab("Ending Stations") +
-                    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-                    ggtitle("Top 10 Ending Stations (All Data)")
+#--- Ending Stations ---#  
+	### By Gender ###
+	
+	# ALL DATA
+	  # Top Ending Locations
+	  poptrips %>%
+		group_by(end_statn) %>%
+		summarize(Count=n()) %>%
+		arrange(desc(Count))
+	  
+	  # Percentage of Gender Reported
+	  poptrips %>%
+		group_by(gender) %>%
+		summarise (n = n()) %>%
+		mutate(precent = (n / sum(n))*100) %>%
+		arrange(desc(precent))
+	  
+	  # Top 10 End by Gender (All Data)
+	  topstations <- c("22","36","42","67","53","33","16","43","52","74")
+	  ugenpopend <- poptrips %>%
+		filter(end_statn %in% topstations)
+	  
+	  
+	  # ALL Data
+	  reorder_size <- function(x) {
+		factor(x, levels = names(sort(table(x), decreasing = TRUE)))
+	  }
+	  ggplot(ugenpopend, aes(x = reorder_size(end_statn))) +
+		geom_bar(aes(fill=gender), color="white") +
+		xlab("Ending Stations") +
+		theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+		ggtitle("Top 10 Ending Stations (All Data)")
 ```
 
 
@@ -1084,35 +1081,35 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 ```R
-        # Excluding Unreported Gender
-                  # Top Ending Locations
-                  poptrips %>%
-                    filter(gender!="Unreported") %>%
-                    group_by(end_statn) %>%
-                    summarize(Count=n()) %>%
-                    arrange(desc(Count))
+	# Excluding Unreported Gender
+  # Top Ending Locations
+  poptrips %>%
+	filter(gender!="Unreported") %>%
+	group_by(end_statn) %>%
+	summarize(Count=n()) %>%
+	arrange(desc(Count))
+  
+  # Top 10 end by Gender
+  newtopstations <- c("22","36","67","16","53","43","33","48","21","42")
+  genpopend <- poptrips %>%
+	filter(gender!="Unreported") %>%
+	filter(end_statn %in% newtopstations)
+  
+  # top 10 Plots
+  reorder_size <- function(x) {
+	factor(x, levels = names(sort(table(x), decreasing = TRUE)))
+  }
+  ggplot(genpopend, aes(x = reorder_size(end_statn))) +
+	geom_bar(aes(fill=gender)) +
+	xlab("Ending Stations") +
+	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+	ggtitle("Top 10 Ending Stations")
                   
-                  # Top 10 end by Gender
-                  newtopstations <- c("22","36","67","16","53","43","33","48","21","42")
-                  genpopend <- poptrips %>%
-                    filter(gender!="Unreported") %>%
-                    filter(end_statn %in% newtopstations)
-                  
-                  # top 10 Plots
-                  reorder_size <- function(x) {
-                    factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-                  }
-                  ggplot(genpopend, aes(x = reorder_size(end_statn))) +
-                    geom_bar(aes(fill=gender)) +
-                    xlab("Ending Stations") +
-                    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-                    ggtitle("Top 10 Ending Stations")
-                  
-        # Station 22 is South Station - 700 Atlantic Ave. (This is the Main Transportation hub in Downtown Boston)
-        # Station 36 is Boston Public Library - 700 Boylston St.  (Boston Public Library)
-        # Station 67 is MIT at Mass Ave / Amherst St (MIT)
-        # Station 53 is Beacon St / Mass Ave (Boston University)
-        # Station 16 is Back Bay / South End Station (ANother major transportation hub)
+	# Station 22 is South Station - 700 Atlantic Ave. (This is the Main Transportation hub in Downtown Boston)
+	# Station 36 is Boston Public Library - 700 Boylston St.  (Boston Public Library)
+	# Station 67 is MIT at Mass Ave / Amherst St (MIT)
+	# Station 53 is Beacon St / Mass Ave (Boston University)
+	# Station 16 is Back Bay / South End Station (ANother major transportation hub)
 ```
 
 
@@ -1209,41 +1206,36 @@ Next we did a little research on some of the most traveled station to get an ide
 
 
 ```R
-#-------------------Incoming/outgoing trips per station--------------------#
-
-                  
+#-------------------Incoming/outgoing trips per station--------------------#                 
 # Creating Data for plotting                  
-          #aggregate by station and sort by count
-                hubway_trips %>% group_by(strt_statn) %>% summarise(outgoing_trips=n()) %>% 
-                  as.data.frame() %>% arrange(., desc(outgoing_trips)) %>% rename(id = strt_statn) -> trips.o
-                
-                hubway_trips %>% group_by(end_statn) %>% summarise(incoming_trips=n()) %>%
-                  as.data.frame() %>% arrange(., desc(incoming_trips)) %>% rename(id = end_statn) -> trips.i
-                
-          # merge by station and add station info from hubway.stations
-          full_join(trips.o, trips.i, by = "id") -> trips.station
-          left_join(trips.station, hubway_stations, by = "id") %>% select(station, outgoing_trips, incoming_trips) %>%
-            group_by(station) %>% summarise(outgoing_trips=sum(outgoing_trips), incoming_trips=sum(incoming_trips))  %>% 
-            arrange(., desc(outgoing_trips), desc(incoming_trips)) -> trips.station
-          
-          # top 20
-          trips.station %>% slice(1:20) -> trips.station
-          
-          # gather for plotting
-          trips.station %>% gather ("trip","count", 2:3) %>% 
-            arrange(., desc(count))-> trips.station 
+  #aggregate by station and sort by count
+		hubway_trips %>% group_by(strt_statn) %>% summarise(outgoing_trips=n()) %>% 
+		  as.data.frame() %>% arrange(., desc(outgoing_trips)) %>% rename(id = strt_statn) -> trips.o
+		
+		hubway_trips %>% group_by(end_statn) %>% summarise(incoming_trips=n()) %>%
+		  as.data.frame() %>% arrange(., desc(incoming_trips)) %>% rename(id = end_statn) -> trips.i
+		
+  # merge by station and add station info from hubway.stations
+  full_join(trips.o, trips.i, by = "id") -> trips.station
+  left_join(trips.station, hubway_stations, by = "id") %>% select(station, outgoing_trips, incoming_trips) %>%
+	group_by(station) %>% summarise(outgoing_trips=sum(outgoing_trips), incoming_trips=sum(incoming_trips))  %>% 
+	arrange(., desc(outgoing_trips), desc(incoming_trips)) -> trips.station
+  
+  # top 20
+  trips.station %>% slice(1:20) -> trips.station
+  
+  # gather for plotting
+  trips.station %>% gather ("trip","count", 2:3) %>% 
+	arrange(., desc(count))-> trips.station 
           
 # Plotting Data
-          ggplot(trips.station, aes(x = reorder(station, -count), y=count, fill=trip)) +
-            geom_bar(stat="identity",color=I("black"), size=0,alpha = 0.5,width=0.8) +
-            xlab("Stations") + ylab("Count") +
-            theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-            ggtitle("Number of Trips (Incoming/Outgoing) per Station")
+  ggplot(trips.station, aes(x = reorder(station, -count), y=count, fill=trip)) +
+	geom_bar(stat="identity",color=I("black"), size=0,alpha = 0.5,width=0.8) +
+	xlab("Stations") + ylab("Count") +
+	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+	ggtitle("Number of Trips (Incoming/Outgoing) per Station")
 
 ```
-
-    Warning message:
-    “Factor `station` contains implicit NA, consider using `forcats::fct_explicit_na`”
     
 
 
@@ -1255,26 +1247,25 @@ Next we did a little research on some of the most traveled station to get an ide
 #------- Most popular source stations-----------------#
 
 #group trips by start station name and count number of trips for each station
-
-          hubway_trips$strt_statn_name <- as.character(trips$strt_statn)
-          hubway_trips$end_statn_name  <- as.character(trips$end_statn)
-          
-          tripsby_strt_statn <- hubway_trips %>%
-            group_by(strt_statn_name) %>%
-            summarise(number_trips = n()) %>%
-            select(strt_statn_name, number_trips) %>%
-            arrange(desc(number_trips)) %>%
-            ungroup()
-          tripsby_strt_statn$strt_statn_name <- factor(tripsby_strt_statn$strt_statn_name, 
-                                                       levels = tripsby_strt_statn$strt_statn_name, ordered = TRUE)
+  hubway_trips$strt_statn_name <- as.character(trips$strt_statn)
+  hubway_trips$end_statn_name  <- as.character(trips$end_statn)
+  
+  tripsby_strt_statn <- hubway_trips %>%
+	group_by(strt_statn_name) %>%
+	summarise(number_trips = n()) %>%
+	select(strt_statn_name, number_trips) %>%
+	arrange(desc(number_trips)) %>%
+	ungroup()
+  tripsby_strt_statn$strt_statn_name <- factor(tripsby_strt_statn$strt_statn_name, 
+											   levels = tripsby_strt_statn$strt_statn_name, ordered = TRUE)
 #Plot
-        ggplot(data = tripsby_strt_statn[1:5, ], 
-               aes(x = strt_statn_name, y = number_trips)) +
-          geom_bar(fill = 'steelblue', stat = 'identity') + 
-          ggtitle("Most Popular Source Bike Stations")+
-          ylab("Number of Trips") +
-          xlab("Bike Station Name") +
-          theme(axis.text.x = element_text(size = 8))+theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+ggplot(data = tripsby_strt_statn[1:5, ], 
+	   aes(x = strt_statn_name, y = number_trips)) +
+  geom_bar(fill = 'steelblue', stat = 'identity') + 
+  ggtitle("Most Popular Source Bike Stations")+
+  ylab("Number of Trips") +
+  xlab("Bike Station Name") +
+  theme(axis.text.x = element_text(size = 8))+theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
 ```
 
 
