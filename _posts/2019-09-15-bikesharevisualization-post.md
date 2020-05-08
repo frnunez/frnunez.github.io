@@ -435,10 +435,10 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 
 ```R
-              # Plot Histogram
-              ggplot(tripsregistered, aes(age)) + 
-                geom_histogram(color="#0b2f4c", fill="#0090DA") +
-                ggtitle("Distribution of Registered Users By Age")
+# Plot Histogram
+ggplot(tripsregistered, aes(age)) + 
+  geom_histogram(color="#0b2f4c", fill="#0090DA") +
+  ggtitle("Distribution of Registered Users By Age")
 ```
     
 
