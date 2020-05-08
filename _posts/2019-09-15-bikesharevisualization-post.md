@@ -418,13 +418,7 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 
 1106414
-
-
-
 755770
-
-
-
 350644
 
 
@@ -445,10 +439,6 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 <table>
 <caption>A tibble: 2 × 2</caption>
-<thead>
-	<tr><th scope=col>gender</th><th scope=col>mean</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
 <tbody>
 	<tr><td>Female</td><td>41.30244</td></tr>
 	<tr><td>Male  </td><td>43.16753</td></tr>
