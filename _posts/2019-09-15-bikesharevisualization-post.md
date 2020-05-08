@@ -456,24 +456,23 @@ For females, we saw a mean of 41.3 with a median of 38. The age range for 95% of
 
 
 ```R
-              # Distribution by Age and Gender
-              males <- tripsregistered %>%
-                filter(gender=="Male")
+# Distribution by Age and Gender
+males <- tripsregistered %>%
+  filter(gender=="Male")
               
-              females <- tripsregistered %>%
-                filter(gender=="Female")
+females <- tripsregistered %>%
+  filter(gender=="Female")
               
-              # Summaries
-              summary(males$age)
-              summary(females$age)
+# Summaries
+summary(males$age)
+summary(females$age)
 ```
 
-
+       Males - Age
        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
        24.0    34.0    40.0    43.2    51.0    85.0  571088 
 
-
-
+       Females - Age
        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
        24.0    33.0    38.0    41.3    47.0    87.0  184682 
 
