@@ -300,7 +300,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
 <table>
 <caption>A tibble: 2 × 2</caption>
 <thead>
-	<tr><th></th></tr>
+	<tr><th> </th></tr>
 	<tr><th>counts</th></tr>
 </thead>
 <tbody>
