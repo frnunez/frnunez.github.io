@@ -506,7 +506,7 @@ When comparing the age distribution foor both genders, we see that the graphs we
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_37_1.png)
 
-
+### Trip Duration
 Next, we looked at the duration of the trips to see how long riders were using the bikes for. Our initial observations included trips that lasted less than 60 seconds, and even some that somehow were listed as negative. We removed these trips from the set as there were numerous trips that were done for testing purposes and still included in the set. This also included trips were the bikes were originally started but due to reasons known by the rider, the bikes were redocked without actually going anywhere. In addition there were some trips which were noted as lasting over 24 hours. These were also removed from the set as there were other issues reported where a bike would not register as returned or may have been stolen.
 <br>
 <br>
