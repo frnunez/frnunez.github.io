@@ -404,20 +404,8 @@ Next we looked at the age distribution. Age was also not a required field for ca
 Of those that did report their age, the mean age was 42.7 while the median age was 40. 95% of the ridership was between the ages of 34 and 50. The total age range was 24 - 87.
 
 
-```R
-    # Distribution of Age (No Casual Riders Reported Age)
-              
-              # Stats for All Rider Ages
-              length(tripsregistered$age) # 1106414 total registered riders
-              sum(is.na(tripsregistered$age)) # 755770 did not report their age
-              sum(!is.na(tripsregistered$age)) # 350644 reported their age
-              summary(tripsregistered$age) # 755770 did not report their age, 95% of riders are in the age range 34 - 50
-```
 
 
-1106414
-755770
-350644
 
 
 
