@@ -57,11 +57,7 @@ if (!require(tidyr)) install.packages('tidyr')
 if (!require(lubridate)) install.packages('lubridate')
 ```
 
-    Loading required package: leaflet
-    
-    Loading required package: ggpubr
-    
-    
+ 
 
 ### Data set
 <br>
