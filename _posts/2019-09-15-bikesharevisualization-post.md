@@ -299,10 +299,6 @@ Our first exploration was to look at the registered users vs casual riders (non-
 
 <table>
 <caption>A tibble: 2 × 2</caption>
-<thead>
-	<tr><th>registration</th></tr>
-	<tr><th>counts</th></tr>
-</thead>
 <tbody>
 	<tr><td>Casual    </td><td> 472611</td></tr>
 	<tr><td>Registered</td><td>1106414</td></tr>
