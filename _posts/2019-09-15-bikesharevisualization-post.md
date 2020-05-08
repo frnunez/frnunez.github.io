@@ -600,7 +600,7 @@ We looked at the days of the week and saw that the majority of trips occured Mon
 
 
 ```R
-#---------------------Trips over different days of the week and Trips by time of day-----------------------------------------#
+#--Trips over different days of the week and Trips by time of day--#
 
 #Creating Data Frames
 trips$start_date <- mdy_hms(hubway_trips$start_date, tz = 'EST')
