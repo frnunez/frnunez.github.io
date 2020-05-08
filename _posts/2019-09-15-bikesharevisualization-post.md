@@ -163,41 +163,6 @@ An interactive map of Boston's MBTA Subway Stations was created using
 A similar map was created using the hubway stations data
 
 
-```R
-#-----     Creating BLUE bikes Station Location Map           -----#
-          # Blue Bikes branding
-          # https://motivateco.app.box.com/s/cw4tluatehnpfff4wzmch7v2f4ewa0uz
-          
-          #--- Modifying Data ---#
-          stations <- hubway_stations
-          
-          # Change column names
-          colnames(stations)[3] <- "station_name"
-          colnames(stations)[5] <- "latitude"
-          colnames(stations)[6] <- "longitude"
-          
-          # Convert the columns imported as a factor to characters
-          stations$station_name <- as.character(stations$station_name)
-          
-          # Convert the ID column into numbers
-          stations$id = as.numeric(stations$id)
-          
-          stations$type <- c("BLUEbikes")
-          
-          #--- Create the BLUEbikes Stations Map ---#
-          # Lat Long corrdinates from www.latlong.net
-          station_map <- leaflet(stations) %>%
-            addTiles() %>%  
-            setView(-71.057083, 42.361145, zoom = 12) %>%
-            addCircles(~longitude, ~latitude, weight = 3, radius=120, 
-                       color="#0090DA", stroke = TRUE, fillOpacity = 0.8) %>% 
-            addLegend("bottomleft", colors="#0090DA", labels="Data Source: Hubway Challenge Dataset", title="Hubway BLUEbikes Station Locations")
-          
-          # Plot the map
-          station_map
-```
-
-
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -220,7 +185,7 @@ A similar map was created using the hubway stations data
 
 
 ### Combined Map
-Station locations were consolidated into one interactive map. The first thing we noticed is that the northwestern quadrant of the map has very few MBTA Stations. This is clearly an underserved area and we expected to see some high usage of Blue Bikes in this area. The addition of the bike stations added an additional mode of transportation to the downtown Boston area.
+Both MBTA & Blue Bikes Station locations were consolidated into one interactive map for comparison. The first thing we noticed is that the northwestern quadrant of the map has very few MBTA Stations. This is clearly an underserved area and we expected to see some high usage of Blue Bikes in this area. The addition of the bike stations added an additional mode of transportation to the downtown Boston area.
 
 
 ```R
