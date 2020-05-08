@@ -479,12 +479,11 @@ summary(females$age)
 
 
 ```R
-              # Plots
-              ggplot(tripsregistered, aes(x=age, color=gender))+ 
-                geom_histogram(fill="#0090DA", alpha=0.5, position="identity") +
-                scale_color_manual(values=c("#0b2f4c", "#FFFFFF")) +
-                #scale_color_brewer(palette="Blues") +
-                ggtitle("Distribution of Registered Users By Age")
+# Plots
+ggplot(tripsregistered, aes(x=age, color=gender))+ 
+  geom_histogram(fill="#0090DA", alpha=0.5, position="identity") +
+  scale_color_manual(values=c("#0b2f4c", "#FFFFFF")) +
+  ggtitle("Distribution of Registered Users By Age")
 ```
     
 
