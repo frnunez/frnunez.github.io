@@ -3,7 +3,7 @@ title: "Hubway Bikeshare Visualization Project"
 date: 2019-09-15
 tags: [bike share, Boston, data science, visualization]
 header:
-  image: "/images/asd/autism-awareness.jpg"
+  image: "/images/visualization/700huron.jpg"
 excerpt: "Bike Share, Boston, Data Science, visualization"
 mathjax: "true"
 ---
