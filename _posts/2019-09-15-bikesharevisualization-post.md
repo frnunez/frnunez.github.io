@@ -323,9 +323,6 @@ Our first exploration was to look at the registered users vs casual riders (non-
              main="Pie Chart of Registered vs Casual Riders")  
 ```
 
-    Warning message in brewer.pal(2, "Blues"):
-    “minimal value for n is 3, returning requested palette with 3 different levels
-    ”
     
 
 
