@@ -397,7 +397,7 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_28_0.png)
 
-
+### Age Distribution
 Next we looked at the age distribution. Age was also not a required field for casual riders and thus this information only includes the registered users. A quick look at some statistical information shows us that only 31.69% of registred riders (350,644 out of 1,106,414) reported their age.
 <br>
 <br>
