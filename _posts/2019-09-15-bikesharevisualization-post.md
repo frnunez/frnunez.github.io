@@ -302,7 +302,6 @@ Our first exploration was to look at the registered users vs casual riders (non-
 <thead>
 	<tr><th></th></tr>
 	<tr><th>counts</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
 </thead>
 <tbody>
 	<tr><td>Casual    </td><td> 472611</td></tr>
