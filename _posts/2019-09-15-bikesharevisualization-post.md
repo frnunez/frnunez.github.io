@@ -149,26 +149,8 @@ An interactive map of Boston's MBTA Subway Stations was created using
       # Download the .zip file and unzip contents
       download.file(StopsURL, dest = "MBTA_GTFS.zip", mode = "wb") 
       unzip("MBTA_GTFS.zip", exdir = "MBTA")
-      
-      # Assess the files contained in the .zip file and then import each dataset
-      list.files("MBTA")
-      #hubway_stations <- read.csv(unz("MBTA_GTFS.zip", "hubway_stations.csv"))
-      #hubway_trips <- read.csv(unz("MBTA_GTFS.zip", "hubway_trips.csv"))
-      
-      #Basic Descriptive Info
-      #hubway_trips[1:5, 1:10]
-      #str(hubway_trips)
-      #dim(hubway_trips)
+
 ```
-
-
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'agency.txt'</li><li>'calendar_attributes.txt'</li><li>'calendar_dates.txt'</li><li>'calendar.txt'</li><li>'checkpoints.txt'</li><li>'directions.txt'</li><li>'facilities_properties_definitions.txt'</li><li>'facilities_properties.txt'</li><li>'facilities.txt'</li><li>'feed_info.txt'</li><li>'levels.txt'</li><li>'lines.txt'</li><li>'linked_datasets.txt'</li><li>'multi_route_trips.txt'</li><li>'pathways.txt'</li><li>'route_patterns.txt'</li><li>'routes.txt'</li><li>'shapes.txt'</li><li>'stop_times.txt'</li><li>'stops.txt'</li><li>'transfers.txt'</li><li>'trips.txt'</li></ol>
-
 
 
 
