@@ -516,7 +516,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
 
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_21_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_21_1.png)
 
 
 
@@ -537,7 +537,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_22_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_22_1.png)
 
 
 Next we explored the distribution of usage by reported gender. When we looked at all records, we saw that 53% of riders reported being males, 17% female and  30% unreported. We suspected that this was not a fair assessment of gender and it heavily skewed towards unreported due to the fact that gender did NOT need to be reported by casual riders. 
@@ -557,7 +557,7 @@ Next we explored the distribution of usage by reported gender. When we looked at
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_24_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_24_0.png)
 
 
 
@@ -573,7 +573,7 @@ Next we explored the distribution of usage by reported gender. When we looked at
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_25_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_25_0.png)
 
 
 When we looked at just the registered riders, we saw that 75% of the registered riders reported being male, while 25% reported being female. Focusing on just the registred user would eliminate 30% of our data but it would allow us to get a better picture of the riders.
@@ -592,7 +592,7 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_27_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_27_0.png)
 
 
 
@@ -608,7 +608,7 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_28_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_28_0.png)
 
 
 Next we looked at the age distribution. Age was also not a required field for casual riders and thus this information only includes the registered users. A quick look at some statistical information shows us that only 31.69% of registred riders (350,644 out of 1,106,414) reported their age.
@@ -683,7 +683,7 @@ Of those that did report their age, the mean age was 42.7 while the median age w
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_32_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_32_1.png)
 
 
 We also wanted to look at the age distribution by gender. 
@@ -735,7 +735,7 @@ For females, we saw a mean of 41.3 with a median of 38. The age range for 95% of
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_35_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_35_1.png)
 
 
 When comparing the age distribution foor both genders, we see that the graphs were both right skewed. With a median age of 30 for females and 40 for males.
@@ -756,7 +756,7 @@ When comparing the age distribution foor both genders, we see that the graphs we
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_37_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_37_1.png)
 
 
 Next, we looked at the duration of the trips to see how long riders were using the bikes for. Our initial observations included trips that lasted less than 60 seconds, and even some that somehow were listed as negative. We removed these trips from the set as there were numerous trips that were done for testing purposes and still included in the set. This also included trips were the bikes were originally started but due to reasons known by the rider, the bikes were redocked without actually going anywhere. In addition there were some trips which were noted as lasting over 24 hours. These were also removed from the set as there were other issues reported where a bike would not register as returned or may have been stolen.
@@ -814,7 +814,7 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_42_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_42_0.png)
 
 
 
@@ -830,7 +830,7 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_43_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_43_1.png)
 
 
 We looked for a relationship between the age and duration of trips. There wasnt much change in the duration by age with the exception of a few of the older users. The trip distances did not vary much.
@@ -850,7 +850,7 @@ We looked for a relationship between the age and duration of trips. There wasnt 
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_45_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_45_1.png)
 
 
 
@@ -863,7 +863,7 @@ We looked for a relationship between the age and duration of trips. There wasnt 
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_46_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_46_0.png)
 
 
 
@@ -880,7 +880,7 @@ We looked for a relationship between the age and duration of trips. There wasnt 
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_47_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_47_1.png)
 
 
 We looked at the days of the week and saw that the majority of trips occured Monday to Friday. There was a drop off in trips during the weekend, particularly for Sunday.
@@ -903,7 +903,7 @@ We looked at the days of the week and saw that the majority of trips occured Mon
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_49_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_49_0.png)
 
 
 We looked at trips by time of day, we noticed that there were two peaks, one around 8AM and the other at 5PM. When paired with the previous data showing that the majority of trips are occuring Monday to Friday we are predicting that these trips are mostly to and from work locations for the users.
@@ -920,7 +920,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_51_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_51_0.png)
 
 
 
@@ -1096,7 +1096,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_54_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_54_0.png)
 
 
 
@@ -1201,7 +1201,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_55_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_55_1.png)
 
 
 
@@ -1331,7 +1331,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_56_2.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_56_2.png)
 
 
 
@@ -1442,7 +1442,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_57_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_57_1.png)
 
 
 We looked at the most travelled station and saw that the most traveled incoming and outgoing trips were the same locations which indicated that many of these trips were round trips. The leads us to further believe our hypothesis that most of these trips are to and from work.
@@ -1499,7 +1499,7 @@ Next we did a little research on some of the most traveled station to get an ide
     
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_59_1.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_59_1.png)
 
 
 
@@ -1530,7 +1530,7 @@ Next we did a little research on some of the most traveled station to get an ide
 ```
 
 
-![png](IST_719_Data_Visualization_files/IST_719_Data_Visualization_60_0.png)
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_60_0.png)
 
 
 ## Summary
