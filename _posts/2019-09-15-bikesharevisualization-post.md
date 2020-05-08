@@ -334,7 +334,6 @@ A similar map was created using the hubway stations data
 ```
 
 
-<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -355,8 +354,6 @@ A similar map was created using the hubway stations data
 </html>
 
 
-
-![alt text](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/bluebikesstationsmap.jpeg)
 
 ### Combined Map
 Station locations were consolidated into one interactive map. The first thing we noticed is that the northwestern quadrant of the map has very few MBTA Stations. This is clearly an underserved area and we expected to see some high usage of Blue Bikes in this area. The addition of the bike stations added an additional mode of transportation to the downtown Boston area.
@@ -383,7 +380,6 @@ Station locations were consolidated into one interactive map. The first thing we
 ```
 
 
-<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -405,7 +401,6 @@ Station locations were consolidated into one interactive map. The first thing we
 
 
 
-![alt text](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/bostonstationsmap.jpeg)
 
 ## Trips Data Preparation
 
