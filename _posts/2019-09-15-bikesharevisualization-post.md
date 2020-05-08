@@ -80,7 +80,7 @@ The hubway trip history data includes:
   * casual = single trip or day pass user
   * member = annual or monthly membership (unlimited use)
 * Birth Year
-* Gender (optional for members, not required for casual)
+* Gender (optional for members, not asked for casuals)
 <br>
 <br>
 
