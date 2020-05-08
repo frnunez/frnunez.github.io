@@ -514,9 +514,9 @@ Next, we looked at the duration of the trips to see how long riders were using t
 ```R
 #--- Trips Duration (Duration measured in seconds)---#
   # Creating Set and Clean Up
-	  tripsdur <- trips  %>%
-		select(duration, subsc_type, birth_date, gender,age)
-	  summary(trips$duration)
+  tripsdur <- trips  %>%
+	select(duration, subsc_type, birth_date, gender,age)
+  summary(trips$duration)
 ```
 
 
@@ -552,35 +552,6 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
        1.017    7.000   11.000   17.472   18.250 1439.550 
 
 
-
-```R
-## - Age vs Duration - ## 
-  # Plot of Relationship between duration and age
-	plot(trips$duration, trips$age,xlim= c(1, 10000), 
-		 col = "#f17c67",pch=10, cex=.1 , xlab="Trip Time in Seconds",ylab="User Age in Years", 
-		 main="Relationship between Trip Duration \nand User Age") 
-```
-
-
-![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_42_0.png)
-
-
-
-```R
-# Relationship between Age and Duration (Same as above, different view, removed outliers)
-ggplot(tripsdur, aes(age, (duration))) + 
-  geom_point() + xlab("Age") + ylab("Duration in Minutes") +
-  ylim(0,75)
-```
-
-    Warning message:
-    “Removed 1220375 rows containing missing values (geom_point).”
-    
-
-
-![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_43_1.png)
-
-
 We looked for a relationship between the age and duration of trips. There wasnt much change in the duration by age with the exception of a few of the older users. The trip distances did not vary much.
 
 
@@ -592,9 +563,6 @@ ggplot(tripsdur, aes(x=factor(age), y=(duration))) +
   theme(axis.text.x = element_text(angle = 90)) + xlab("Age") + ylab("Duration in Minutes") +
   ylim(0,75) 
 ```
-
-    Warning message:
-    “Removed 33744 rows containing non-finite values (stat_boxplot).”
     
 
 
@@ -627,7 +595,7 @@ ggplot(tripsdur, aes(x=gender, y=duration)) +
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_47_1.png)
 
-
+### Day of the Week
 We looked at the days of the week and saw that the majority of trips occured Monday to Friday. There was a drop off in trips during the weekend, particularly for Sunday.
 
 
@@ -635,16 +603,16 @@ We looked at the days of the week and saw that the majority of trips occured Mon
 #---------------------Trips over different days of the week and Trips by time of day-----------------------------------------#
 
 #Creating Data Frames
-        trips$start_date <- mdy_hms(hubway_trips$start_date, tz = 'EST')
-        trips$end_date   <- mdy_hms(hubway_trips$end_date, tz = 'EST')
-        
-        trips$day_of_week <- wday(trips$start_date, label = TRUE)
+trips$start_date <- mdy_hms(hubway_trips$start_date, tz = 'EST')
+trips$end_date   <- mdy_hms(hubway_trips$end_date, tz = 'EST')
+
+trips$day_of_week <- wday(trips$start_date, label = TRUE)
 
 #Plot        
-        ggplot(data = trips, aes(x = day_of_week)) + geom_bar(fill = '#0090DA', color="#0D1D32")+
-          ggtitle("Trips By Days of the Week")+
-          ylab("Number of Trips") +
-          xlab("Day of Week")
+ggplot(data = trips, aes(x = day_of_week)) + geom_bar(fill = '#0090DA', color="#0D1D32")+
+  ggtitle("Trips By Days of the Week")+
+  ylab("Number of Trips") +
+  xlab("Day of Week")
 ```
 
 
