@@ -638,6 +638,7 @@ ggplot(data = trips, aes(x = hour_of_day)) +
 
 ### Top Stations
 
+#### Starting Stations
 ```R
 #--- Popular Destinations ---#           
 # Popular Trips Set
@@ -760,84 +761,10 @@ ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
 ```
 
 
-<table>
-<caption>A tibble: 142 × 2</caption>
-<thead>
-	<tr><th scope=col>strt_statn</th><th scope=col>Count</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>22 </td><td>46156</td></tr>
-	<tr><td>16 </td><td>27089</td></tr>
-	<tr><td>36 </td><td>25021</td></tr>
-	<tr><td>67 </td><td>24274</td></tr>
-	<tr><td>53 </td><td>24181</td></tr>
-	<tr><td>33 </td><td>19964</td></tr>
-	<tr><td>43 </td><td>19427</td></tr>
-	<tr><td>48 </td><td>19020</td></tr>
-	<tr><td>40 </td><td>18892</td></tr>
-	<tr><td>39 </td><td>18161</td></tr>
-	<tr><td>21 </td><td>17488</td></tr>
-	<tr><td>42 </td><td>17108</td></tr>
-	<tr><td>6  </td><td>16611</td></tr>
-	<tr><td>25 </td><td>16220</td></tr>
-	<tr><td>47 </td><td>16150</td></tr>
-	<tr><td>46 </td><td>16140</td></tr>
-	<tr><td>52 </td><td>16117</td></tr>
-	<tr><td>64 </td><td>15760</td></tr>
-	<tr><td>38 </td><td>15665</td></tr>
-	<tr><td>26 </td><td>15427</td></tr>
-	<tr><td>80 </td><td>15332</td></tr>
-	<tr><td>58 </td><td>15329</td></tr>
-	<tr><td>32 </td><td>14935</td></tr>
-	<tr><td>50 </td><td>14878</td></tr>
-	<tr><td>113</td><td>14727</td></tr>
-	<tr><td>68 </td><td>14702</td></tr>
-	<tr><td>55 </td><td>14682</td></tr>
-	<tr><td>57 </td><td>14642</td></tr>
-	<tr><td>75 </td><td>14531</td></tr>
-	<tr><td>54 </td><td>14461</td></tr>
-	<tr><td>⋮</td><td>⋮</td></tr>
-	<tr><td>83 </td><td>1211</td></tr>
-	<tr><td>104</td><td>1159</td></tr>
-	<tr><td>140</td><td>1037</td></tr>
-	<tr><td>116</td><td> 996</td></tr>
-	<tr><td>100</td><td> 962</td></tr>
-	<tr><td>110</td><td> 885</td></tr>
-	<tr><td>143</td><td> 879</td></tr>
-	<tr><td>142</td><td> 868</td></tr>
-	<tr><td>93 </td><td> 706</td></tr>
-	<tr><td>37 </td><td> 601</td></tr>
-	<tr><td>117</td><td> 599</td></tr>
-	<tr><td>105</td><td> 570</td></tr>
-	<tr><td>92 </td><td> 427</td></tr>
-	<tr><td>106</td><td> 426</td></tr>
-	<tr><td>119</td><td> 329</td></tr>
-	<tr><td>122</td><td> 327</td></tr>
-	<tr><td>101</td><td> 315</td></tr>
-	<tr><td>107</td><td> 274</td></tr>
-	<tr><td>82 </td><td> 273</td></tr>
-	<tr><td>85 </td><td> 236</td></tr>
-	<tr><td>121</td><td> 226</td></tr>
-	<tr><td>124</td><td> 201</td></tr>
-	<tr><td>145</td><td> 175</td></tr>
-	<tr><td>120</td><td> 160</td></tr>
-	<tr><td>118</td><td> 145</td></tr>
-	<tr><td>123</td><td> 124</td></tr>
-	<tr><td>125</td><td> 118</td></tr>
-	<tr><td>108</td><td>  83</td></tr>
-	<tr><td>97 </td><td>  76</td></tr>
-	<tr><td>109</td><td>  44</td></tr>
-</tbody>
-</table>
-
-
-
-
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_55_1.png)
 
 
-
+#### Ending Stations
 ```R
 #--- Ending Stations ---#  
 	### By Gender ###
@@ -874,102 +801,12 @@ ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
 ```
 
 
-<table>
-<caption>A tibble: 142 × 2</caption>
-<thead>
-	<tr><th scope=col>end_statn</th><th scope=col>Count</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>22 </td><td>56280</td></tr>
-	<tr><td>36 </td><td>43387</td></tr>
-	<tr><td>42 </td><td>34916</td></tr>
-	<tr><td>67 </td><td>34580</td></tr>
-	<tr><td>53 </td><td>33369</td></tr>
-	<tr><td>33 </td><td>32246</td></tr>
-	<tr><td>16 </td><td>29665</td></tr>
-	<tr><td>43 </td><td>27738</td></tr>
-	<tr><td>52 </td><td>27222</td></tr>
-	<tr><td>74 </td><td>26741</td></tr>
-	<tr><td>21 </td><td>26524</td></tr>
-	<tr><td>58 </td><td>26356</td></tr>
-	<tr><td>47 </td><td>25655</td></tr>
-	<tr><td>40 </td><td>24747</td></tr>
-	<tr><td>48 </td><td>24580</td></tr>
-	<tr><td>54 </td><td>24242</td></tr>
-	<tr><td>46 </td><td>23476</td></tr>
-	<tr><td>20 </td><td>22824</td></tr>
-	<tr><td>6  </td><td>22655</td></tr>
-	<tr><td>55 </td><td>22452</td></tr>
-	<tr><td>50 </td><td>21777</td></tr>
-	<tr><td>39 </td><td>21666</td></tr>
-	<tr><td>38 </td><td>21630</td></tr>
-	<tr><td>113</td><td>21626</td></tr>
-	<tr><td>75 </td><td>21422</td></tr>
-	<tr><td>32 </td><td>20965</td></tr>
-	<tr><td>64 </td><td>20530</td></tr>
-	<tr><td>45 </td><td>20277</td></tr>
-	<tr><td>80 </td><td>20040</td></tr>
-	<tr><td>114</td><td>19119</td></tr>
-	<tr><td>⋮</td><td>⋮</td></tr>
-	<tr><td>140</td><td>1608</td></tr>
-	<tr><td>110</td><td>1597</td></tr>
-	<tr><td>141</td><td>1539</td></tr>
-	<tr><td>93 </td><td>1467</td></tr>
-	<tr><td>116</td><td>1453</td></tr>
-	<tr><td>37 </td><td>1433</td></tr>
-	<tr><td>144</td><td>1390</td></tr>
-	<tr><td>142</td><td>1021</td></tr>
-	<tr><td>100</td><td> 996</td></tr>
-	<tr><td>92 </td><td> 914</td></tr>
-	<tr><td>143</td><td> 859</td></tr>
-	<tr><td>117</td><td> 818</td></tr>
-	<tr><td>106</td><td> 764</td></tr>
-	<tr><td>107</td><td> 683</td></tr>
-	<tr><td>105</td><td> 562</td></tr>
-	<tr><td>101</td><td> 494</td></tr>
-	<tr><td>122</td><td> 466</td></tr>
-	<tr><td>82 </td><td> 425</td></tr>
-	<tr><td>85 </td><td> 364</td></tr>
-	<tr><td>124</td><td> 341</td></tr>
-	<tr><td>120</td><td> 335</td></tr>
-	<tr><td>119</td><td> 332</td></tr>
-	<tr><td>121</td><td> 322</td></tr>
-	<tr><td>118</td><td> 260</td></tr>
-	<tr><td>97 </td><td> 257</td></tr>
-	<tr><td>145</td><td> 255</td></tr>
-	<tr><td>125</td><td> 193</td></tr>
-	<tr><td>123</td><td> 120</td></tr>
-	<tr><td>108</td><td>  75</td></tr>
-	<tr><td>109</td><td>  42</td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<caption>A tibble: 3 × 3</caption>
-<thead>
-	<tr><th scope=col>gender</th><th scope=col>n</th><th scope=col>precent</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>Male      </td><td>834688</td><td>52.86272</td></tr>
-	<tr><td>Unreported</td><td>472592</td><td>29.93034</td></tr>
-	<tr><td>Female    </td><td>271693</td><td>17.20694</td></tr>
-</tbody>
-</table>
-
-
-
-
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_56_2.png)
 
 
 
 ```R
-	# Excluding Unreported Gender
+# Excluding Unreported Gender
   # Top Ending Locations
   poptrips %>%
 	filter(gender!="Unreported") %>%
@@ -999,81 +836,6 @@ ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
 	# Station 53 is Beacon St / Mass Ave (Boston University)
 	# Station 16 is Back Bay / South End Station (ANother major transportation hub)
 ```
-
-
-<table>
-<caption>A tibble: 142 × 2</caption>
-<thead>
-	<tr><th scope=col>end_statn</th><th scope=col>Count</th></tr>
-	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>22 </td><td>46382</td></tr>
-	<tr><td>36 </td><td>26331</td></tr>
-	<tr><td>67 </td><td>24934</td></tr>
-	<tr><td>16 </td><td>24381</td></tr>
-	<tr><td>53 </td><td>21469</td></tr>
-	<tr><td>43 </td><td>21338</td></tr>
-	<tr><td>33 </td><td>20798</td></tr>
-	<tr><td>48 </td><td>20772</td></tr>
-	<tr><td>21 </td><td>18452</td></tr>
-	<tr><td>42 </td><td>18432</td></tr>
-	<tr><td>39 </td><td>17836</td></tr>
-	<tr><td>40 </td><td>17518</td></tr>
-	<tr><td>64 </td><td>17074</td></tr>
-	<tr><td>80 </td><td>16625</td></tr>
-	<tr><td>52 </td><td>16440</td></tr>
-	<tr><td>46 </td><td>16372</td></tr>
-	<tr><td>50 </td><td>16117</td></tr>
-	<tr><td>114</td><td>16099</td></tr>
-	<tr><td>38 </td><td>16051</td></tr>
-	<tr><td>6  </td><td>15926</td></tr>
-	<tr><td>26 </td><td>15606</td></tr>
-	<tr><td>32 </td><td>15486</td></tr>
-	<tr><td>47 </td><td>15393</td></tr>
-	<tr><td>75 </td><td>15197</td></tr>
-	<tr><td>55 </td><td>14556</td></tr>
-	<tr><td>25 </td><td>14297</td></tr>
-	<tr><td>68 </td><td>14008</td></tr>
-	<tr><td>45 </td><td>13899</td></tr>
-	<tr><td>74 </td><td>13708</td></tr>
-	<tr><td>54 </td><td>13471</td></tr>
-	<tr><td>⋮</td><td>⋮</td></tr>
-	<tr><td>144</td><td>1102</td></tr>
-	<tr><td>140</td><td>1083</td></tr>
-	<tr><td>110</td><td>1044</td></tr>
-	<tr><td>141</td><td>1043</td></tr>
-	<tr><td>116</td><td> 890</td></tr>
-	<tr><td>100</td><td> 844</td></tr>
-	<tr><td>37 </td><td> 793</td></tr>
-	<tr><td>93 </td><td> 784</td></tr>
-	<tr><td>142</td><td> 781</td></tr>
-	<tr><td>143</td><td> 670</td></tr>
-	<tr><td>117</td><td> 625</td></tr>
-	<tr><td>105</td><td> 477</td></tr>
-	<tr><td>92 </td><td> 379</td></tr>
-	<tr><td>106</td><td> 379</td></tr>
-	<tr><td>107</td><td> 377</td></tr>
-	<tr><td>101</td><td> 345</td></tr>
-	<tr><td>82 </td><td> 309</td></tr>
-	<tr><td>122</td><td> 300</td></tr>
-	<tr><td>119</td><td> 257</td></tr>
-	<tr><td>124</td><td> 245</td></tr>
-	<tr><td>85 </td><td> 236</td></tr>
-	<tr><td>121</td><td> 219</td></tr>
-	<tr><td>145</td><td> 207</td></tr>
-	<tr><td>120</td><td> 201</td></tr>
-	<tr><td>118</td><td> 174</td></tr>
-	<tr><td>125</td><td> 116</td></tr>
-	<tr><td>123</td><td>  85</td></tr>
-	<tr><td>97 </td><td>  77</td></tr>
-	<tr><td>108</td><td>  59</td></tr>
-	<tr><td>109</td><td>  30</td></tr>
-</tbody>
-</table>
-
-
-
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_57_1.png)
 
