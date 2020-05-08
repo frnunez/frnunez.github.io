@@ -618,7 +618,7 @@ ggplot(data = trips, aes(x = day_of_week)) + geom_bar(fill = '#0090DA', color="#
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_49_0.png)
 
-
+### Time of Day
 We looked at trips by time of day, we noticed that there were two peaks, one around 8AM and the other at 5PM. When paired with the previous data showing that the majority of trips are occuring Monday to Friday we are predicting that these trips are mostly to and from work locations for the users.
 
 
@@ -654,12 +654,6 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 ```
 
 
-142
-
-
-
-142
-
 
 
        start_date                    strt_statn         end_date                  
@@ -683,26 +677,26 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 
 ```R
 #--- Starting Stations ---#  
-	### By Gender ###
-		
-	# ALL DATA
-			# Top Starting Locations
-			poptrips %>%
-			  group_by(strt_statn) %>%
-			  summarize(Count=n()) %>%
-			  arrange(desc(Count))
-		
-			# Percentage of Gender Reported
-			poptrips %>%
-			  group_by(gender) %>%
-			  summarise (n = n()) %>%
-			  mutate(precent = (n / sum(n))*100) %>%
-			  arrange(desc(precent))
-			
-			# Top 10 Start by Gender (All Data)
-				  topstations <- c("22","36","53","67","16","42","33","58","52","47")
-				  ugenpopstart <- poptrips %>%
-					filter(strt_statn %in% topstations)
+### By Gender ###
+	
+# ALL DATA
+# Top Starting Locations
+poptrips %>%
+  group_by(strt_statn) %>%
+  summarize(Count=n()) %>%
+  arrange(desc(Count))
+
+# Percentage of Gender Reported
+poptrips %>%
+  group_by(gender) %>%
+  summarise (n = n()) %>%
+  mutate(precent = (n / sum(n))*100) %>%
+  arrange(desc(precent))
+
+# Top 10 Start by Gender (All Data)
+	  topstations <- c("22","36","53","67","16","42","33","58","52","47")
+	  ugenpopstart <- poptrips %>%
+		filter(strt_statn %in% topstations)
 ```
 
 
