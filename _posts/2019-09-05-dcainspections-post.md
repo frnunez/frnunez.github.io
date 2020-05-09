@@ -1624,7 +1624,7 @@ webbrowser.open(output_file, new=2)
 ```
 
 ## Code
-You can check out the Pyton code used using the following methods:
+You can check out the Python code used using the following methods:
 
 
 1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20652%20-%20Scripting%20for%20Data%20Analysis%20-%20DCA%20Inspections)
