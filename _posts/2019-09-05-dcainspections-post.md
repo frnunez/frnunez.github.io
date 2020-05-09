@@ -1,6 +1,6 @@
 ---
 title: "Data Exploration and Prediction Project"
-date: 2019-09-25
+date: 2019-09-05
 tags: [NYC, data science, inspections predictions]
 header:
   image: "/images/inspections/newskiosk.jpg"
@@ -1624,7 +1624,7 @@ webbrowser.open(output_file, new=2)
 ```
 
 ## Code
-You can check out the code used using the following methods:
+You can check out the Pyton code used using the following methods:
 
 
 1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-IST-652/blob/master/IST652%20Project%20-%20DCA%20Inspections.ipynb)
