@@ -17,6 +17,7 @@ Who is using Hubway?
 
 1.   Who is using Hubway?
 2.   Where is everyone going?
+<br>
 <p align="justify">
 Our target audience is bike sharing customers, company stakeholders, city authorities, academics, data related profesionals.
 <br>
@@ -60,9 +61,9 @@ if (!require(lubridate)) install.packages('lubridate')
  
 
 ### Data set
-<br>
+<p align="justify">
 The data set is available from the Hubway Challenge website at the link below:
-
+</p>
 
 [Hubway Challange Dataset](http://files.hubwaydatachallenge.org/hubway_2011_07_through_2013_11.zip)
 <br>
@@ -187,8 +188,9 @@ A similar map was created using the hubway stations data
 
 
 ### Combined Map
+<p align="justify">
 Both MBTA & Blue Bikes Station locations were consolidated into one interactive map for comparison. The first thing we noticed is that the northwestern quadrant of the map has very few MBTA Stations. This is clearly an underserved area and we expected to see some high usage of Blue Bikes in this area. The addition of the bike stations added an additional mode of transportation to the downtown Boston area.
-
+</p>
 
 <html>
 	<head>
@@ -247,8 +249,9 @@ Both MBTA & Blue Bikes Station locations were consolidated into one interactive 
 
 ## Data Exploration
 ### Registered Users vs Casual Users
+<p align="justify">
 Our first exploration was to look at the registered users vs casual riders (non-registered). We see that 70% of the total riders were registerd users.
-
+</p>
 
 ```R
  #--- Basic User/Rider Demographics ---#
@@ -284,8 +287,9 @@ Our first exploration was to look at the registered users vs casual riders (non-
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_22_1.png)
 
 ### Riders by Gender
+<p align="justify">
 Next we explored the distribution of usage by reported gender. When we looked at all records, we saw that 53% of riders reported being males, 17% female and  30% unreported. We suspected that this was not a fair assessment of gender and it heavily skewed towards unreported due to the fact that gender did NOT need to be reported by casual riders. 
-
+</p>
 
 ```R
 # Rides By Gender
@@ -319,9 +323,9 @@ Next we explored the distribution of usage by reported gender. When we looked at
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_25_0.png)
 
-
+<p align="justify">
 When we looked at just the registered riders, we saw that 75% of the registered riders reported being male, while 25% reported being female. Focusing on just the registred user would eliminate 30% of our data but it would allow us to get a better picture of the riders.
-
+</p>
 
 ```R
 # Registered Users ONLY
@@ -355,11 +359,12 @@ When we looked at just the registered riders, we saw that 75% of the registered 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_28_0.png)
 
 ### Age Distribution
+<p align="justify">
 Next we looked at the age distribution. Age was also not a required field for casual riders and thus this information only includes the registered users. A quick look at some statistical information shows us that only 31.69% of registred riders (350,644 out of 1,106,414) reported their age.
 <br>
 <br>
 Of those that did report their age, the mean age was 42.7 while the median age was 40. 95% of the ridership was between the ages of 34 and 50. The total age range was 24 - 87.
-
+</p>
 
 
 
@@ -402,7 +407,7 @@ ggplot(tripsregistered, aes(age)) +
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_32_1.png)
 
-
+<p align="justify">
 We also wanted to look at the age distribution by gender. 
 <br>
 <br>
@@ -410,7 +415,7 @@ For males, we had a mean of 43.2 and a median of 40. The age range for 95% of th
 <br>
 <br>
 For females, we saw a mean of 41.3 with a median of 38. The age range for 95% of the reiders in this group was 33 - 47 with an age range of 24 - 87.
-
+</p>
 
 ```R
 # Distribution by Age and Gender
@@ -447,9 +452,9 @@ ggplot(tripsregistered, aes(x=age, color=gender))+
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_35_1.png)
 
-
+<p align="justify">
 When comparing the age distribution for both genders, we see that the graphs were both right skewed. With a median age of 30 for females and 40 for males.
-
+</p>
 
 ```R
   ggplot(tripsregistered, aes(x=age, color=gender))+ 
@@ -465,9 +470,9 @@ When comparing the age distribution for both genders, we see that the graphs wer
 
 
 ### Trip Duration
-
+<p align="justify">
 Next, we looked at the duration of the trips to see how long riders were using the bikes for. Our initial observations included trips that lasted less than 60 seconds, and even some that somehow were listed as negative. We removed these trips from the set as there were numerous trips that were done for testing purposes and still included in the set. This also included trips were the bikes were originally started but due to reasons known by the rider, the bikes were redocked without actually going anywhere. In addition there were some trips which were noted as lasting over 24 hours. These were also removed from the set as there were other issues reported where a bike would not register as returned or may have been stolen.
-<br>
+</p>
 
 
 ```R
@@ -482,9 +487,9 @@ Next, we looked at the duration of the trips to see how long riders were using t
         Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
        -6900      412      660     1200     1082 11994458 
 
-<br>
+<p align="justify">
 Once the set was cleaned up, we converted the time from seconds to minutes. The median trip length was 11 minutes, with a mean of 17.472 minutes. The duration for 95% of this set was 7 - 18.250 minutes. The range was 1.017 - 1439.550 minutes. 
-
+</p>
 
 ```R
 # Clean Up of Outliers
@@ -510,9 +515,9 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
         Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
        1.017    7.000   11.000   17.472   18.250 1439.550 
 
-
+<p align="justify">
 We looked for a relationship between the age and duration of trips. There wasnt much change in the duration by age with the exception of a few of the older users. The trip distances did not vary much.
-
+</p>
 
 ```R
 # Boxplot Age vs duration. Have to convert age to factor
@@ -542,8 +547,9 @@ ggplot(tripsdur, aes(x=gender, y=duration)) +
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_47_1.png)
 
 ### Day of the Week
+<p align="justify">
 We looked at the days of the week and saw that the majority of trips occured Monday to Friday. There was a drop off in trips during the weekend, particularly for Sunday.
-
+</p>
 
 ```R
 #--Trips over different days of the week and Trips by time of day--#
@@ -565,8 +571,9 @@ ggplot(data = trips, aes(x = day_of_week)) + geom_bar(fill = '#0090DA', color="#
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_49_0.png)
 
 ### Time of Day
+<p align="justify">
 We looked at trips by time of day, we noticed that there were two peaks, one around 8AM and the other at 5PM. When paired with the previous data showing that the majority of trips are occuring Monday to Friday we are predicting that these trips are mostly to and from work locations for the users.
-
+</p>
 
 ```R
 #Plot
@@ -583,7 +590,9 @@ ggplot(data = trips, aes(x = hour_of_day)) +
 
 
 ### Top Stations
+<p align="justify">
 Lastly, we wanted to take a look at the actual destinations to get an idea of where riders were traveling to during these days/hours. We looked at the data for starting locations as well as the destination.
+</p>
 
 ```R
 #--- Popular Destinations ---#           
@@ -596,7 +605,9 @@ Lastly, we wanted to take a look at the actual destinations to get an idea of wh
   poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
 ```
 #### Starting Stations
+<p align="justify">
 We created a histogram of the top 10 starting stations for all users' data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16. 
+</p>
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_54_0.png)
 
@@ -604,15 +615,17 @@ We created a histogram of the top 10 starting stations for all users' data as we
 
 
 #### Ending Stations
+<p align="justify">
 We created repeated this for the top 10 ending stations, and found similar results as the starting stations (stations 22, 36, 53, 67, and 16). We also saw stations 42 show up in the ending stations top 5 for all data. This is most likely a location that is popular for the casual riders (potentially toursists) but not as comment for registred riders.
+</p>
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_56_2.png)
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_57_1.png)
 
-
+<p align="justify">
 When comparing the incoming and outgoing trips that most were the same locations which indicated that many of these trips were round trips. This lead us to further believe our hypothesis that most of these trips are to and from work.
-<br>
+</p>
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_59_1.png)
 
 <br>
@@ -629,6 +642,7 @@ Next we did a little research on some of the most traveled station to get an ide
 * Station 42 - Boylston St at Arlington - Boston Garden and the Arington Street Church (tourist sites)
 
 ## Summary
+<p align="justify">
 Based on what we the data and the visualizations, we are seeing that from 8AM - 5PM, there is a lot of transportation to and from three major transportation hubs in downtown Boston. We believe these are people coming into downtown Boston for work and taking bicycles to their actual work location. When the work day is over, they are picking up bikes neear theor work of emplyment and returning back to the major hubs. This is why we believe we are seeing so many trips to and from the hubs. This matches with the data showing that the majority of trips being during the work week.
 <br>
 <br>
@@ -637,6 +651,7 @@ We are also seeing toursit travel to some tourist locations, but these toursists
 <br>
 Lastly, we created a fullsize poster to display our findings to our target audience. We looked into [Blue Bikes's Branding Guidlines](https://motivateco.app.box.com/s/cw4tluatehnpfff4wzmch7v2f4ewa0uz) to see what fonts and colors the company used in all their materials. We chose those same fonts and color scheme for our visualizations. The full size version of the poster can be downloaded for better viewing by clicking on the link 
 [Full Size Poster](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/finalposter.jpg)
+</p>
 
 ## Poster
 ![alt text](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/finalpostersmall.jpg)
