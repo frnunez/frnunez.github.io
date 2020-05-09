@@ -746,15 +746,15 @@ We looked at the most travelled station and saw that the most traveled incoming 
 <br>
 <br>
 Next we did a little research on some of the most traveled station to get an idea of where and why people were going to these locations. We found the following information:
-* South Station/700 Atlantic Ave - Major transportation hub in downtown Boston
+* Station 22 - South Station/700 Atlantic Ave - Major transportation hub in downtown Boston
   * these are most likely individuals taking the subway into the major transportation hubs and then taking bikes from there to their place of employment. Similar behavior is observed in NYC.
-* Boston Public Library/700 Boylston - This is the location of the Boston Public Library. Used by students but also a turist location.
-* MIT at Mass/Amherst - Nearest station to Mass Institute of Technology (MIT)
+* Station 36 - Boston Public Library/700 Boylston - This is the location of the Boston Public Library. Used by students but also a turist location.
+* Station 67 - MIT at Mass/Amherst - Nearest station to Mass Institute of Technology (MIT)
   * Potentially students, professors and university staff
-* Beacon St/Mass Ave - Nearest station to Boston University
-* Back Bay/South End - Major transortation hub in downtown Boston
-* Boylston St at Arlington - Boston Garden and the Arington Street Church (tourist sites)
-* Charles Circle - Major transportation hub in downtown Boston
+* Station 53 - Beacon St/Mass Ave - Nearest station to Boston University
+* Station 16 - Back Bay/South End - Major transortation hub in downtown Boston
+* Station 42 - Boylston St at Arlington - Boston Garden and the Arington Street Church (tourist sites)
+* Station 60 - Charles Circle - Major transportation hub in downtown Boston
 
 
 ```R
