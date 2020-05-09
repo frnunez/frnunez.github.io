@@ -59,19 +59,6 @@ warnings.simplefilter('ignore')
 # Load the API and file with the API supplied by Socrata
 
 client = Socrata("data.cityofnewyork.us", None)
-
-# Example authenticated client (needed for non-public datasets):
-# client = Socrata(data.cityofnewyork.us,
-#                  MyAppToken,
-#                  userame="user@example.com",
-#                  password="AFakePassword")
-
-'''
-#####----- DCA Inspections Database (New York City Inspections) -----#####
-#####----- https://data.cityofnewyork.us/Business/Inspections/jzhd-m6uv
-'''
-# Can limit but setting at 1M to pull all, returned as JSON from API / converted to Python list of
-# dictionaries by sodapy.
 inspectionresults = client.get("jzhd-m6uv", limit=1000000)
 infile = inspectionresults
 
@@ -87,11 +74,8 @@ print ("You loaded a total of", nrows, "records into your dataframe.")
 print ("You have", nrows, "rows and", ncols ,"columns. Total data points is", size)
 print("*"*80)
 inspections_df.head(5)
-  
 ```
-
-    WARNING:root:Requests made without an app_token will be subject to strict throttling limits.
-    
+  
 
     ********************************************************************************
     You loaded a total of 196342 records into your dataframe.
@@ -278,91 +262,6 @@ There was some heavy amount of preparation that needed to be performed before I 
 This final preparation resulted in a new set of 193,473 rows and 13 columns with 2,515,149 data points.
 
 
-
-
-
-
-```python
-#####-----     Data Cleanup/Corrections     -----#####
-
-# Convert to pandas DataFrame
-originaldata = pd.DataFrame.from_records(inspectionresults)
-inspections_df = pd.DataFrame.from_records(inspectionresults)
-
-###--- DROP COLUMNS ---###
-# Drop Junk Columns
-inspections_df = inspections_df.drop(['description', 'unit_type', 'unit', 'street_2'], axis=1)
-
-# Drop Unused Columns
-inspections_df = inspections_df.drop(['certificate_number', 'building_number', 'street', 'city', 'state', 'zip'], axis=1)
-
-#--- DROP NAs ---#
-inspections_df = inspections_df.dropna(axis = 0, how ='any') 
-
-###--- DATE ---###
-#Convert Date column
-inspections_df['inspection_date'] = pd.to_datetime(inspections_df['inspection_date'])
-
-#Adding Year, Month and Weekday as categorical columns
-inspections_df['yrmon'] = (inspections_df['inspection_date'].dt.strftime('%Y-%m')).astype('category')
-inspections_df['year'] = (inspections_df['inspection_date'].dt.year).astype('category')
-inspections_df['month'] = (inspections_df['inspection_date'].dt.month).astype('category')
-inspections_df['weekday'] = (inspections_df['inspection_date'].dt.day_name()).astype('category')
-inspections_df['inspection_date'] = inspections_df['inspection_date'].dt.strftime('%Y-%m-%d')
-
-###--- Inspections & Violations ---###
-# Correct Confiscated Licenses
-inspections_df.inspection_result = inspections_df.inspection_result.replace({"Confiscated": "License Confiscated"})
-
-# new column to categorize inspection results as violation or no violation
-inspections_df = inspections_df.assign(violation = inspections_df['inspection_result'])
-inspections_df.violation = inspections_df.violation.replace({"License Confiscated": "Violation Issued"})
-inspections_df.loc[inspections_df["violation"] != "Violation Issued", "violation"] = "No Violation"
-inspections_df['violation'].astype('category')
-
-###--- BOROUGH ---###
-
-# Replace Dublicates with Spelling Differences
-inspections_df.borough = inspections_df.borough.replace({"MANHATTAN": "Manhattan",
-                                                   "BRONX": "Bronx",
-                                                   "QUEENS": "Queens",
-                                                   "BROOKLYN": "Brooklyn"})
-
-###--- Lat/Lon as floats ---###
-inspections_df['latitude'] = inspections_df['latitude'].astype(float)
-inspections_df['longitude'] = inspections_df['longitude'].astype(float)
-
-###--- Liscense Categories ---###
-
-# Categories with name changes
-inspections_df.industry = inspections_df.industry.replace({"Cigarette Retail Dealer - 127": "Tobacco Retail Dealer",
-                                                           "Laundry - 064": "Laundries",
-                                                           "Laundry Jobber - 066": "Laundries"})
-
-# Final cleaned set sample, updated stats
-nrows = len(inspections_df)
-size = inspections_df.size
-ncols = int(size/nrows)
-orows = len(originaldata)
-osize = originaldata.size
-ocols = int(osize/orows)
-
-# Display results
-print("*"*80)
-print("You had", orows, "with", ocols, "columns and", osize, "datapoints.")
-print ("You now have", nrows, "rows and", ncols ,"columns. Total data points is", size)
-print ("You dropped",(orows-nrows),"rows")
-print("*"*80)
-print(inspections_df.dtypes)
-inspections_df.head(5)
-
-# Display results
-#print("*"*80)
-#print ("You have", nrows, "rows and", ncols ,"columns. Total data points is", size)
-#print("*"*80)
-#print(inspections_df.dtypes)
-#inspections_df.head(5)
-```
 
     ********************************************************************************
     You had 196342 with 18 columns and 3534156 datapoints.
