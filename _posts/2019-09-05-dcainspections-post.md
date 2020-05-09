@@ -701,8 +701,6 @@ Because there was such a large number of industries as well as inspection result
     ********************************************************************************
     
 
-
-
     ********************************************************************************
     Top 10 Industry types (Violation set)
     ********************************************************************************
@@ -719,7 +717,6 @@ Because there was such a large number of industries as well as inspection result
     Name: industry, dtype: int64
     ********************************************************************************
     
-
 
     ********************************************************************************
     Top 10 Inspection Results
