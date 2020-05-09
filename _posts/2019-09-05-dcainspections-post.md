@@ -570,76 +570,6 @@ I also created a seperate "violations" dataframe which contained all inspections
 
 
 ```python
-# Create Violations Set
-violations_df = inspections_df[(inspections_df['violation']=='Violation Issued')]
-violations_df.to_csv('violations.csv', index=False)
-infile = 'violations.csv'
-```
-
-
-```python
-def violation_summarization(countrylist, fieldname):
-    valuelist = []
-    for violation in violationList:
-        valuelist.append (violation[fieldname])
-            
-    categories = set(valuelist)
-    numcategories = len(categories)
-    print('Number of categories', numcategories)   
-
-    categoryList = []
-    
-    for cat in categories:
-        categoryList.append((fieldname, cat, valuelist.count(cat),
-                             "{:.2%}".format((int(valuelist.count(cat))/int(len(valuelist))))
-                            ))
-    newlist = sorted(categoryList, key=lambda item: item[2], reverse=True)
-
-    
-    for item in newlist:
-        print( 'Field {:s} with Category {:s} has {:d} entries for {:s}'.format(item[0],item[1],item[2],item[3])) 
-    # end of function definition
-```
-
-
-```python
-violationList = []
-
-with open(infile, 'rU') as csvfile:
-    violReader = csv.reader(csvfile,  dialect='excel', delimiter=',')
-    for line in violReader:
-      if line[0] == '' or line[0].startswith('record'):
-          continue
-      else:
-          try:
-            # create a dictionary for each Violation
-            violation = {}
-            # add each piece of data under a key representing that data
-            violation['recordID'] = line[0]
-            violation['businessName'] = line[1]
-            violation['InspecDate'] = line[2]
-            violation['InspecResult'] = line[3]
-            violation['Industry'] = line[4]
-            violation['borough'] = line[5]
-            violation['log'] = line[6]
-            violation['lat'] = line[7]
-            violation['yearmonth'] = line[8]
-            violation['year'] = line[9]
-            violation['month'] = line[10]
-            violation['weekday'] = line[11]
-            violation['violation'] = line[12]
-
-            # add this violation to the list
-            violationList.append(violation)
-
-          except IndexError:
-            print ('Error: ', line)
-csvfile.close()
-
-```
-
-
-```python
 # print summary of files read
 print("*"*80)
 print ("Read", len(violationList), "violation data")
@@ -753,14 +683,6 @@ for fieldname in fieldnames:
 Because there was such a large number of industries as well as inspection results, I created a top 10 list of both for the inspections as well as violations sets.
 </p>
 
-```python
-print("*"*80)
-print("Top 10 Industry types (Inspection set)")
-print("*"*80)
-print(inspections_df["industry"].value_counts().head(10))
-print("*"*80)
-#print(df_2017)
-```
 
     ********************************************************************************
     Top 10 Industry types (Inspection set)
@@ -780,14 +702,6 @@ print("*"*80)
     
 
 
-```python
-print("*"*80)
-print("Top 10 Industry types (Violation set)")
-print("*"*80)
-print(violations_df["industry"].value_counts().head(10))
-print("*"*80)
-#print(df_2017)
-```
 
     ********************************************************************************
     Top 10 Industry types (Violation set)
@@ -806,14 +720,6 @@ print("*"*80)
     ********************************************************************************
     
 
-
-```python
-print("*"*80)
-print("Top 10 Inspection Results")
-print("*"*80)
-print(inspections_df["inspection_result"].value_counts().head(10))
-print("*"*80)
-```
 
     ********************************************************************************
     Top 10 Inspection Results
