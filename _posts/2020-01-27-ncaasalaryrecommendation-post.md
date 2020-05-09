@@ -1778,37 +1778,36 @@ Using the coefficients of the model, I came up with the new recommended TotalPay
     Syracuse Coach Pay should be  $2,921,754.10
     
 <p align="justify">
-Next we predicted the coach's pay would if Syracuse was still part of the Big East (using AAC coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,055,444.71 compared to the current $2,401,206. 
+Next we predicted the coach's pay would if Syracuse was still part of the Big East (using No coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,473,051.55 compared to the current $2,401,206. 
 </p>
 ```python
-# Predict Big East (Using AAC) Pay
+# Predict Big East Pay (Using No Coefficiant)
 print(train_confmodel_fit.params)
-print(train_confmodel_fit.params[7]) #Coefficiant for AAC
+print(train_confmodel_fit.params[6]) #Coefficiant for ACC
 print("*"*80)
 acccoef = train_confmodel_fit.params[6]
-aaccoef = train_confmodel_fit.params[7]
-print("Syracuse Coach Big East Pay should be ",(locale.currency( ((syrpred-acccoef) +aaccoef), grouping = True )))
+print("Syracuse Coach Big East Pay should be ",(locale.currency( (syrpred -acccoef), grouping = True )))
 ```
 
-    Intercept    -1.591071e+06
-    SEC           1.175190e+06
-    CUSA         -8.396895e+05
-    SunBelt      -6.237114e+05
-    Pac12         3.165260e+05
-    Ind          -1.785427e+06
-    ACC           4.487025e+05
-    AAC          -4.176068e+05
-    Big10         6.661372e+05
-    Big12         1.087409e+06
-    MtWest       -9.012773e+05
-    MAC          -7.173237e+05
-    Capacity      4.161636e+01
-    WinPer2019    9.854898e+05
-    GSR           2.082555e+04
-    dtype: float64
-    -417606.842689804
-    ********************************************************************************
-    Syracuse Coach Big East Pay should be  $2,055,444.71
+	Intercept    -1.591071e+06
+	SEC           1.175190e+06
+	CUSA         -8.396895e+05
+	SunBelt      -6.237114e+05
+	Pac12         3.165260e+05
+	Ind          -1.785427e+06
+	ACC           4.487025e+05
+	AAC          -4.176068e+05
+	Big10         6.661372e+05
+	Big12         1.087409e+06
+	MtWest       -9.012773e+05
+	MAC          -7.173237e+05
+	Capacity      4.161636e+01
+	WinPer2019    9.854898e+05
+	GSR           2.082555e+04
+	dtype: float64
+	448702.54375769565
+	********************************************************************************
+	Syracuse Coach Big East Pay should be  $2,473,051.55
     
 
 <p align="justify">
