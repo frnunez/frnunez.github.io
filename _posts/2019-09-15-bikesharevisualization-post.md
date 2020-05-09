@@ -593,7 +593,7 @@ Lastly, we wanted to take a look at the actual destinations to get an idea of wh
   poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
 ```
 #### Starting Stations
-
+We created a histogram of the top 10 starting stations for all the data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16. 
 ```R
 #--- Starting Stations ---#  
 ### By Gender ###
@@ -758,7 +758,7 @@ Next we did a little research on some of the most traveled station to get an ide
 
 
 ```R
-#-------------------Incoming/outgoing trips per station--------------------#                 
+#--Incoming/outgoing trips per station--#                 
 # Creating Data for plotting                  
   #aggregate by station and sort by count
 		hubway_trips %>% group_by(strt_statn) %>% summarise(outgoing_trips=n()) %>% 
