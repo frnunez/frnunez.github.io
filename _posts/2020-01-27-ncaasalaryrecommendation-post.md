@@ -1852,8 +1852,8 @@ Due to the fact that there were significant differences in some of the conferenc
 </p>
 
 ## Code
-You can check out the code used using the following methods:
+You can check out the Python code used using the following methods:
 
-1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-IST-718/blob/master/Lab%201/IST%20718%20-%20Lab%201%20-%20Final.ipynb)
-2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-IST-718/blob/master/Lab%201/IST%20718%20-%20Lab%201%20-%20Final.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20718%20-%20Big%20Data%20Analytics)
+2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-Grad-Portfolio/blob/master/IST%20718%20-%20Big%20Data%20Analytics/IST%20718%20-%20Lab%201%20-%20Final.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
