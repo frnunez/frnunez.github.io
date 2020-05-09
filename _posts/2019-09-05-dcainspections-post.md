@@ -268,21 +268,7 @@ This final preparation resulted in a new set of 193,473 rows and 13 columns with
     You now have 193473 rows and 13 columns. Total data points is 2515149
     You dropped 2869 rows
     ********************************************************************************
-    record_id              object
-    business_name          object
-    inspection_date        object
-    inspection_result      object
-    industry               object
-    borough                object
-    longitude             float64
-    latitude              float64
-    yrmon                category
-    year                 category
-    month                category
-    weekday              category
-    violation              object
-    dtype: object
-    
+  
 
 
 
