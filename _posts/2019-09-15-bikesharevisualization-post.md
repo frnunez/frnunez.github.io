@@ -593,75 +593,9 @@ Lastly, we wanted to take a look at the actual destinations to get an idea of wh
   poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
 ```
 #### Starting Stations
-We created a histogram of the top 10 starting stations for all the data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16. 
-```R
-#--- Starting Stations ---#  
-### By Gender ###
-	
-# ALL DATA
-# Top Starting Locations
-poptrips %>%
-  group_by(strt_statn) %>%
-  summarize(Count=n()) %>%
-  arrange(desc(Count))
-
-# Percentage of Gender Reported
-poptrips %>%
-  group_by(gender) %>%
-  summarise (n = n()) %>%
-  mutate(precent = (n / sum(n))*100) %>%
-  arrange(desc(precent))
-
-# Top 10 Start by Gender (All Data)
-	  topstations <- c("22","36","53","67","16","42","33","58","52","47")
-	  ugenpopstart <- poptrips %>%
-		filter(strt_statn %in% topstations)
-```
-
-
-```R
- # ALL Data
-  reorder_size <- function(x) {
-	factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-  }
-  ggplot(ugenpopstart, aes(x = reorder_size(strt_statn))) +
-	geom_bar(aes(fill=gender), color="white") +
-	xlab("Starting Stations") +
-	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-	ggtitle("Top 10 Starting Stations (All Data)")
-```
-
+We created a histogram of the top 10 starting stations for all users' data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16. 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_54_0.png)
-
-
-
-```R
-# Excluding Unreported Gender
-# Top Starting Locations
-poptrips %>%
-  filter(gender!="Unreported") %>%
-  group_by(strt_statn) %>%
-  summarize(Count=n()) %>%
-  arrange(desc(Count))
-
-# Top 10 Start by Gender
-newtopstations <- c("22","16","36","67","53","33","43","48","40","39")
-genpopstart <- poptrips %>%
-  filter(gender!="Unreported") %>%
-  filter(strt_statn %in% newtopstations)
-
-# top 10 Plots
-reorder_size <- function(x) {
-  factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-}
-ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
-  geom_bar(aes(fill=gender)) +
-  xlab("Starting Stations") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Top 10 Starting Stations")
-```
-
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_55_1.png)
 
