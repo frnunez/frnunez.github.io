@@ -630,8 +630,9 @@ When comparing the incoming and outgoing trips that most were the same locations
 
 <br>
 
-
+<p align="justify">
 Next we did a little research on some of the most traveled station to get an idea of where and why people were going to these locations. We found the following information:
+</p>
 * Station 22 - South Station/700 Atlantic Ave - Major transportation hub in downtown Boston
   * these are most likely individuals taking the subway into the major transportation hubs and then taking bikes from there to their place of employment. Similar behavior is observed in NYC.
 * Station 36 - Boston Public Library/700 Boylston - This is the location of the Boston Public Library. Used by students but also a turist location.
