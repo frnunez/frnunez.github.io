@@ -601,84 +601,20 @@ We created a histogram of the top 10 starting stations for all users' data as we
 
 
 #### Ending Stations
-```R
-#--- Ending Stations ---#  
-	### By Gender ###
-	
-	# ALL DATA
-	  # Top Ending Locations
-	  poptrips %>%
-		group_by(end_statn) %>%
-		summarize(Count=n()) %>%
-		arrange(desc(Count))
-	  
-	  # Percentage of Gender Reported
-	  poptrips %>%
-		group_by(gender) %>%
-		summarise (n = n()) %>%
-		mutate(precent = (n / sum(n))*100) %>%
-		arrange(desc(precent))
-	  
-	  # Top 10 End by Gender (All Data)
-	  topstations <- c("22","36","42","67","53","33","16","43","52","74")
-	  ugenpopend <- poptrips %>%
-		filter(end_statn %in% topstations)
-	  
-	  
-	  # ALL Data
-	  reorder_size <- function(x) {
-		factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-	  }
-	  ggplot(ugenpopend, aes(x = reorder_size(end_statn))) +
-		geom_bar(aes(fill=gender), color="white") +
-		xlab("Ending Stations") +
-		theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-		ggtitle("Top 10 Ending Stations (All Data)")
-```
-
+We created repeated this for the top 10 ending stations, and found similar results as the starting stations (stations 22, 36, 53, 67, and 16). We also saw stations 42 show up in the ending stations top 5 for all data. This is most likely a location that is popular for the casual riders (potentially toursists) but not as comment for registred riders.
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_56_2.png)
-
-
-
-```R
-# Excluding Unreported Gender
-  # Top Ending Locations
-  poptrips %>%
-	filter(gender!="Unreported") %>%
-	group_by(end_statn) %>%
-	summarize(Count=n()) %>%
-	arrange(desc(Count))
-  
-  # Top 10 end by Gender
-  newtopstations <- c("22","36","67","16","53","43","33","48","21","42")
-  genpopend <- poptrips %>%
-	filter(gender!="Unreported") %>%
-	filter(end_statn %in% newtopstations)
-  
-  # top 10 Plots
-  reorder_size <- function(x) {
-	factor(x, levels = names(sort(table(x), decreasing = TRUE)))
-  }
-  ggplot(genpopend, aes(x = reorder_size(end_statn))) +
-	geom_bar(aes(fill=gender)) +
-	xlab("Ending Stations") +
-	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-	ggtitle("Top 10 Ending Stations")
-                  
-	# Station 22 is South Station - 700 Atlantic Ave. (This is the Main Transportation hub in Downtown Boston)
-	# Station 36 is Boston Public Library - 700 Boylston St.  (Boston Public Library)
-	# Station 67 is MIT at Mass Ave / Amherst St (MIT)
-	# Station 53 is Beacon St / Mass Ave (Boston University)
-	# Station 16 is Back Bay / South End Station (Another major transportation hub)
-```
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_57_1.png)
 
 
-We looked at the most travelled station and saw that the most traveled incoming and outgoing trips were the same locations which indicated that many of these trips were round trips. The leads us to further believe our hypothesis that most of these trips are to and from work.
+When comparing the incoming and outgoing trips that most were the same locations which indicated that many of these trips were round trips. This lead us to further believe our hypothesis that most of these trips are to and from work.
 <br>
+![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_59_1.png)
+
 <br>
+
+
 Next we did a little research on some of the most traveled station to get an idea of where and why people were going to these locations. We found the following information:
 * Station 22 - South Station/700 Atlantic Ave - Major transportation hub in downtown Boston
   * these are most likely individuals taking the subway into the major transportation hubs and then taking bikes from there to their place of employment. Similar behavior is observed in NYC.
@@ -688,75 +624,6 @@ Next we did a little research on some of the most traveled station to get an ide
 * Station 53 - Beacon St/Mass Ave - Nearest station to Boston University
 * Station 16 - Back Bay/South End - Major transortation hub in downtown Boston
 * Station 42 - Boylston St at Arlington - Boston Garden and the Arington Street Church (tourist sites)
-* Station 60 - Charles Circle - Major transportation hub in downtown Boston
-
-
-```R
-#--Incoming/outgoing trips per station--#                 
-# Creating Data for plotting                  
-  #aggregate by station and sort by count
-		hubway_trips %>% group_by(strt_statn) %>% summarise(outgoing_trips=n()) %>% 
-		  as.data.frame() %>% arrange(., desc(outgoing_trips)) %>% rename(id = strt_statn) -> trips.o
-		
-		hubway_trips %>% group_by(end_statn) %>% summarise(incoming_trips=n()) %>%
-		  as.data.frame() %>% arrange(., desc(incoming_trips)) %>% rename(id = end_statn) -> trips.i
-		
-  # merge by station and add station info from hubway.stations
-  full_join(trips.o, trips.i, by = "id") -> trips.station
-  left_join(trips.station, hubway_stations, by = "id") %>% select(station, outgoing_trips, incoming_trips) %>%
-	group_by(station) %>% summarise(outgoing_trips=sum(outgoing_trips), incoming_trips=sum(incoming_trips))  %>% 
-	arrange(., desc(outgoing_trips), desc(incoming_trips)) -> trips.station
-  
-  # top 20
-  trips.station %>% slice(1:20) -> trips.station
-  
-  # gather for plotting
-  trips.station %>% gather ("trip","count", 2:3) %>% 
-	arrange(., desc(count))-> trips.station 
-          
-# Plotting Data
-  ggplot(trips.station, aes(x = reorder(station, -count), y=count, fill=trip)) +
-	geom_bar(stat="identity",color=I("black"), size=0,alpha = 0.5,width=0.8) +
-	xlab("Stations") + ylab("Count") +
-	theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-	ggtitle("Number of Trips (Incoming/Outgoing) per Station")
-
-```
-    
-
-
-![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_59_1.png)
-
-
-
-```R
-#------- Most popular source stations-----------------#
-
-#group trips by start station name and count number of trips for each station
-  hubway_trips$strt_statn_name <- as.character(trips$strt_statn)
-  hubway_trips$end_statn_name  <- as.character(trips$end_statn)
-  
-  tripsby_strt_statn <- hubway_trips %>%
-	group_by(strt_statn_name) %>%
-	summarise(number_trips = n()) %>%
-	select(strt_statn_name, number_trips) %>%
-	arrange(desc(number_trips)) %>%
-	ungroup()
-  tripsby_strt_statn$strt_statn_name <- factor(tripsby_strt_statn$strt_statn_name, 
-											   levels = tripsby_strt_statn$strt_statn_name, ordered = TRUE)
-#Plot
-ggplot(data = tripsby_strt_statn[1:5, ], 
-	   aes(x = strt_statn_name, y = number_trips)) +
-  geom_bar(fill = 'steelblue', stat = 'identity') + 
-  ggtitle("Most Popular Source Bike Stations")+
-  ylab("Number of Trips") +
-  xlab("Bike Station Name") +
-  theme(axis.text.x = element_text(size = 8))+theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
-```
-
-
-![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_60_0.png)
-
 
 ## Summary
 Based on what we the data and the visualizations, we are seeing that from 8AM - 5PM, there is a lot of transportation to and from three major transportation hubs in downtown Boston. We believe these are people coming into downtown Boston for work and taking bicycles to their actual work location. When the work day is over, they are picking up bikes neear theor work of emplyment and returning back to the major hubs. This is why we believe we are seeing so many trips to and from the hubs. This matches with the data showing that the majority of trips being during the work week.
