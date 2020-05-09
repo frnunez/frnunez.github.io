@@ -1627,5 +1627,5 @@ webbrowser.open(output_file, new=2)
 You can check out the Pyton code used using the following methods:
 
 
-1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-IST-652/blob/master/IST652%20Project%20-%20DCA%20Inspections.ipynb)
-2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/-SU-IST-652/blob/master/IST652%20Project%20-%20DCA%20Inspections.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20652%20-%20Scripting%20for%20Data%20Analysis%20-%20DCA%20Inspections)
+2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-Grad-Portfolio/blob/master/IST%20652%20-%20Scripting%20for%20Data%20Analysis%20-%20DCA%20Inspections/IST652%20Project%20-%20DCA%20Inspections.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
