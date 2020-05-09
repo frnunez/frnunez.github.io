@@ -582,8 +582,6 @@ ggplot(data = trips, aes(x = hour_of_day)) +
 ### Top Stations
 Lastly, we wanted to take a look at the actual destinations to get an idea of where riders were traveling to during these days/hours. We looked at the data for starting locations as well as the destination.
 
-#### Starting Stations
-
 ```R
 #--- Popular Destinations ---#           
 # Popular Trips Set
@@ -593,13 +591,8 @@ Lastly, we wanted to take a look at the actual destinations to get an idea of wh
   poptrips$end_statn <- as.factor(poptrips$end_statn)
   poptrips <- poptrips[!is.na(poptrips$strt_statn), ] # remove NA start stations
   poptrips <- poptrips[!is.na(poptrips$end_statn), ] # remove NA end stations
-  
-# Descriptive Data  
-  length(unique(poptrips$strt_statn)) #142 Unique Stations
-  length(unique(poptrips$end_statn)) #142 Unique Stations
-  summary(poptrips) #top 5 start and end listed in summary by number
 ```
-
+#### Starting Stations
 
 ```R
 #--- Starting Stations ---#  
