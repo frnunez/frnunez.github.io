@@ -237,43 +237,9 @@ Both MBTA & Blue Bikes Station locations were consolidated into one interactive 
   tripscasual <- filter(trips, subsc_type=="Casual")
   tripscasual <- tripscasual[,c(1,2,4:9)] #Removed Unreported Columns (Zip, DOB, Gender)
 		
-# Create Regsitered ONLY Set
+# Create Registered ONLY Set
   tripsregistered <- filter(trips, subsc_type=="Registered")
 ```
-
-
-         seq_id          hubway_id          status           duration       
-     Min.   :      1   Min.   :      8   Closed:1579025   Min.   :   -6900  
-     1st Qu.: 394757   1st Qu.: 446525                    1st Qu.:     412  
-     Median : 789513   Median : 895044                    Median :     660  
-     Mean   : 789513   Mean   : 886532                    Mean   :    1200  
-     3rd Qu.:1184269   3rd Qu.:1328083                    3rd Qu.:    1082  
-     Max.   :1579025   Max.   :1748022                    Max.   :11994458  
-                                                                            
-                   start_date        strt_statn                    end_date      
-     7/30/2013 17:18:00 :     25   Min.   :  3.00   10/19/2013 16:26:00:     27  
-     8/6/2013 17:50:00  :     25   1st Qu.: 27.00   9/10/2013 17:43:00 :     26  
-     9/10/2013 17:04:00 :     25   Median : 48.00   8/13/2013 18:08:00 :     24  
-     10/4/2013 17:06:00 :     24   Mean   : 54.38   8/5/2013 17:30:00  :     24  
-     7/30/2013 17:30:00 :     24   3rd Qu.: 74.00   10/17/2013 17:24:00:     23  
-     10/17/2013 17:04:00:     23   Max.   :145.00   7/12/2013 08:56:00 :     23  
-     (Other)            :1578879   NA's   :14       (Other)            :1578878  
-       end_statn         bike_nr             subsc_type            zip_code     
-     Min.   :  3.00   B00490 :   2138   Casual    : 472611   Unreported:472766  
-     1st Qu.: 29.00   B00268 :   2124   Registered:1106414   '02118    :121749  
-     Median : 48.00   B00548 :   2112                        '02139    : 89437  
-     Mean   : 54.26   B00559 :   2091                        '02215    : 86758  
-     3rd Qu.: 74.00   B00563 :   2080                        '02116    : 77279  
-     Max.   :145.00   B00391 :   2072                        '02115    : 57522  
-     NA's   :45       (Other):1566408                        (Other)   :673514  
-       birth_date             gender            age         
-     Min.   :1932      Female    :271700   Min.   :24.0     
-     1st Qu.:1969      Male      :834714   1st Qu.:34.0     
-     Median :1979      Unreported:472611   Median :40.0     
-     Mean   :1976                          Mean   :42.7     
-     3rd Qu.:1985                          3rd Qu.:50.0     
-     Max.   :1995                          Max.   :87.0     
-     NA's   :1228381                       NA's   :1228381  
 
 
 ## Data Exploration
@@ -295,17 +261,6 @@ Our first exploration was to look at the registered users vs casual riders (non-
 	   geom_text(aes(label = counts), vjust = -0.3) +
 	   ggtitle("Registered vs Casual Riders") + xlab("Riders") + ylab("Counts")
 ```
-
-
-<table>
-<caption>A tibble: 2 × 2</caption>
-<tbody>
-	<tr><td>Casual    </td><td> 472611</td></tr>
-	<tr><td>Registered</td><td>1106414</td></tr>
-</tbody>
-</table>
-
-
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_21_1.png)
@@ -490,7 +445,7 @@ ggplot(tripsregistered, aes(x=age, color=gender))+
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_35_1.png)
 
 
-When comparing the age distribution foor both genders, we see that the graphs were both right skewed. With a median age of 30 for females and 40 for males.
+When comparing the age distribution for both genders, we see that the graphs were both right skewed. With a median age of 30 for females and 40 for males.
 
 
 ```R
@@ -505,6 +460,8 @@ When comparing the age distribution foor both genders, we see that the graphs we
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_37_1.png)
 
+
+### Trip Duration
 
 Next, we looked at the duration of the trips to see how long riders were using the bikes for. Our initial observations included trips that lasted less than 60 seconds, and even some that somehow were listed as negative. We removed these trips from the set as there were numerous trips that were done for testing purposes and still included in the set. This also included trips were the bikes were originally started but due to reasons known by the rider, the bikes were redocked without actually going anywhere. In addition there were some trips which were noted as lasting over 24 hours. These were also removed from the set as there were other issues reported where a bike would not register as returned or may have been stolen.
 <br>
@@ -570,20 +527,7 @@ ggplot(tripsdur, aes(x=factor(age), y=(duration))) +
 
 
 ```R
-## - Duration By Gender - ##      
-	# Bloxplot trip duration by user gender
-	  boxplot(trips$duration~trips$gender, axisnames = FALSE, ylim=c(100,5000), varwidth = TRUE, outline = TRUE,xlab="User Gender",
-			  ylab="Trip Duration In Seconds",col=c("pink","paleturquoise1","palegreen"),main="Box Plot for Trip Duration \nby User Gender")
-	  abline(h=mean(trips$duration), lty=2,col="red")
-```
-
-
-![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_46_0.png)
-
-
-
-```R
-# Boxplot Duration by Gender (Versin 2)
+# Duration by Gender
 ggplot(tripsdur, aes(x=gender, y=duration)) + 
   geom_boxplot() + 
   ylim(0,75)+ ggtitle("Age vs Duration (Minutes)") + ylab("Duration in Minutes") +
@@ -636,8 +580,10 @@ ggplot(data = trips, aes(x = hour_of_day)) +
 
 
 ### Top Stations
+Lastly, we wanted to take a look at the actual destinations to get an idea of where riders were traveling to during these days/hours. We looked at the data for starting locations as well as the destination.
 
 #### Starting Stations
+
 ```R
 #--- Popular Destinations ---#           
 # Popular Trips Set
@@ -653,27 +599,6 @@ ggplot(data = trips, aes(x = hour_of_day)) +
   length(unique(poptrips$end_statn)) #142 Unique Stations
   summary(poptrips) #top 5 start and end listed in summary by number
 ```
-
-
-
-
-       start_date                    strt_statn         end_date                  
-     Min.   :2011-07-28 10:12:00   22     :  56442   Min.   :2011-07-28 10:12:00  
-     1st Qu.:2012-08-07 09:29:00   36     :  42568   1st Qu.:2012-08-07 09:43:00  
-     Median :2013-05-16 22:55:00   53     :  35438   Median :2013-05-16 23:11:00  
-     Mean   :2013-02-03 08:11:57   67     :  33685   Mean   :2013-02-03 08:31:07  
-     3rd Qu.:2013-08-22 20:42:00   16     :  32859   3rd Qu.:2013-08-22 21:01:00  
-     Max.   :2013-11-30 23:39:00   42     :  32795   Max.   :2013-12-01 00:16:00  
-                                   (Other):1345186                                
-       end_statn            subsc_type             gender            age         
-     22     :  56280   Casual    : 472592   Female    :271693   Min.   :24.0     
-     36     :  43387   Registered:1106381   Male      :834688   1st Qu.:34.0     
-     42     :  34916                        Unreported:472592   Median :40.0     
-     67     :  34580                                            Mean   :42.7     
-     53     :  33369                                            3rd Qu.:50.0     
-     33     :  32246                                            Max.   :87.0     
-     (Other):1344195                                            NA's   :1228358  
-
 
 
 ```R
@@ -818,7 +743,7 @@ ggplot(genpopstart, aes(x = reorder_size(strt_statn))) +
 	# Station 36 is Boston Public Library - 700 Boylston St.  (Boston Public Library)
 	# Station 67 is MIT at Mass Ave / Amherst St (MIT)
 	# Station 53 is Beacon St / Mass Ave (Boston University)
-	# Station 16 is Back Bay / South End Station (ANother major transportation hub)
+	# Station 16 is Back Bay / South End Station (Another major transportation hub)
 ```
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_57_1.png)
