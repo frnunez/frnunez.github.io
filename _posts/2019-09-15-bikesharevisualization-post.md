@@ -12,11 +12,12 @@ mathjax: "true"
 <br>
 <p align="justify">
 This project was a collaborative effort by Antonio Llorens and Francisco Nunez-Fondeur. For this project we decided to visualize the data from the bike sharing platform to get a better understanding about who uses the bikes and for what purpose, as well as how people get around Boston. The main goal is to answer:
+</p>
 Who is using Hubway?
 
 1.   Who is using Hubway?
 2.   Where is everyone going?
-
+<p align="justify">
 Our target audience is bike sharing customers, company stakeholders, city authorities, academics, data related profesionals.
 <br>
 <br>
