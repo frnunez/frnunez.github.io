@@ -646,12 +646,12 @@ Next we did a little research on some of the most traveled station to get an ide
 Based on what we the data and the visualizations, we are seeing that from 8AM - 5PM, there is a lot of transportation to and from three major transportation hubs in downtown Boston. We believe these are people coming into downtown Boston for work and taking bicycles to their actual work location. When the work day is over, they are picking up bikes neear theor work of emplyment and returning back to the major hubs. This is why we believe we are seeing so many trips to and from the hubs. This matches with the data showing that the majority of trips being during the work week.
 <br>
 <br>
-We are also seeing toursit travel to some tourist locations, but these toursists may also be traveling to the major transportation hubs to get around the city.
-<br>
+We are also seeing tourist traveling to some tourist destinations, but these they may also be traveling to the major transportation hubs to get around the city.
+</p>
 <br>
 Lastly, we created a fullsize poster to display our findings to our target audience. We looked into [Blue Bikes's Branding Guidlines](https://motivateco.app.box.com/s/cw4tluatehnpfff4wzmch7v2f4ewa0uz) to see what fonts and colors the company used in all their materials. We chose those same fonts and color scheme for our visualizations. The full size version of the poster can be downloaded for better viewing by clicking on the link 
 [Full Size Poster](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/finalposter.jpg)
-</p>
+
 
 ## Poster
 ![alt text](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/finalpostersmall.jpg)
