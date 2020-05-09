@@ -642,6 +642,6 @@ Lastly, we created a fullsize poster to display our findings to our target audie
 You can check out the code used using the following methods:
 
 
-1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-IST-707/blob/master/IST%20707%20-%20Data%20Analytics%20-%20Classification%20of%20ASD%20Screening%20Data/IST_707_Data_Analytics_Classification_of_ASD_Screening_Data.ipynb)
-2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-IST-707/blob/master/IST%20707%20-%20Data%20Analytics%20-%20Classification%20of%20ASD%20Screening%20Data/IST_707_Data_Analytics_Classification_of_ASD_Screening_Data.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20719%20-%20Data%20Visualization%20-%20Hubway%20Challenge%20Dataset%20Poster%20Design)
+2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-Grad-Portfolio/blob/master/IST%20719%20-%20Data%20Visualization%20-%20Hubway%20Challenge%20Dataset%20Poster%20Design/IST%20719%20-%20Data%20Visualization%20Project.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
