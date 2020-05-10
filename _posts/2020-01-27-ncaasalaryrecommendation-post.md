@@ -1659,7 +1659,7 @@ X_test = finalcoaches_test[['Capacity', 'GSR', 'WinPer2019', 'SEC', 'CUSA', 'Sun
 y_pred = lin_reg.predict(X_test)
 ```
 
-### Expected Results
+#### Expected Results
 Lets look at the expected results
 ```python
 # Actual (Expected) Salary for Syracuse Coach
