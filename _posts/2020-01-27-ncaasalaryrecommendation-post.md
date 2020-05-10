@@ -1755,7 +1755,7 @@ finalcoaches[finalcoaches['School'].str.match('Syracuse')]
   </tbody>
 </table>
 </div>
-### Predicted Syracuse Salary
+#### Predicted Syracuse Salary
 <p align="justify">
 Our first prediction was to look at what the predicted value should be for Syracuse University's football coach.
 </p>
@@ -1778,7 +1778,7 @@ Using the coefficients of the model, I came up with the new recommended TotalPay
 
     Syracuse Coach Pay should be  $2,921,754.10
 
-### Predicted Syracuse Salary (Big East Conference)   
+#### Predicted Syracuse Salary (Big East Conference)   
 <p align="justify">
 Next we predicted the coach's pay would if Syracuse was still part of the Big East (using No coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,473,051.55 compared to the current $2,401,206. 
 </p>
@@ -1811,7 +1811,7 @@ print("Syracuse Coach Big East Pay should be ",(locale.currency( (syrpred -accco
 	********************************************************************************
 	Syracuse Coach Big East Pay should be  $2,473,051.55
     
-### Predicted Syracuse Salary (Big Ten Conference) 
+#### Predicted Syracuse Salary (Big Ten Conference) 
 <p align="justify">
 Lastly, we predicted what the coach's pay would be if Syracuse joined the Big Ten. In order to get this value, the big10 coefficient was added. The predicted total pay under this new Conference is $3,139,188.77
 </p>
