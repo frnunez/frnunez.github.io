@@ -42,10 +42,7 @@ C:\Users\MYUSERNAME
 <p align="justify">
 You can copy these files and transfer them over to the root directory of your new PC.
 <br>
-</p>
-
 ## Now the fun part
-<p align="justify">
 <u>From My New Computer</u>
 <br>
 Once the files were in my root directory I opened up my anaconda prompt again and entered the following code:
