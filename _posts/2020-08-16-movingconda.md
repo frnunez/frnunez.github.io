@@ -36,12 +36,20 @@ conda list -n r-env --export > r-package-list.txt
 ```
 <br>
 <p align="justify">
-The text files were saved in the root directory were your Anaconda was installed. This is the directory where your Anaconda Prompt will open up in. For me it's: C:\Users\MYUSERNAME. You can copy these files and transfer them over to the root directory of your new PC.
+The text files were saved in the root directory were your Anaconda was installed. This is the directory where your Anaconda Prompt will open up in. For me it's
+</p>
+```
+C:\Users\MYUSERNAME
+```
+<p align="justify">
+  You can copy these files and transfer them over to the root directory of your new PC.
 <br>
 <br>
-
+</p>
 
 ## Now the fun part
+<br>
+<p align="justify">
 <u>From My New Computer</u>
 <br>
 Once the files were in my root directory I opened up my anaconda prompt again and entered the following code:
@@ -50,22 +58,31 @@ Once the files were in my root directory I opened up my anaconda prompt again an
 ```
 conda create -n tf --file tf-package-list.txt
 ```
-<br>
 <p align="justify">
 This created my tf environment again and installed all the packages listed in the text file.
-
-Next I entered conda create -n r-env --file r-package-list.txt, which created my R environment without a hitch.
-
+<br>
+Next I created my R environment with no hitch using the code below
+</p>
+```
+conda create -n r-env --file r-package-list.txt
+```
+<p align="justify">
+<br>
 So, I had one final task and that was to reinstall the packages from my base environment. The code was a little different:
 </p>
 ```
 conda install --file packagelist.txt
 ```
-<br>
 <p align="justify">
 I was expecting an easy install like the previous two but I got an error msg. There were packages that were not found! Of course this may also happen to you in some of your other environment but I only saw this in my base. Packages that were not part of Anaconda and installed using PIP or even conda-forge had to be manually reinstalled. The error message will list which packages those were and will suggest you go to Anaconda.org and look up the packages.
-
+<br>
 I did this for most of my packages and used two PIP installs. Once my missing packages were installed, I went back to the packagelist.txt file and removed those packages from the list and saved the file.
-
-I ran the code again conda install --file packagelist.txt, and now we had success! Follow these steps and you can save yourself a little time!
+<br>
+I ran the code again, and now I had success!
+</p>
+```
+conda install --file packagelist.txt
+```
+<p align="justify">
+Follow these steps and you can save yourself a little time!
 </p>
