@@ -2,8 +2,6 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Posts"
-    url: /blog_posts/
   - title: "Data Science Projects"
     url: /data-science-projects/
   #- title: "Portfolio"
@@ -16,13 +14,3 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-
-
-  #- title: "About"
-  #  url: /about/
-  #- title: "Posts"
-  #  url: /blog_posts/
-  #- title: "Data Science Projects"
-  #  url: /data-science-projects/
-  #- title: "Data Science Portfolio"
-  #  url: /portfolio/
