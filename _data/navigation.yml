@@ -6,8 +6,8 @@ main:
     url: /blog_posts/
   - title: "Data Science Projects"
     url: /data-science-projects/
-#  - title: "Data Science Portfolio"
-#    url: /portfolio/
+  - title: "Data Science Portfolio"
+    url: /portfolio/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
