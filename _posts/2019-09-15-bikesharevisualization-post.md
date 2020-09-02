@@ -4,7 +4,7 @@ date: 2019-09-15
 tags: [bike share, Boston, data science, visualization]
 header:
   image: "/images/visualization/700huron.jpg"
-excerpt: "Bike Share, Boston, Data Science, visualization"
+excerpt: "Visualization of Boston's Hubway/BlueBike Ridership Data"
 mathjax: "true"
 ---
 
@@ -58,7 +58,7 @@ if (!require(tidyr)) install.packages('tidyr')
 if (!require(lubridate)) install.packages('lubridate')
 ```
 
- 
+
 
 ### Data set
 <p align="justify">
@@ -92,7 +92,7 @@ The hubway trip history data includes:
 HubwayURL <- "http://files.hubwaydatachallenge.org/hubway_2011_07_through_2013_11.zip"
 
 # Download the .zip file and unzip contents
-download.file(HubwayURL, dest = "hubway.zip", mode = "wb") 
+download.file(HubwayURL, dest = "hubway.zip", mode = "wb")
 unzip("hubway.zip", exdir = "hubway")
 
 # Assess the files contained in the .zip file and then import each dataset
@@ -121,7 +121,7 @@ str(hubway_trips)
      $ zip_code  : Factor w/ 531 levels "","'00210","'00216",..: 523 233 168 176 522 143 199 199 522 104 ...
      $ birth_date: int  1976 1966 1943 1981 1983 1951 1971 1971 1983 1994 ...
      $ gender    : Factor w/ 3 levels "","Female","Male": 3 3 3 2 2 3 2 2 2 3 ...
-    
+
 
 
 <style>
@@ -230,18 +230,18 @@ Both MBTA & Blue Bikes Station locations were consolidated into one interactive 
   trips$zip_code <- as.character(trips$zip_code)
   trips$zip_code[trips$zip_code==""] <- "Unreported"
   trips$zip_code <- as.factor(trips$zip_code)
-	  
+
 # Create Age Column (Approximate)
   trips <- trips %>%
 	mutate(age = 2019-birth_date)
 
 # Basic Stats
-  summary(trips) 
-		  
+  summary(trips)
+
 # Create Casual ONLY Set
   tripscasual <- filter(trips, subsc_type=="Casual")
   tripscasual <- tripscasual[,c(1,2,4:9)] #Removed Unreported Columns (Zip, DOB, Gender)
-		
+
 # Create Registered ONLY Set
   tripsregistered <- filter(trips, subsc_type=="Registered")
 ```
@@ -260,7 +260,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
 	   group_by(subsc_type) %>%
 	   summarise(counts = n())
 	 ridership
-	 
+
 	 #Bar Chart
 	 ggplot(ridership, aes(x=subsc_type, y=counts, fill=subsc_type)) +
 	   geom_bar(stat = "identity", color="#0b2f4c", fill = "#0090DA") +
@@ -279,7 +279,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
  regtable <- sort(regtable)
  pct <- round(regtable/sum(regtable)*100)
  lbls <- paste(names(regtable), "\n", pct, sep="")
- lbls <- paste(lbls,"%",sep="") # ad % to labels 
+ lbls <- paste(lbls,"%",sep="") # ad % to labels
  pie(regtable, labels = lbls, col=brewer.pal(2, "Blues"),
 	 main="Pie Chart of Registered vs Casual Riders")  
 ```
@@ -288,7 +288,7 @@ Our first exploration was to look at the registered users vs casual riders (non-
 
 ### Riders by Gender
 <p align="justify">
-Next we explored the distribution of usage by reported gender. When we looked at all records, we saw that 53% of riders reported being males, 17% female and  30% unreported. We suspected that this was not a fair assessment of gender and it heavily skewed towards unreported due to the fact that gender did NOT need to be reported by casual riders. 
+Next we explored the distribution of usage by reported gender. When we looked at all records, we saw that 53% of riders reported being males, 17% female and  30% unreported. We suspected that this was not a fair assessment of gender and it heavily skewed towards unreported due to the fact that gender did NOT need to be reported by casual riders.
 </p>
 
 ```R
@@ -297,7 +297,7 @@ Next we explored the distribution of usage by reported gender. When we looked at
   gentrips <- trips %>%
 	group_by(gender) %>%
 	summarise(counts = n())
-  
+
   ggplot(gentrips, aes(x = gender, y = counts, fill=gender)) +
 	geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
 	geom_text(aes(label = counts), vjust = -0.3) +
@@ -315,7 +315,7 @@ Next we explored the distribution of usage by reported gender. When we looked at
   gendertable <- sort(gendertable)
   pct <- round(gendertable/sum(gendertable)*100)
   lbls <- paste(names(gendertable), "\n", pct, sep="")
-  lbls <- paste(lbls,"%",sep="") # ad % to labels 
+  lbls <- paste(lbls,"%",sep="") # ad % to labels
   pie(gendertable, labels = lbls, col=brewer.pal(3, "Blues"),
 	  main="Pie Chart \nDistribution of Usage By Gender (All Records)")
 ```
@@ -332,7 +332,7 @@ When we looked at just the registered riders, we saw that 75% of the registered 
   genreg <- tripsregistered %>%
 	group_by(gender) %>%
 	summarise(counts = n())
-  
+
   ggplot(genreg, aes(x = gender, y = counts, fill=gender)) +
 	geom_bar(stat = "identity", color="#0b2f4c") + scale_fill_brewer(palette="Blues") +
 	geom_text(aes(label = counts), vjust = -0.3) +
@@ -350,7 +350,7 @@ When we looked at just the registered riders, we saw that 75% of the registered 
   genregtable <- sort(genregtable)
   pct <- round(genregtable/sum(genregtable)*100)
   lbls <- paste(names(genregtable), "\n", pct, sep="")
-  lbls <- paste(lbls,"%",sep="") # ad % to labels 
+  lbls <- paste(lbls,"%",sep="") # ad % to labels
   pie(genregtable, labels = lbls, col=brewer.pal(3, "Blues"),
 	  main="Pie Chart \nDistribution of Registered Riders By Gender")
 ```
@@ -371,8 +371,8 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 
 
-       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-       24.0    34.0    40.0    42.7    50.0    87.0  755770 
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+       24.0    34.0    40.0    42.7    50.0    87.0  755770
 
 
 
@@ -398,17 +398,17 @@ Of those that did report their age, the mean age was 42.7 while the median age w
 
 ```R
 # Plot Histogram
-ggplot(tripsregistered, aes(age)) + 
+ggplot(tripsregistered, aes(age)) +
   geom_histogram(color="#0b2f4c", fill="#0090DA") +
   ggtitle("Distribution of Registered Users By Age")
 ```
-    
+
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_32_1.png)
 
 <p align="justify">
-We also wanted to look at the age distribution by gender. 
+We also wanted to look at the age distribution by gender.
 <br>
 <br>
 For males, we had a mean of 43.2 and a median of 40. The age range for 95% of the riders in this group was 34 - 51 with an age range of 24 - 58.
@@ -421,33 +421,33 @@ For females, we saw a mean of 41.3 with a median of 38. The age range for 95% of
 # Distribution by Age and Gender
 males <- tripsregistered %>%
   filter(gender=="Male")
-              
+
 females <- tripsregistered %>%
   filter(gender=="Female")
-              
+
 # Summaries
 summary(males$age)
 summary(females$age)
 ```
 
        Males - Age
-       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-       24.0    34.0    40.0    43.2    51.0    85.0  571088 
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+       24.0    34.0    40.0    43.2    51.0    85.0  571088
 
        Females - Age
-       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-       24.0    33.0    38.0    41.3    47.0    87.0  184682 
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+       24.0    33.0    38.0    41.3    47.0    87.0  184682
 
 
 
 ```R
 # Plots
-ggplot(tripsregistered, aes(x=age, color=gender))+ 
+ggplot(tripsregistered, aes(x=age, color=gender))+
   geom_histogram(fill="#0090DA", alpha=0.5, position="identity") +
   scale_color_manual(values=c("#0b2f4c", "#FFFFFF")) +
   ggtitle("Distribution of Registered Users By Age")
 ```
-    
+
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_35_1.png)
@@ -457,13 +457,13 @@ When comparing the age distribution for both genders, we see that the graphs wer
 </p>
 
 ```R
-  ggplot(tripsregistered, aes(x=age, color=gender))+ 
-	geom_histogram(fill="#006AC6", alpha=0.5, position="identity") + 
+  ggplot(tripsregistered, aes(x=age, color=gender))+
+	geom_histogram(fill="#006AC6", alpha=0.5, position="identity") +
 	scale_color_manual(values=c("#0D1D32", "#0D1D32")) +
 	facet_wrap(~gender) +
 	ggtitle("Distribution of Registered Users By Age")
 ```
-    
+
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_37_1.png)
@@ -484,11 +484,11 @@ Next, we looked at the duration of the trips to see how long riders were using t
 ```
 
 
-        Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-       -6900      412      660     1200     1082 11994458 
+        Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+       -6900      412      660     1200     1082 11994458
 
 <p align="justify">
-Once the set was cleaned up, we converted the time from seconds to minutes. The median trip length was 11 minutes, with a mean of 17.472 minutes. The duration for 95% of this set was 7 - 18.250 minutes. The range was 1.017 - 1439.550 minutes. 
+Once the set was cleaned up, we converted the time from seconds to minutes. The median trip length was 11 minutes, with a mean of 17.472 minutes. The duration for 95% of this set was 7 - 18.250 minutes. The range was 1.017 - 1439.550 minutes.
 </p>
 
 ```R
@@ -499,8 +499,8 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 ```
 
 
-       Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-         61     420     660    1048    1095   86373 
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+         61     420     660    1048    1095   86373
 
 
 
@@ -512,8 +512,8 @@ Once the set was cleaned up, we converted the time from seconds to minutes. The 
 ```
 
 
-        Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-       1.017    7.000   11.000   17.472   18.250 1439.550 
+        Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+       1.017    7.000   11.000   17.472   18.250 1439.550
 
 <p align="justify">
 We looked for a relationship between the age and duration of trips. There wasnt much change in the duration by age with the exception of a few of the older users. The trip distances did not vary much.
@@ -521,13 +521,13 @@ We looked for a relationship between the age and duration of trips. There wasnt 
 
 ```R
 # Boxplot Age vs duration. Have to convert age to factor
-ggplot(tripsdur, aes(x=factor(age), y=(duration))) + 
+ggplot(tripsdur, aes(x=factor(age), y=(duration))) +
   geom_boxplot(outlier.shape=NA, fill="#0090DA", color="#0D1D32") + #remove outliers
   ggtitle("Age vs Duration") +
   theme(axis.text.x = element_text(angle = 90)) + xlab("Age") + ylab("Duration in Minutes") +
-  ylim(0,75) 
+  ylim(0,75)
 ```
-    
+
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_45_1.png)
@@ -536,12 +536,12 @@ ggplot(tripsdur, aes(x=factor(age), y=(duration))) +
 
 ```R
 # Duration by Gender
-ggplot(tripsdur, aes(x=gender, y=duration)) + 
-  geom_boxplot() + 
+ggplot(tripsdur, aes(x=gender, y=duration)) +
+  geom_boxplot() +
   ylim(0,75)+ ggtitle("Age vs Duration (Minutes)") + ylab("Duration in Minutes") +
   geom_hline(yintercept=(mean(tripsdur$duration)), linetype="dashed",color = "red", size=2)
 ```
-    
+
 
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_47_1.png)
@@ -578,7 +578,7 @@ We looked at trips by time of day, we noticed that there were two peaks, one aro
 ```R
 #Plot
 trips$hour_of_day <- hour(trips$start_date)
-ggplot(data = trips, aes(x = hour_of_day)) + 
+ggplot(data = trips, aes(x = hour_of_day)) +
   geom_histogram(fill = '#0090DA', colour = '#0D1D32', binwidth = 1)+
   ggtitle("Trips by Time of day")+
   ylab("Number of Trips") +
@@ -606,7 +606,7 @@ Lastly, we wanted to take a look at the actual destinations to get an idea of wh
 ```
 #### Starting Stations
 <p align="justify">
-We created a histogram of the top 10 starting stations for all users' data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16. 
+We created a histogram of the top 10 starting stations for all users' data as well as for a set consisting of only registered users. While there was some differences, overall the top 5 stations for both consisted of the same group in a different order. These were stations 22, 36, 53, 67, and 16.
 </p>
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/visualization/IST_719_Data_Visualization_54_0.png)
@@ -650,7 +650,7 @@ Based on what we the data and the visualizations, we are seeing that from 8AM - 
 We are also seeing tourist traveling to some tourist destinations, but these they may also be traveling to the major transportation hubs to get around the city.
 </p>
 <br>
-Lastly, we created a fullsize poster to display our findings to our target audience. We looked into [Blue Bikes's Branding Guidlines](https://motivateco.app.box.com/s/cw4tluatehnpfff4wzmch7v2f4ewa0uz) to see what fonts and colors the company used in all their materials. We chose those same fonts and color scheme for our visualizations. The full size version of the poster can be downloaded for better viewing by clicking on the link 
+Lastly, we created a fullsize poster to display our findings to our target audience. We looked into [Blue Bikes's Branding Guidlines](https://motivateco.app.box.com/s/cw4tluatehnpfff4wzmch7v2f4ewa0uz) to see what fonts and colors the company used in all their materials. We chose those same fonts and color scheme for our visualizations. The full size version of the poster can be downloaded for better viewing by clicking on the link
 [Full Size Poster](https://github.com/frnunez/frnunez.github.io/raw/master/images/visualization/finalposter.jpg)
 
 
@@ -663,4 +663,3 @@ You can check out the full R code using the following methods:
 
 1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20719%20-%20Data%20Visualization%20-%20Hubway%20Challenge%20Dataset%20Poster%20Design)
 2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-Grad-Portfolio/blob/master/IST%20719%20-%20Data%20Visualization%20-%20Hubway%20Challenge%20Dataset%20Poster%20Design/IST%20719%20-%20Data%20Visualization%20Project.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-

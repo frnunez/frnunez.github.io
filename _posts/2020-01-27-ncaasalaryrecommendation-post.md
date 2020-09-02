@@ -4,7 +4,7 @@ date: 2020-01-27
 tags: [NCAA football, data science, salary recommendation]
 header:
   image: "/images/salary/sufootballbanner.jpg"
-excerpt: "NCAA Football, Data Science, Salary Recommendation"
+excerpt: "NCAA Division I Football Coach Salary Recommendation Project"
 mathjax: "true"
 ---
 
@@ -49,7 +49,7 @@ The initial dataset was supplied to us and is stored in my git repository which 
     unique     129         11                129  ...        51            1    102
     top     Hawaii    Big Ten  Bronco Mendenhall  ...        --          $0      --
     freq         1         14                  1  ...        41          129     22
-    
+
     [4 rows x 9 columns]
     ********************************************************************************
     Are there any null values? False
@@ -67,7 +67,7 @@ The initial dataset was supplied to us and is stored in my git repository which 
     dtype: int64
     Number of observations:
      129
-    
+
 <p align="justify">
 A quick look at the head of the dataframe shows us the first 5 rows. We see School, Conference, Coach, SchoolPay, TotalPay, Bonus, BonusPaid, AssistantPay and Buyout. The fist thing we notice is that the dollar amounts are objects which will need to be covereted into mueric format.
 </p>
@@ -587,7 +587,7 @@ finalcoaches = finalcoaches.drop(['Stadium', 'Conference_y', 'Conference',
 finalcoaches.rename(columns={'Conference_x':'Conference'}, inplace=True)
 
 # using apply function to create a new column for graphing purposes (thousands)
-finalcoaches['TotalPayThousands'] = finalcoaches.apply(lambda row: (row.TotalPay * 0.001), axis = 1) 
+finalcoaches['TotalPayThousands'] = finalcoaches.apply(lambda row: (row.TotalPay * 0.001), axis = 1)
 
 # compute descriptive statistics for original variables
 print(finalcoaches.describe())
@@ -604,7 +604,7 @@ print(finalcoaches.head())
     50%    1.800000e+06  1.830000e+06  ...    0.538000        1830.000000
     75%    3.550000e+06  3.550000e+06  ...    0.643000        3550.000000
     max    8.307000e+06  8.307000e+06  ...    1.000000        8307.000000
-    
+
     [8 rows x 12 columns]
     ********************************************************************************
                       School Conference  ... WinPer2019  TotalPayThousands
@@ -613,9 +613,9 @@ print(finalcoaches.head())
     2                Alabama        SEC  ...      0.846             8307.0
     3  Alabama at Birmingham      C-USA  ...      0.643              900.0
     4      Appalachian State   Sun Belt  ...      0.929              712.5
-    
+
     [5 rows x 18 columns]
-    
+
 <p align="justify">
 Upon review, it is observed that there are some null values from the stadium capacity and win record data. We will now take a look at these rows for further investigation.
 </p>
@@ -654,7 +654,7 @@ print("Number of observations: ",len(finalcoaches))
     TotalPayThousands      0
     dtype: int64
     Number of observations:  129
-    
+
 <p align="justify">
 There were 8 total schools missing FGR, 4 of which were also missing their GSR. Since we have more data for GSR we will use that information rather than the FGR. In addition, I believe this is the rate we should use as this is the method the NCAA is currently using to evaluate graduation rates. The schools missing the GSR values would be dropped from the set.
 </p>
@@ -1283,7 +1283,7 @@ g.fig.suptitle('Total Pay vs. Capacity (by Conference)',fontsize = 18)
 For Total Pay vs GSR, we also see positive relationships for most of the schools with there being a significant slope difference in the Power5. It was difficult to see a pattern for the Big Ten.
 <br>
 <br>
-There was one particular pattern here that I thought was interesting. It seems that for the ACC and Big 12, as graduation rates increased the TotalPay actually went down which didnt match my inital expectations. I wondered if the reason for this had to do with the relationship between graduation rates and wins, which was slightly positive in the correlation matrix (0.18)? Maybe there were some schools that lost some of their good players due to academics and it impacted their winning percentage? Potentially, a losing record could lead to a coach replacement and maybe offering a higher salary to recruit a better coach? 
+There was one particular pattern here that I thought was interesting. It seems that for the ACC and Big 12, as graduation rates increased the TotalPay actually went down which didnt match my inital expectations. I wondered if the reason for this had to do with the relationship between graduation rates and wins, which was slightly positive in the correlation matrix (0.18)? Maybe there were some schools that lost some of their good players due to academics and it impacted their winning percentage? Potentially, a losing record could lead to a coach replacement and maybe offering a higher salary to recruit a better coach?
 </p>
 
 ```python
@@ -1324,7 +1324,7 @@ finalcoaches_test = finalcoaches[finalcoaches['runiform'] < 0.33]
 ```
 
     ********************************************************************************
-    
+
     finalcoaches_train data frame (rows, columns):  (86, 31)
     ********************************************************************************
                       School Conference              Coach  ...  Big10  Big12  runiform
@@ -1333,10 +1333,10 @@ finalcoaches_test = finalcoaches[finalcoaches['runiform'] < 0.33]
     3  Alabama at Birmingham      C-USA         Bill Clark  ...      0      0  0.785359
     4      Appalachian State   Sun Belt  Scott Satterfield  ...      0      0  0.779976
     7               Arkansas        SEC        Chad Morris  ...      0      0  0.801872
-    
+
     [5 rows x 31 columns]
     ********************************************************************************
-    
+
     finalcoaches_test data frame (rows, columns):  (34, 31)
     ********************************************************************************
                  School Conference           Coach  ...  Big10  Big12  runiform
@@ -1345,9 +1345,9 @@ finalcoaches_test = finalcoaches[finalcoaches['runiform'] < 0.33]
     6     Arizona State     Pac-12    Herm Edwards  ...      0      0  0.276464
     19  Central Florida        AAC     Josh Heupel  ...      0      0  0.013768
     25         Colorado     Pac-12  Mike MacIntyre  ...      0      0  0.075381
-    
+
     [5 rows x 31 columns]
-    
+
 
 ### Model 1: With Conference + Capacity + WinPer2019 + GSR
 <p align="justify">
@@ -1393,12 +1393,12 @@ conference_model = str('TotalPay ~ SEC + CUSA + SunBelt + Pac12 + Ind + ACC + AA
     Skew:                           0.230   Prob(JB):                        0.656
     Kurtosis:                       3.156   Cond. No.                     1.12e+18
     ==============================================================================
-    
+
     Warnings:
     [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
     [2] The smallest eigenvalue is 2.12e-25. This might indicate that there are
     strong multicollinearity problems or that the design matrix is singular.
-    
+
 
 ### Model 2: Model 1 w/ no Conference
 <p align="justify">
@@ -1434,12 +1434,12 @@ elite_model = str('TotalPay ~ Capacity + WinPer2019 + GSR')
     Skew:                          -0.304   Prob(JB):                        0.101
     Kurtosis:                       3.953   Cond. No.                     3.58e+05
     ==============================================================================
-    
+
     Warnings:
     [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
     [2] The condition number is large, 3.58e+05. This might indicate that there are
     strong multicollinearity or other numerical problems.
-    
+
 
 ### Model 3: Model 1 + State
 Model 3 would add a state variable to model 1
@@ -1532,7 +1532,7 @@ state_model = str('TotalPay ~ Conference + Capacity + WinPer2019 + GSR + State')
     Skew:                           0.035   Prob(JB):                        0.587
     Kurtosis:                       3.541   Cond. No.                     9.27e+20
     ==============================================================================
-    
+
     Warnings:
     [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
     [2] The smallest eigenvalue is 3.12e-31. This might indicate that there are
@@ -1620,7 +1620,7 @@ statenoconf_model = str('TotalPay ~ Capacity + WinPer2019 + GSR + State')
     Skew:                          -0.751   Prob(JB):                     1.62e-07
     Kurtosis:                       5.544   Cond. No.                     3.47e+21
     ==============================================================================
-    
+
     Warnings:
     [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
     [2] The smallest eigenvalue is 2.22e-32. This might indicate that there are
@@ -1628,7 +1628,7 @@ statenoconf_model = str('TotalPay ~ Capacity + WinPer2019 + GSR + State')
 
 ## Analysis of Models
 <p align="justify">
-After running all 4 models I compared them in order to choose the model that had the best results. Model 3 had the highest r-squared values however it looks like the majority of the variables had high p-values and there was some correlation between the states and the conferences. I decided to go with Model 1 which has a lower r-square and more significant variables. With an R-squared value of .810, the model I selected should be 81% accurate. 
+After running all 4 models I compared them in order to choose the model that had the best results. Model 3 had the highest r-squared values however it looks like the majority of the variables had high p-values and there was some correlation between the states and the conferences. I decided to go with Model 1 which has a lower r-square and more significant variables. With an R-squared value of .810, the model I selected should be 81% accurate.
 </p>
 ```python
 # specify a simple model with Team Conference
@@ -1639,7 +1639,7 @@ train_confmodel_fit = smf.ols(conference_model, data = finalcoaches_train).fit()
 
 ```
 <p align="justify">
-Using the SKlearn library, I trained and tested by data. Once our model was created we made predictins based on this model. 
+Using the SKlearn library, I trained and tested by data. Once our model was created we made predictins based on this model.
 </p>
 ```python
 #linearRegression from SKlearn
@@ -1650,7 +1650,7 @@ y_train = finalcoaches_train[['TotalPay']]
 X_train = finalcoaches_train[['Capacity', 'GSR', 'WinPer2019', 'SEC', 'CUSA', 'SunBelt', 'Pac12', 'Ind', 'ACC',
                               'AAC', 'Big10', 'Big12', 'MtWest', 'MAC']]
 lin_reg.fit(X_train, y_train)
-                             
+
 
 #Predict
 y_test = finalcoaches_test[['TotalPay']]
@@ -1773,14 +1773,14 @@ syrpred = lin_reg.predict(syr[['Capacity', 'GSR', 'WinPer2019', 'SEC', 'CUSA', '
 print("Syracuse Coach Pay should be ",(locale.currency( syrpred, grouping = True )))
 ```
 <p align="justify">
-Using the coefficients of the model, I came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,921.754.10 compared to the actual current pay of $2,401,206. 
+Using the coefficients of the model, I came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,921.754.10 compared to the actual current pay of $2,401,206.
 </p>
 
     Syracuse Coach Pay should be  $2,921,754.10
 
 #### Predicted Syracuse Salary (Big East Conference)   
 <p align="justify">
-Next we predicted the coach's pay would if Syracuse was still part of the Big East (using No coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,473,051.55 compared to the current $2,401,206. 
+Next we predicted the coach's pay would if Syracuse was still part of the Big East (using No coefficiant). Using the coefficients of our model above, we came up with the new recommended TotalPay for the Syracuse University coach by plugging in the variables for the Syracuse data. Our model predicted $2,473,051.55 compared to the current $2,401,206.
 </p>
 ```python
 # Predict Big East Pay (Using No Coefficiant)
@@ -1810,8 +1810,8 @@ print("Syracuse Coach Big East Pay should be ",(locale.currency( (syrpred -accco
 	448702.54375769565
 	********************************************************************************
 	Syracuse Coach Big East Pay should be  $2,473,051.55
-    
-#### Predicted Syracuse Salary (Big Ten Conference) 
+
+#### Predicted Syracuse Salary (Big Ten Conference)
 <p align="justify">
 Lastly, we predicted what the coach's pay would be if Syracuse joined the Big Ten. In order to get this value, the big10 coefficient was added. The predicted total pay under this new Conference is $3,139,188.77
 </p>
@@ -1843,10 +1843,10 @@ print("Syracuse Coach Big Ten Pay should be ",(locale.currency( ((syrpred -accco
     666137.2201025379
     ********************************************************************************
     Syracuse Coach Big Ten Pay should be  $3,139,188.77
-    
+
 ## Results and Conclusions
 <p align="justify">
-The model produced in this experiment was supposed to have a high level of accuracy since it accounts for 83.3% of the variability. We were able to make a recommendation of a Total Pay of $2,921,754.10 for Syracuse University’s football coach based on the model created, which is significantly higher than his current Total Pay. I found it shocking to see that the recommended Big East Pay ($2,473,051.55) is higher than his current Total pay ($2,401,206), based on the fact that the Big East doesn’t even participate in football and is probably lacking the stadium capacity that the other schools have. Especially given the fact that stadium capacity has the largest effect on Total Pay (add $41.60 per seat). The recommended Big 10 Total Pay is $3,139,188.77 which is higher than the ACC pay as expected. 
+The model produced in this experiment was supposed to have a high level of accuracy since it accounts for 83.3% of the variability. We were able to make a recommendation of a Total Pay of $2,921,754.10 for Syracuse University’s football coach based on the model created, which is significantly higher than his current Total Pay. I found it shocking to see that the recommended Big East Pay ($2,473,051.55) is higher than his current Total pay ($2,401,206), based on the fact that the Big East doesn’t even participate in football and is probably lacking the stadium capacity that the other schools have. Especially given the fact that stadium capacity has the largest effect on Total Pay (add $41.60 per seat). The recommended Big 10 Total Pay is $3,139,188.77 which is higher than the ACC pay as expected.
 <br>
 <br>
 Due to the fact that there were significant differences in some of the conferences, I wonder if there should be a different model for each conference? Given that the conferences are small, there may not be enough data to support these models however we can see by the initial boxplot that there were definitely some differences.
@@ -1857,4 +1857,3 @@ You can check out the full Python code using the following methods:
 
 1.   Github Page: [Francisco's Repository](https://github.com/frnunez/SU-Grad-Portfolio/tree/master/IST%20718%20-%20Big%20Data%20Analytics)
 2.   Google Colab: <a href="https://colab.research.google.com/github/frnunez/SU-Grad-Portfolio/blob/master/IST%20718%20-%20Big%20Data%20Analytics/IST%20718%20-%20Lab%201%20-%20Final.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-

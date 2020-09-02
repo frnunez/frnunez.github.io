@@ -3,8 +3,8 @@ title: "Transferring Your Anaconda Environments to a new Machine"
 date: 2020-08-25
 tags: [Anaconda, Environments, Transferring]
 header:
-  image: "/images/anaconda/anaconda.png"
-  teaser: "/images/anaconda/anaconda.png"
+  image: "/images/blog/anaconda.png"
+  teaser: "/images/blog/anaconda.png"
 excerpt: "How to transfer your existing Anaconda Environments to your new PC"
 mathjax: "true"
 ---

@@ -4,7 +4,7 @@ date: 2019-09-05
 tags: [NYC, data science, inspections predictions]
 header:
   image: "/images/inspections/newskiosk.jpg"
-excerpt: "NYC DCA, Data Science, Inspection Predictions"
+excerpt: "Exploring the NYC Dept. of Consumer Affairs Inspections Dataset"
 mathjax: "true"
 ---
 
@@ -75,13 +75,13 @@ print ("You have", nrows, "rows and", ncols ,"columns. Total data points is", si
 print("*"*80)
 inspections_df.head(5)
 ```
-  
+
 
     ********************************************************************************
     You loaded a total of 196342 records into your dataframe.
     You have 196342 rows and 18 columns. Total data points is 3534156
     ********************************************************************************
-    
+
 
 
 
@@ -252,7 +252,7 @@ There was some heavy amount of preparation that needed to be performed before I 
 *	Latitude and longitude were converted to floats, so they can be properly read into the mapping program.
 
 <u>New columns</u>
-*	New columns based on the inspection date field were created. This included yr-mon (for visualization), year, month, and weekday (day of the week). 
+*	New columns based on the inspection date field were created. This included yr-mon (for visualization), year, month, and weekday (day of the week).
 *	The data has 22 categories of Inspection Results, the majority of which are not considered violations. In order to properly categorize and analyze a violation vs a non-violation I created an additional column named “violation” based on the Inspection Result field. An Inspection Result of “Violation Issued”, “Confiscated” or “License Confiscated” would be labeled “Violation Issued” in the violation column. All other results would be labeled “No Violation Issued”.
 
 <u>Renaming/Recategorizing</u>
@@ -268,7 +268,7 @@ This final preparation resulted in a new set of 193,473 rows and 13 columns with
     You now have 193473 rows and 13 columns. Total data points is 2515149
     You dropped 2869 rows
     ********************************************************************************
-  
+
 
 
 
@@ -397,7 +397,7 @@ This final preparation resulted in a new set of 193,473 rows and 13 columns with
 
 ### Inspections Summaries
 <p align="justify">
-Next I created a function to convert the data into category summarizations. This takes the data from the dataframe and converts it into list. For each column of the dataframe, a category is created. For each of these categories the data was grouped and list of unique entries with a count an percentage was printed out in descending order. 
+Next I created a function to convert the data into category summarizations. This takes the data from the dataframe and converts it into list. For each column of the dataframe, a category is created. For each of these categories the data was grouped and list of unique entries with a count an percentage was printed out in descending order.
 </p>
 
 ```python
@@ -441,7 +441,7 @@ for fieldname in fieldnames:
     Field InspecResult with Category License Confiscated and has 7 entries for 0.00%
     Field InspecResult with Category ECB Summons Issued and has 1 entries for 0.00%
     Field InspecResult with Category Unable to Seize Vehicle and has 1 entries for 0.00%
-    
+
     ********************************************************************************
     Number of categories 85
     Field Industry with Category Tobacco Retail Dealer and has 50371 entries for 26.04%
@@ -529,7 +529,7 @@ for fieldname in fieldnames:
     Field Industry with Category Debt Collection Agency - 122 and has 1 entries for 0.00%
     Field Industry with Category Hotel/Motel - 460 and has 1 entries for 0.00%
     Field Industry with Category Process Server (Organization) - 109 and has 1 entries for 0.00%
-    
+
     ********************************************************************************
     Number of categories 7
     Field weekday with Category Wednesday and has 42470 entries for 21.95%
@@ -539,7 +539,7 @@ for fieldname in fieldnames:
     Field weekday with Category Monday and has 33209 entries for 17.16%
     Field weekday with Category Saturday and has 8687 entries for 4.49%
     Field weekday with Category Sunday and has 5351 entries for 2.77%
-    
+
     ********************************************************************************
     Number of categories 6
     Field borough with Category Brooklyn and has 58580 entries for 30.28%
@@ -548,20 +548,20 @@ for fieldname in fieldnames:
     Field borough with Category Bronx and has 31474 entries for 16.27%
     Field borough with Category Staten Island and has 7781 entries for 4.02%
     Field borough with Category Outside NYC and has 1 entries for 0.00%
-    
+
     ********************************************************************************
     Number of categories 3
     Field year with Category 2017 and has 80206 entries for 41.46%
     Field year with Category 2018 and has 70699 entries for 36.54%
     Field year with Category 2019 and has 42568 entries for 22.00%
-    
+
     ********************************************************************************
     Number of categories 2
     Field violation with Category No Violation and has 152605 entries for 78.88%
     Field violation with Category Violation Issued and has 40868 entries for 21.12%
-    
+
     ********************************************************************************
-    
+
 
 ### Violations Summaries
 <p align="justify">
@@ -646,7 +646,7 @@ for fieldname in fieldnames:
     Field Industry with Category Gasoline Truck-Retail - 822 and has 1 entries for 0.00%
     Field Industry with Category Catering Establishment - 075 and has 1 entries for 0.00%
     Field Industry with Category Funeral Homes - 888 and has 1 entries for 0.00%
-    
+
     ********************************************************************************
     Number of categories 7
     Field weekday with Category Wednesday and has 9179 entries for 22.46%
@@ -656,7 +656,7 @@ for fieldname in fieldnames:
     Field weekday with Category Monday and has 6902 entries for 16.89%
     Field weekday with Category Saturday and has 1774 entries for 4.34%
     Field weekday with Category Sunday and has 1029 entries for 2.52%
-    
+
     ********************************************************************************
     Number of categories 5
     Field borough with Category Brooklyn and has 14112 entries for 34.53%
@@ -664,19 +664,19 @@ for fieldname in fieldnames:
     Field borough with Category Queens and has 8628 entries for 21.11%
     Field borough with Category Bronx and has 6147 entries for 15.04%
     Field borough with Category Staten Island and has 1591 entries for 3.89%
-    
+
     ********************************************************************************
     Number of categories 3
     Field year with Category 2017 and has 16650 entries for 40.74%
     Field year with Category 2018 and has 14253 entries for 34.88%
     Field year with Category 2019 and has 9965 entries for 24.38%
-    
+
     ********************************************************************************
     Number of categories 1
     Field violation with Category Violation Issued and has 40868 entries for 100.00%
-    
+
     ********************************************************************************
-    
+
 
 ### Top 10 Industries and Inspection Results
 <p align="justify">
@@ -699,7 +699,7 @@ Because there was such a large number of industries as well as inspection result
     Drug Store Retail - 810               4623
     Name: industry, dtype: int64
     ********************************************************************************
-    
+
 
     ********************************************************************************
     Top 10 Industry types (Violation set)
@@ -716,7 +716,7 @@ Because there was such a large number of industries as well as inspection result
     Electronic Store - 001         1106
     Name: industry, dtype: int64
     ********************************************************************************
-    
+
 
     ********************************************************************************
     Top 10 Inspection Results
@@ -733,7 +733,7 @@ Because there was such a large number of industries as well as inspection result
     Unable to Locate             904
     Name: inspection_result, dtype: int64
     ********************************************************************************
-    
+
 
 ## Visualizations
 
@@ -795,7 +795,7 @@ g.draw()
     Queens              37536.0            8628.0
     Staten Island        6190.0            1591.0
     ********************************************************************************
-    
+
 
 
 
@@ -823,7 +823,7 @@ weekcounts.sort_values(by=['No Violation'])
 print("*"*80)
 print (weekcounts)
 print("*"*80)
- 
+
 # Make Day of the Week Ordered Categorical
 inspections_df['weekday'] = pd.Categorical(inspections_df['weekday'], categories=
 ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
@@ -854,7 +854,7 @@ g.draw()
     Tuesday           27338              7051
     Wednesday         33291              9179
     ********************************************************************************
-    
+
 
 
 
@@ -903,7 +903,7 @@ g.draw()
     2018              56446             14253
     2019              32603              9965
     ********************************************************************************
-    
+
 
 ![png](https://raw.githubusercontent.com/frnunez/frnunez.github.io/master/images/inspections/IST652_DCA_Inspections_28_2.png)
 
@@ -912,7 +912,7 @@ g.draw()
 
 
 ```python
-#####-----     Plot Inspections by Month  -----##### 
+#####-----     Plot Inspections by Month  -----#####
 # Year counts
 months = np.array(['1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
 monthset = inspections_df.filter(['record_id','month','violation'], axis=1)
@@ -958,7 +958,7 @@ g.draw()
     11                 8649              2315
     12                 9292              2428
     ********************************************************************************
-    
+
 
 
 
@@ -970,7 +970,7 @@ g.draw()
 
 
 ```python
- #####-----     Plot Inspections by Month for each Year -----##### 
+ #####-----     Plot Inspections by Month for each Year -----#####
 g = (ggplot(inspections_df, aes('factor(month)', fill='violation'))         # defining what data to use
  + aes(x= 'month')    # defining what variable to use
  + geom_bar(size=50) # defining the type of plot to use
@@ -1053,7 +1053,7 @@ print(df_2017)
     2019-07-29                263    42135  192  2019
     2019-07-30                278    42413  193  2019
     2019-07-31                155    42568  194  2019
-    
+
     [195 rows x 4 columns]
                         daily_sum  cum_sum  day  year
     DATE_OF_INSPECTION                               
@@ -1068,7 +1068,7 @@ print(df_2017)
     2018-12-28                180    70487  323  2018
     2018-12-29                 76    70563  324  2018
     2018-12-31                136    70699  325  2018
-    
+
     [326 rows x 4 columns]
                         daily_sum  cum_sum  day  year
     DATE_OF_INSPECTION                               
@@ -1083,9 +1083,9 @@ print(df_2017)
     2017-12-27                285    79727  334  2017
     2017-12-28                244    79971  335  2017
     2017-12-29                235    80206  336  2017
-    
+
     [337 rows x 4 columns]
-    
+
 
 
 ```python
@@ -1182,7 +1182,7 @@ print("*"*80)
     2019-07-29                263    42135  192  2019
     2019-07-30                278    42413  193  2019
     2019-07-31                155    42568  194  2019
-    
+
     [195 rows x 4 columns]
     ********************************************************************************
                         daily_sum  cum_sum  day  year
@@ -1198,7 +1198,7 @@ print("*"*80)
     2018-07-27                191    40763  186  2018
     2018-07-30                332    41095  187  2018
     2018-07-31                326    41421  188  2018
-    
+
     [189 rows x 4 columns]
     ********************************************************************************
                         daily_sum  cum_sum  day  year
@@ -1214,10 +1214,10 @@ print("*"*80)
     2017-07-28                365    48226  192  2017
     2017-07-29                  2    48228  193  2017
     2017-07-31                306    48534  194  2017
-    
+
     [195 rows x 4 columns]
     ********************************************************************************
-    
+
 
 ###  Total Annual Inspections (YTD)
 
@@ -1265,7 +1265,7 @@ While this was a good basic exploration of the data, there is more that I would 
 ```python
 #Mapping Datasets - Tobacco Inspections for July 2019
 
-# Pull Violations Data 
+# Pull Violations Data
 violations_df = inspections_df[(inspections_df['inspection_result']=='Violation Issued')]
 violations_df = violations_df[(violations_df['industry']=='Tobacco Retail Dealer')]
 #violations_df = violations_df[(violations_df['industry']=='Tobacco Retail Dealer') | (violations_df['industry']=='Grocery-Retail')]
@@ -1295,7 +1295,7 @@ for i in range(0,len(violations_df)):
                   popup=(violations_df.iloc[i]['business_name'], violations_df.iloc[i]['industry']),
                   icon=folium.Icon(color='red', icon='remove')
                  ).add_to(nycmap)
-    
+
 # Add Non-Violations marker one by one on the map
 for i in range(0,len(nov_df)):
     folium.Marker([nov_df.iloc[i]['latitude'],
@@ -1312,7 +1312,7 @@ for i in range(0,len(nov_df)):
     Plotting 877 Non-Violation Tobacco inspections
     Click individual markers on the map for details
     ********************************************************************************
-    
+
 
 
 
