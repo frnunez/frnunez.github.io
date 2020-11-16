@@ -7,6 +7,14 @@ header:
   teaser: "/images/salary/Dome_story_crop.jpg"
 excerpt: "NCAA Division I Football Coach Salary Recommendation Project"
 mathjax: "true"
+
+sidebar:
+  - title: "Role"
+    #image: http://placehold.it/350x250
+    #image_alt: "logo"
+    text: "Project Lead, Designer"
+  - title: "Skills Performed"
+    text: "Python Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Linear Regression Analysis, Web Scraping"
 ---
 
 # NCAA FOOTBALL SALARY RECOMMENDATIONS

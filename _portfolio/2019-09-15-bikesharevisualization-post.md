@@ -7,6 +7,14 @@ header:
   teaser: "/images/visualization/700huron2.jpg"
 excerpt: "Visualization of Boston's Hubway/BlueBike Ridership Data"
 mathjax: "true"
+
+sidebar:
+  - title: "Role"
+    #image: http://placehold.it/350x250
+    #image_alt: "logo"
+    text: "Project Lead, Designer"
+  - title: "Skills Performed"
+    text: "R Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Graphic Design"
 ---
 
 # Visualization of Blue Bike Share Data

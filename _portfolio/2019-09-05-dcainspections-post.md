@@ -7,6 +7,14 @@ header:
   teaser: images/inspections/newskioskorig.jpeg
 excerpt: "Exploring the NYC Dept. of Consumer Affairs Inspections Dataset"
 mathjax: "true"
+
+sidebar:
+  - title: "Role"
+    #image: http://placehold.it/350x250
+    #image_alt: "logo"
+    text: "Project Lead, Designer"
+  - title: "Skills Performed"
+    text: "Python Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Linear Regression Analysis"
 ---
 
 # EXPLORING THE NYC DEPARTMENT OF CONSUMER AFFAIRS INSPECTIONS DATA SET
