@@ -12,7 +12,7 @@ sidebar:
   - title: "Role"
     #image: http://placehold.it/350x250
     #image_alt: "logo"
-    text: "Project Lead, Designer"
+    text: "Project Collaborator, Coding & Design"
   - title: "Skills Performed"
     text: "R Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Graphic Design"
 ---
