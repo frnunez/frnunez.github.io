@@ -4,6 +4,7 @@ date: 2019-09-05
 tags: [NYC, data science, inspections predictions]
 header:
   image: "/images/inspections/newskiosk.jpg"
+  teaser: images/inspections/newskioskorig.jpeg
 excerpt: "Exploring the NYC Dept. of Consumer Affairs Inspections Dataset"
 mathjax: "true"
 ---

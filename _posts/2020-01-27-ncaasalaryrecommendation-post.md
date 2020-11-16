@@ -1,9 +1,10 @@
 ---
-title: "Salary Recommendation Project"
+title: "NCAA Football Coach Salary Recommendation Project"
 date: 2020-01-27
 tags: [NCAA football, data science, salary recommendation]
 header:
   image: "/images/salary/sufootballbanner.jpg"
+  teaser: "/images/salary/Dome_story_crop.jpg"
 excerpt: "NCAA Division I Football Coach Salary Recommendation Project"
 mathjax: "true"
 ---

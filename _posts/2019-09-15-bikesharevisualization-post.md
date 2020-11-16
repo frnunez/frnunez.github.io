@@ -4,6 +4,7 @@ date: 2019-09-15
 tags: [bike share, Boston, data science, visualization]
 header:
   image: "/images/visualization/700huron.jpg"
+  teaser: "/images/visualization/700huron2.jpg"
 excerpt: "Visualization of Boston's Hubway/BlueBike Ridership Data"
 mathjax: "true"
 ---
