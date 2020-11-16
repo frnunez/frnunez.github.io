@@ -14,9 +14,9 @@ sidebar:
     #image_alt: "logo"
     text: "Project Lead, Designer"
   - title: "Skills Performed"
-    text: "Python Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Linear Regression Analysis, Web Scraping"
+    text: "Python Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Linear Regression Analysis, Web Scraping, Outcome Prediction/Recommendation"
 ---
-
+<br>
 # NCAA FOOTBALL SALARY RECOMMENDATIONS
 <p align="justify">
 The purpose of this case study is to take real world data and provide insight, understanding and wisdom to a decision maker. In this case specifically we are dealing with the salaries of NCAA Division I Football Coaches. We are exploring how we can recommend the best salary for Syracuse University's head football coach?

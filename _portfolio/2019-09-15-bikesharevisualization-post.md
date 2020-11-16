@@ -16,9 +16,8 @@ sidebar:
   - title: "Skills Performed"
     text: "R Programming, Data Cleaning, Exploratory Data Analysis, Data Visualization, Graphic Design"
 ---
-
-# Visualization of Blue Bike Share Data
 <br>
+# Visualization of Blue Bike Share Data
 <p align="justify">
 This project was a collaborative effort by Antonio Llorens and Francisco Nunez-Fondeur. For this project we decided to visualize the data from the bike sharing platform to get a better understanding about who uses the bikes and for what purpose, as well as how people get around Boston. The main goal is to answer:
 </p>
