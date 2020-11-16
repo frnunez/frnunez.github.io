@@ -5,7 +5,7 @@ main:
   - title: "Posts"
     url: /blog_posts/
   #- title: "Data Science Projects"
-  #  url: /data-science-projects/
+    #url: /data-science-projects/
   - title: "Data Science Portfolio"
     url: /portfolio/
   # - title: "About"

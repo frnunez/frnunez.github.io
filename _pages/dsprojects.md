@@ -4,7 +4,5 @@ permalink: /data-science-projects/
 title: "Data Science Projects"
 author_profile: true
 header:
-  image: "/images/nyc.jpg"
+  image: "/images/project-unsplash2.jpg"
 ---
-
-
