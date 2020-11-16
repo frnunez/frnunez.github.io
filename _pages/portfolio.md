@@ -10,4 +10,4 @@ header:
 #https://mmistakes.github.io/minimal-mistakes/portfolio/
 ---
 
-Sampling of Data Science Projects
+My Data Science Projects
