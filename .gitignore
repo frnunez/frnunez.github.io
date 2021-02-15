@@ -28,8 +28,5 @@ codekit-config.json
 _asset_bundler_cache
 _site
 
-# Pages not yet ready for publishing
-#_posts\2020-08-25-movingconda.md
-
 # All files in the _postsnotready directory
 _postsnotready/
